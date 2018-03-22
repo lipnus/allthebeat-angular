@@ -1,1 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
+
+
+/* <meta name="viewport" content="width=640, user-scalable=yes" /> */
+
+/* 모바일 수평 스크롤 금지 */
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+  margin: 0%;
+}

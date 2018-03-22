@@ -12,12 +12,14 @@ import { TestComponent } from './test/test.component';
 
 // [Service]
 import { PostTestService } from './service/post-test.service';
+import { HeadmenuComponent } from './headmenu/headmenu.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    TestComponent
+    TestComponent,
+    HeadmenuComponent
   ],
   imports: [
     BrowserModule,

@@ -1,7 +1,7 @@
 
 
 .testBox{
-  margin-left: 150px;
+  margin-left: 30px;
 }
 
 
@@ -9,4 +9,8 @@
   background: #909090;
   width: 100px;
   height: 100px;
+}
+
+.mainbody{
+  width: 100%;
 }
