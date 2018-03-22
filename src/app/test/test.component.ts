@@ -1,26 +1,58 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { PostTestService } from '../service/post-test.service';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+
+import { TestPost } from '../model/test-post';
+import * as mGlobal from '../global-variables';  //전역변수
+
+
 @Component({
   selector: 'app-root',
   templateUrl: './test.component.html',
-  styleUrls: ['./test.component.css']
+  styleUrls: ['./test.component.css'],
 })
 
 
 
 
-export class TestComponent {
+export class TestComponent implements OnInit {
+
   testValue = '테스트';
+  testArray: string[];
+  testPost: TestPost;
+  globalValue;
+  btnClicked:boolean;
 
-  testArray : string[];
-
-
-  constructor(){
-    this.testArray = ["하나", "둘", "셋", "넷", "다섯"];
+  constructor( private postTestService: PostTestService,
+               private http: HttpClient,){
   }
 
-  //시작했을때
-  ngOninit(){
 
+  ngOnInit(){
+    this.testArray = ['하나', '둘', '셋', '넷', '다섯'];
+    this.globalValue = mGlobal.ServerPath;
+
+    this.btnClicked = false;
+
+    this.postTest();
+  }
+
+
+  postTest(){
+    var path = '/test';
+    var postData = {input: "fucking"};
+    this.postTestService.postServer(path, postData).subscribe(data => {
+      this.testPost = data;
+      console.log( this.testPost.result );
+    });
+  }
+
+  onClick_test(){
+    if(this.btnClicked){
+      this.btnClicked=false;
+    }else if(!this.btnClicked){
+      this.btnClicked=true;
+    }
   }
 
 
