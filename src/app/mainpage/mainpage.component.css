@@ -66,6 +66,8 @@
 }
 
 .soundBox > .title-text{
+  width: 70%;
+  text-align: left;
   display: inline-block;
   vertical-align: super;
   margin-left: 10px;

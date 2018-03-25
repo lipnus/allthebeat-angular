@@ -5,7 +5,6 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { MessageService } from '../service/message.service';
 
 // [model]
-import { TestPost } from '../model/test-post';
 import { SoundData } from '../model/sound-list';
 import { SoundListDetail } from '../model/sound-list-detail';
 
@@ -24,7 +23,6 @@ import * as mGlobal from '../global-variables';  //전역변수
 export class MainpageComponent implements OnInit {
 
   soundData: SoundData;
-
   globalValue;
   btnClicked:boolean;
   soundCount;
@@ -37,14 +35,18 @@ export class MainpageComponent implements OnInit {
   }
 
   sendMessage(): void {
-        // send message to subscribers via observable subject
-        this.messageService.sendMessage('오지고 지리고 렛잇고');
-    }
+    // send message to subscribers via observable subject
+    this.messageService.sendMessage('오지고 지리고 렛잇고');
+  }
 
-    clearMessage(): void {
-        // clear message
-        this.messageService.clearMessage();
-    }
+  sendMusicInfo(): void {
+    this.messageService.sendMusicInfo(11, "노래이름", "비트메이커", "경로");
+  }
+
+  clearMessage(): void {
+      // clear message
+      this.messageService.clearMessage();
+  }
 
 
   ngOnInit(){
@@ -55,9 +57,10 @@ export class MainpageComponent implements OnInit {
     this.postSoundList();
   }
 
-  onClick_test2(){
+  onClick_test(){
     console.log("회색클릭");
-    this.sendMessage();
+    // this.sendMessage();
+    this.sendMusicInfo();
   }
 
 
@@ -71,6 +74,28 @@ export class MainpageComponent implements OnInit {
       this.soundCount = this.soundData.sound_list.length +
                         this.soundData.sound_recommend_list.length
     });
+  }
+
+  onClick_startRecommendMusic(soundIndex: int){
+    // console.log("누른번호:" + soundIndex);
+    var playSound = this.soundData.sound_recommend_list[soundIndex];
+    var soundPk = playSound.sound_pk;
+    var soundName = playSound.sound_name;
+    var beatmakerNickname = playSound.beatmaker_nickname;
+    var soundPath = playSound.sound_path;
+
+    this.messageService.sendMusicInfo(soundPk, soundName, beatmakerNickname, soundPath);
+  }
+
+  onClick_startMusic(soundIndex: int){
+    // console.log("누른번호:" + soundIndex);
+    var playSound = this.soundData.sound_list[soundIndex];
+    var soundPk = playSound.sound_pk;
+    var soundName = playSound.sound_name;
+    var beatmakerNickname = playSound.beatmaker_nickname;
+    var soundPath = playSound.sound_path;
+
+    this.messageService.sendMusicInfo(soundPk, soundName, beatmakerNickname, soundPath);
   }
 
 
