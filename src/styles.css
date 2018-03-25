@@ -3,9 +3,13 @@
 
 /* <meta name="viewport" content="width=640, user-scalable=yes" /> */
 
-/* 모바일 수평 스크롤 금지 */
+
 html, body {
+
+  /* 모바일 수평 스크롤 금지 */
   max-width: 100%;
   overflow-x: hidden;
   margin: 0%;
+
+  font-family: 'Raleway';
 }

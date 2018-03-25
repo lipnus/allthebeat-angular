@@ -11,8 +11,6 @@ export class PostTestService {
   constructor( private http: HttpClient) { }
 
 
-
-  //
   postServer(path:string, postData:object){
     var URL = mGlobal.ServerPath + path;
     return this.http.post<any>(URL, postData).map(data => { return data });

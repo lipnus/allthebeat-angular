@@ -1,0 +1,107 @@
+
+#test{
+  display: inline-block;
+  background: #909090;
+  width: 150px;
+  height: 30px;
+}
+
+#test2{
+  display: inline-block;
+  background: #ffcccc;
+  width: 150px;
+  height: 30px;
+}
+
+.top{
+  height: 30%;
+  background: #02101b;
+  padding: 15px;
+  display: block;
+  /* border-bottom: 1px solid #606060; */
+}
+
+#white-short-line{
+  margin-top: 25px;
+  width: 35px;
+  height: 5px;
+  background: #ffffff;
+  margin-bottom: 10px;
+}
+
+.top .title {
+  font-weight:500;
+  font-size: 24px;
+  color: #ffffff;
+}
+
+.top .undertitle {
+  margin-top: 5px;
+  font-size: 14px;
+  color: #909090;
+  margin-bottom: 35px;
+}
+
+
+.btnCheck{
+  background: #909090;
+  width: 100px;
+  height: 100px;
+}
+
+.mainbody{
+}
+
+.soundBox{
+  background: #232323;
+  color: #ffffff;
+  padding: 15px 12px 15px 10px;
+  border-bottom: 1px solid #606060;
+}
+
+.soundBox > .title-img{
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+}
+
+.soundBox > .title-text{
+  display: inline-block;
+  vertical-align: super;
+  margin-left: 10px;
+}
+
+#title{
+  font-size: 15px;
+}
+
+#beatmaker{
+  font-size: 12px;
+}
+
+.middle{
+  margin-top: 12px;
+  float:right;
+  display:inline-block;
+  text-align:right;
+}
+
+.sound-subtitle{
+  background: #404040;
+  font-size: 14px;
+  font-weight: 400;
+  padding: 6px 5px 6px 5px;
+}
+
+.soundBox > .middle > .heart-img{
+  margin-right: 10px;
+  width: 30px;
+}
+
+
+.intervalBox{
+  background: #ffffff;
+  /* background: #02101b; */
+  height: 50px;
+  /* border-bottom: 1px solid #606060; */
+}

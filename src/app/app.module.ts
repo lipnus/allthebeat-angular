@@ -2,24 +2,31 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-// import { HttpModule } from '@angular/http';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app.route';
 
 // [Component]
 import { AppComponent } from './app.component';
 import { TestComponent } from './test/test.component';
+import { HeadmenuComponent } from './headmenu/headmenu.component';
+import { MainpageComponent } from './mainpage/mainpage.component';
+import { SoundDetailComponent } from './sound-detail/sound-detail.component';
 
 // [Service]
 import { PostTestService } from './service/post-test.service';
-import { HeadmenuComponent } from './headmenu/headmenu.component';
+import { MessageService } from './service/message.service';
+import { MusicplayerComponent } from './musicplayer/musicplayer.component'
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
     TestComponent,
-    HeadmenuComponent
+    HeadmenuComponent,
+    MainpageComponent,
+    SoundDetailComponent,
+    MusicplayerComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +36,8 @@ import { HeadmenuComponent } from './headmenu/headmenu.component';
   ],
   providers: [
     PostTestService,
+    MessageService,
   ],
-  bootstrap: [TestComponent]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,60 @@
+
+.title-img{
+  width: 100%;
+  margin-bottom: -4px;
+}
+
+.introduceBox{
+  color: #ffffff;
+  background: #232323;
+  padding: 10px 12px 10px 12px;
+}
+
+.bpm-and-heart{
+  float: right;
+}
+
+.mini-text{
+  font-size: 11px;
+  text-align: center;
+}
+
+.heart-img{
+  margin-top: 6px;
+  width: 40px;
+}
+
+#sound-name{
+  font-size: 40px;
+  font-weight: 500;
+}
+
+.sub-title-box{
+  margin-top: 30px;
+  margin-bottom: 4px;
+}
+
+.sub-title{
+  display:inline-block;
+  color: #232323;
+  padding: 4px;
+  background: #ffffff;
+}
+
+#bpm{
+  margin-top: 4px;
+  color: #3fd4b4;
+  font-weight: 600;
+  margin-bottom: 50px;
+}
+
+.purchase-btn{
+  margin-top: 60px;
+  font-size: 25px;
+  color: #ffffff;
+  height: 60px;
+  background: #3fd4b4;
+  border: none;
+  outline: none;
+  width: 100%;
+}

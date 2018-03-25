@@ -1,0 +1,51 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<!-- 최상단 타이틀 -->
+<div class="top">
+  <div id="white-short-line"></div>
+  <div class="title">
+    MOVE THE CROWD<br/>
+    ALL THE BEAT
+  </div>
+  <div class="undertitle">
+     {{soundCount}} Tracks
+  </div>
+</div>
+
+
+<div class="mainbody">
+<!-- <a routerLink="/fuck">aaa</a>
+<div id="test" (click)="onClick_test2()"></div>
+<div id="test2" routerLink="/sounddetail/14">라우터텟흐트</div> -->
+
+<div class="sound-subtitle"></div>
+<div class="soundBox" routerLink="/sounddetail/{{sound.sound_pk}}" *ngFor="let sound of soundData.sound_recommend_list">
+  <img class="title-img" [src]="sound.img_path" onerror="this.src='assets/placeholder.png'"/>
+  <div class="title-text">
+    <span id="title">{{sound.sound_name}}</span><br />
+    <span id="beatmaker">by {{sound.beatmaker_nickname}}</span>
+  </div>
+  <div class="middle">
+    <img class="heart-img" src="assets/heart_white.png" alt="image"/>
+  </div>
+</div>
+
+
+<div class="intervalBox"></div>
+
+<div class="sound-subtitle"></div>
+<div class="soundBox" routerLink="/sounddetail/{{sound.sound_pk}}" *ngFor="let sound of soundData.sound_list">
+  <img class="title-img" [src]="sound.img_path" onerror="this.src='assets/placeholder.png'"/>
+  <div class="title-text">
+    <span id="title">{{sound.sound_name}}</span><br />
+    <span id="beatmaker">by {{sound.beatmaker_nickname}}</span>
+  </div>
+  <div class="middle">
+    <img class="heart-img" src="assets/heart_white.png" alt="image"/>
+  </div>
+</div>
+
+
+
+
+
+</div>
