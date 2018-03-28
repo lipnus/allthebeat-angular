@@ -25,8 +25,10 @@
 }
 
 #sound-name{
-  font-size: 40px;
+  display: inline-block;
+  font-size: 36px;
   font-weight: 500;
+  max-width: 80%;
 }
 
 .sub-title-box{

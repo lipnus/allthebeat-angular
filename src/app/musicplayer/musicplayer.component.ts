@@ -16,17 +16,20 @@ export class MusicplayerComponent implements OnInit, OnDestroy {
   musicInfo: any;
   message: any;
 
+
   constructor(private messageService: MessageService,) {
+
+    //음악 선택을 했을 때의 콜백
     this.subscription = this.messageService.getMusicInfo().subscribe(musicInfo => {
       this.musicInfo = musicInfo;
+      this.startMusic();
+
+      console.log(this.musicInfo);
     });
   }
 
   ngOnInit() {
     this.audio = new Audio();
-    this.audio.src = '../assets/sound/DOPE/Amadeus - 최재영.mp3';
-    this.audio.load();
-    this.audio.play();
   }
 
   ngOnDestroy() {
@@ -36,6 +39,12 @@ export class MusicplayerComponent implements OnInit, OnDestroy {
       this.audio.pause();
       this.audio = null;
     }
+  }
+
+  startMusic(){
+    this.audio.src = mGlobal.SoundPath + this.musicInfo.sound_path;
+    this.audio.load();
+    this.audio.play();
   }
 
 }

@@ -53,6 +53,20 @@ export class SoundDetailComponent implements OnInit {
     });
   }
 
+  //이미지를 터치하면 현재 비트를 재생
+  onClick_startMusic(){
+    console.log("ㅆㅂ");
+    var playSound = this.soundDetail;
+    var soundPk = playSound.sound_pk;
+    var soundName = playSound.sound_name;
+    var beatmakerNickname = playSound.beatmaker_nickname;
+    var soundPath = playSound.sound_path;
+
+    this.messageService.sendMusicInfo(soundPk, soundName, beatmakerNickname, soundPath);
+  }
+
+  
+
   setGenreTag(){
     if(this.soundDetail.genre1!=""){
       this.genreTag += "#" + this.soundDetail.genre1 + " "
@@ -85,7 +99,5 @@ export class SoundDetailComponent implements OnInit {
       this.typeTag += "#" + this.soundDetail.type3 + " "
     }
   }
-
-
 
 }

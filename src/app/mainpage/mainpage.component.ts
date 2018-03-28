@@ -35,7 +35,6 @@ export class MainpageComponent implements OnInit {
   }
 
   sendMessage(): void {
-    // send message to subscribers via observable subject
     this.messageService.sendMessage('오지고 지리고 렛잇고');
   }
 
@@ -44,7 +43,6 @@ export class MainpageComponent implements OnInit {
   }
 
   clearMessage(): void {
-      // clear message
       this.messageService.clearMessage();
   }
 
@@ -72,10 +70,11 @@ export class MainpageComponent implements OnInit {
       console.log( this.soundData );
 
       this.soundCount = this.soundData.sound_list.length +
-                        this.soundData.sound_recommend_list.length
+                        this.soundData.sound_recommend_list.length;
     });
   }
 
+  //상단의 추천 5개음악 재생
   onClick_startRecommendMusic(soundIndex: int){
     // console.log("누른번호:" + soundIndex);
     var playSound = this.soundData.sound_recommend_list[soundIndex];
@@ -87,6 +86,7 @@ export class MainpageComponent implements OnInit {
     this.messageService.sendMusicInfo(soundPk, soundName, beatmakerNickname, soundPath);
   }
 
+  //전체 음악 재생
   onClick_startMusic(soundIndex: int){
     // console.log("누른번호:" + soundIndex);
     var playSound = this.soundData.sound_list[soundIndex];
