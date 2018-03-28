@@ -67,7 +67,7 @@ export class MainpageComponent implements OnInit {
     var postData = {user_pk:2};
     this.postTestService.postServer(path, postData).subscribe(data => {
       this.soundData = data;
-      console.log( this.soundData );
+      // console.log( this.soundData );
 
       this.soundCount = this.soundData.sound_list.length +
                         this.soundData.sound_recommend_list.length;

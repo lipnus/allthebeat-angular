@@ -6,15 +6,16 @@
 }
 
 .state-img{
-  margin-top: 10px;
+  margin-top: 20px;
+  margin-left: 16px;
   display: inline-block;
-  width: 40px;
-  height: 40px;
+  width: 38px;
 }
 
 .textBox{
   margin-left: 16px;
   display: inline-block;
+  vertical-align: super;
 }
 
 #title-text{

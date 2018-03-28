@@ -49,13 +49,12 @@ export class SoundDetailComponent implements OnInit {
       this.setTypeTag();
       this.setMoodTag();
       this.setGenreTag();
-      console.log( this.soundDetail );
+      // console.log( this.soundDetail );
     });
   }
 
   //이미지를 터치하면 현재 비트를 재생
   onClick_startMusic(){
-    console.log("ㅆㅂ");
     var playSound = this.soundDetail;
     var soundPk = playSound.sound_pk;
     var soundName = playSound.sound_name;
@@ -65,7 +64,7 @@ export class SoundDetailComponent implements OnInit {
     this.messageService.sendMusicInfo(soundPk, soundName, beatmakerNickname, soundPath);
   }
 
-  
+
 
   setGenreTag(){
     if(this.soundDetail.genre1!=""){

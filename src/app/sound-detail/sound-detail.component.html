@@ -7,19 +7,19 @@
 
 
 <div class="introduceBox">
-  <span id="sound-name">{{soundDetail.sound_name}}</span>
+  <span id="sound-name" (click)="onClick_startMusic()">{{soundDetail?.sound_name}}</span>
 
   <div class="bpm-and-heart">
     <img class="heart-img" src="assets/heart_white.png" alt="image"/>
-    <div class="mini-text">{{soundDetail.like_count}}</div>
+    <div class="mini-text">{{soundDetail?.like_count}}</div>
   </div>
 
-  <div id="bpm">{{soundDetail.sound_bpm}}BPM</div>
+  <div id="bpm">{{soundDetail?.sound_bpm}}BPM</div>
 
   <div class="sub-title-box">
     <div class="sub-title">BEATMAKER</div>
   </div>
-  <div class="sub-content">#{{soundDetail.beatmaker_nickname}}</div>
+  <div class="sub-content">#{{soundDetail?.beatmaker_nickname}}</div>
 
   <div class="sub-title-box">
     <div class="sub-title">GENRE</div>

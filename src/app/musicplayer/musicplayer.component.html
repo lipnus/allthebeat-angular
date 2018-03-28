@@ -1,12 +1,12 @@
 
 
 
-<div class="playerBox">
-  <img class="state-img" src="">
+<div class="playerBox" *ngIf="showPlayer">
+  <img class="state-img" (click)="onClick_state()" [src]="stateImgPath">
 
-  <div class="textBox">
+  <div class="textBox" routerLink="/sounddetail/{{musicInfo.sound_pk}}">
     <span id="title-text">{{musicInfo?.sound_name}}</span><br>
     <span id="beatmaker-text">{{musicInfo?.beatmaker_nickname}}</span>
   </div>
-  
+
 </div>
