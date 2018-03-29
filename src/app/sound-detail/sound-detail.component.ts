@@ -1,5 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 
+import { Subscription } from 'rxjs/Subscription';
+
 import { PostTestService } from '../service/post-test.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { MessageService } from '../service/message.service';
@@ -22,23 +24,45 @@ import * as mGlobal from '../global-variables';  //전역변수
 export class SoundDetailComponent implements OnInit {
 
   sound_pk;
+  _reloadData;
   soundDetail: SoundDetail;
   genreTag: string = "";
   moodTag: string = "";
   typeTag: string = "";
 
+  playImg:string;
+
 
   constructor( private postTestService: PostTestService,
-               private http: HttpClient,
-               private messageService: MessageService,
-               private route: ActivatedRoute,){
+    private http: HttpClient,
+    private messageService: MessageService,
+    private route: ActivatedRoute,
+    private router: Router,){
+
+    router.events.subscribe(e => {
+      if (!this._reloadData) {
+        this._reloadData = true;
+      }
+    });
   }
 
   ngOnInit() {
+    this.playImg = "assets/circle-play.png";
+  }
+
+  private ngDoCheck() {
+    if (this._reloadData) {
+      this._reloadData = false;
+      this.resetData();
+    }
+  }
+
+  //같은페이지를 다시 불렀을때(플레이어에서 곡제목터치) 새로운 값으로 뜨게 하기위해서
+  resetData(){
     this.sound_pk = this.route.snapshot.paramMap.get('sound_pk');
     window.scrollTo(0, 0);
 
-    console.log("현재PK: " + this.sound_pk);
+    console.log("NowPK: " + this.sound_pk);
     this.postSoundDetail( this.sound_pk );
   }
 

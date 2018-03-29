@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { PostTestService } from '../service/post-test.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
@@ -31,8 +32,13 @@ export class MainpageComponent implements OnInit {
 
   constructor( private postTestService: PostTestService,
                private http: HttpClient,
-               private messageService: MessageService,){
+               private messageService: MessageService,
+               private router: Router,){
+
+
+
   }
+
 
   sendMessage(): void {
     this.messageService.sendMessage('오지고 지리고 렛잇고');

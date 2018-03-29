@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs/Subscription';
 import { MessageService } from '../service/message.service';
+import { Router } from '@angular/router';
 
 import * as mGlobal from '../global-variables';  //전역변수
 
@@ -29,9 +30,8 @@ export class MusicplayerComponent implements OnInit, OnDestroy {
       this.musicInfo = musicInfo;
 
       this.startMusic();
-
       // console.log(this.musicInfo);
-    });
+      });
   }
 
   ngOnInit() {
@@ -50,7 +50,7 @@ export class MusicplayerComponent implements OnInit, OnDestroy {
   }
 
   startMusic(){
-    this.stateImgPath = "assets/play.png";
+    this.stateImgPath = "assets/pause.png";
     this.showPlayer = true;
     this.playstate = true;
 
@@ -60,7 +60,7 @@ export class MusicplayerComponent implements OnInit, OnDestroy {
   }
 
   pauseMusic(){
-    this.stateImgPath = "assets/pause.png";
+    this.stateImgPath = "assets/play.png";
     this.playstate = false;
     this.audio.pause();
   }
@@ -73,6 +73,10 @@ export class MusicplayerComponent implements OnInit, OnDestroy {
     }else{
       this.startMusic();
     }
+
+  }
+
+  onClick_moveToDetail(){
 
   }
 
