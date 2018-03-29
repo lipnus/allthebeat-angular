@@ -51,7 +51,6 @@ export class MainpageComponent implements OnInit {
     this.globalValue = mGlobal.ServerPath;
 
     this.soundCount=0;
-    this.soundData ={};
     this.postSoundList();
   }
 
@@ -75,7 +74,7 @@ export class MainpageComponent implements OnInit {
   }
 
   //상단의 추천 5개음악 재생
-  onClick_startRecommendMusic(soundIndex: int){
+  onClick_startRecommendMusic(soundIndex: number){
     // console.log("누른번호:" + soundIndex);
     var playSound = this.soundData.sound_recommend_list[soundIndex];
     var soundPk = playSound.sound_pk;
@@ -87,7 +86,7 @@ export class MainpageComponent implements OnInit {
   }
 
   //전체 음악 재생
-  onClick_startMusic(soundIndex: int){
+  onClick_startMusic(soundIndex: number){
     // console.log("누른번호:" + soundIndex);
     var playSound = this.soundData.sound_list[soundIndex];
     var soundPk = playSound.sound_pk;

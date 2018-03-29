@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Subscription } from 'rxjs/Subscription';
 import { MessageService } from '../service/message.service';
 
 import * as mGlobal from '../global-variables';  //전역변수
@@ -11,7 +11,7 @@ import * as mGlobal from '../global-variables';  //전역변수
 })
 export class MusicplayerComponent implements OnInit, OnDestroy {
 
-  audio: Audio;
+  audio;
   subscription: Subscription;
   musicInfo: any;
   message: any;

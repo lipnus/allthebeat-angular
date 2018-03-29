@@ -21,7 +21,7 @@ import * as mGlobal from '../global-variables';  //전역변수
 })
 export class SoundDetailComponent implements OnInit {
 
-  sound_pk:number;
+  sound_pk;
   soundDetail: SoundDetail;
   genreTag: string = "";
   moodTag: string = "";
@@ -36,8 +36,9 @@ export class SoundDetailComponent implements OnInit {
 
   ngOnInit() {
     this.sound_pk = this.route.snapshot.paramMap.get('sound_pk');
-    console.log("현재PK: " + this.sound_pk);
+    window.scrollTo(0, 0);
 
+    console.log("현재PK: " + this.sound_pk);
     this.postSoundDetail( this.sound_pk );
   }
 

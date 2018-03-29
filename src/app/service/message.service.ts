@@ -19,7 +19,7 @@ export class MessageService {
         return this.subject.asObservable();
     }
 
-    sendMusicInfo(soundPk:int, soundName:string, beatmakerNickname:string, soundPath:string){
+    sendMusicInfo(soundPk:number, soundName:string, beatmakerNickname:string, soundPath:string){
       this.musicInfo.next({
         sound_pk:soundPk,
         sound_name:soundName,

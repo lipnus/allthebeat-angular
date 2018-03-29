@@ -16,7 +16,7 @@
 <!-- <button id="testBtn" (click)="onClick_test()">음악테스트</button> -->
 
 <div class="sound-subtitle"></div>
-<div class="soundBox"  *ngFor="let sound of soundData.sound_recommend_list; let idx=index">
+<div class="soundBox"  *ngFor="let sound of soundData?.sound_recommend_list; let idx=index">
   <img class="title-img" (click)="onClick_startRecommendMusic(idx)" [src]="sound.img_path" onerror="this.src='assets/placeholder.png'"/>
   <div routerLink="/sounddetail/{{sound.sound_pk}}" class="title-text">
     <span id="title">{{sound.sound_name}}</span><br />
@@ -31,7 +31,7 @@
 <div class="intervalBox"></div>
 
 <div class="sound-subtitle"></div>
-<div class="soundBox"  *ngFor="let sound of soundData.sound_list; let idx=index">
+<div class="soundBox"  *ngFor="let sound of soundData?.sound_list; let idx=index">
   <img class="title-img" (click)="onClick_startMusic(idx)" [src]="sound.img_path" onerror="this.src='assets/placeholder.png'"/>
   <div routerLink="/sounddetail/{{sound.sound_pk}}" class="title-text">
     <span id="title">{{sound.sound_name}}</span><br/>
