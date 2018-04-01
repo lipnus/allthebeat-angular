@@ -6,6 +6,8 @@ import { TestComponent } from './test/test.component';
 import { MainpageComponent } from './mainpage/mainpage.component';
 import { SoundDetailComponent } from './sound-detail/sound-detail.component';
 import { MusicplayerComponent } from './musicplayer/musicplayer.component';
+import { PurchaseComponent } from './purchase/purchase.component';
+
 
 
 
@@ -16,6 +18,7 @@ const routes: Routes = [
   { path: 'sounddetail/:sound_pk', component: SoundDetailComponent },
   { path: 'sounddetail', component: SoundDetailComponent },
   { path: 'musicplayer', component: MusicplayerComponent },
+  { path: 'purchase/:sound_pk', component: PurchaseComponent },
   { path: '**', redirectTo: ''}
 
 ];

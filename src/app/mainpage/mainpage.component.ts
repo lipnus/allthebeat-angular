@@ -35,8 +35,6 @@ export class MainpageComponent implements OnInit {
                private messageService: MessageService,
                private router: Router,){
 
-
-
   }
 
 
@@ -54,11 +52,13 @@ export class MainpageComponent implements OnInit {
 
 
   ngOnInit(){
+    console.log("main Init");
     this.globalValue = mGlobal.ServerPath;
 
     this.soundCount=0;
     this.postSoundList();
   }
+
 
   onClick_test(){
     console.log("회색클릭");
@@ -102,8 +102,4 @@ export class MainpageComponent implements OnInit {
 
     this.messageService.sendMusicInfo(soundPk, soundName, beatmakerNickname, soundPath);
   }
-
-
-
-
 }

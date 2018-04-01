@@ -17,7 +17,8 @@ import { TestComponent } from './test/test.component';
 import { HeadmenuComponent } from './headmenu/headmenu.component';
 import { MainpageComponent } from './mainpage/mainpage.component';
 import { SoundDetailComponent } from './sound-detail/sound-detail.component';
-import { MusicplayerComponent } from './musicplayer/musicplayer.component'
+import { MusicplayerComponent } from './musicplayer/musicplayer.component';
+import { PurchaseComponent } from './purchase/purchase.component'
 
 
 
@@ -30,7 +31,8 @@ import { MusicplayerComponent } from './musicplayer/musicplayer.component'
     HeadmenuComponent,
     MainpageComponent,
     SoundDetailComponent,
-    MusicplayerComponent
+    MusicplayerComponent,
+    PurchaseComponent
   ],
   imports: [
     BrowserModule,
