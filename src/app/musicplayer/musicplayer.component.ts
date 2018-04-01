@@ -75,9 +75,4 @@ export class MusicplayerComponent implements OnInit, OnDestroy {
     }
 
   }
-
-  onClick_moveToDetail(){
-
-  }
-
 }
