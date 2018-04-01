@@ -28,6 +28,8 @@ export class MainpageComponent implements OnInit {
   btnClicked:boolean;
   soundCount;
 
+  playImg;
+
 
 
   constructor( private postTestService: PostTestService,
@@ -55,6 +57,7 @@ export class MainpageComponent implements OnInit {
     console.log("main Init");
     this.globalValue = mGlobal.ServerPath;
 
+    this.playImg = "assets/circle-play.png";
     this.soundCount=0;
     this.postSoundList();
   }

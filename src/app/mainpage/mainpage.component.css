@@ -57,15 +57,31 @@
   background: #232323;
   color: #ffffff;
   padding: 15px 12px 15px 10px;
-  border-bottom: 1px solid #606060;
+  border-bottom: 0.1px solid #606060;
 }
 
-.soundBox > .title-img{
+.img-container{
+  display: inline-block;
+}
+
+.title-img{
+  border-radius: 1px;
   display: inline-block;
   width: 45px;
   height: 45px;
   box-shadow: 0px 0px 20px -5px rgba(0, 0, 0, 0.8);
 }
+
+.title-play{
+  position: absolute;
+  box-sizing: border-box;
+  padding:13px;
+  width:45px;
+  height:45px;
+  opacity: 0.2;
+}
+
+
 
 .soundBox > .title-text{
   width: 70%;
@@ -98,8 +114,10 @@
 }
 
 .soundBox > .middle > .heart-img{
+  box-sizing: border-box;
   margin-right: 10px;
   width: 30px;
+  padding: 2px;
 }
 
 

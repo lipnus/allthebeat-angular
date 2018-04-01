@@ -11,12 +11,17 @@
 </div>
 
 
+
+
 <div class="mainbody">
 <!-- <button id="testBtn" (click)="onClick_test()">음악테스트</button> -->
 
 <div class="sound-subtitle"></div>
 <div class="soundBox"  *ngFor="let sound of soundData?.sound_recommend_list; let idx=index">
-  <img class="title-img" (click)="onClick_startRecommendMusic(idx)" [src]="sound.img_path" onerror="this.src='assets/placeholder.png'"/>
+  <div class="img-container">
+    <img class="title-play" (click)="onClick_startRecommendMusic(idx)" [src]="playImg" />
+    <img class="title-img" (click)="onClick_startRecommendMusic(idx)" [src]="sound.img_path" onerror="this.src='assets/placeholder.png'"/>
+  </div>
   <div routerLink="/sounddetail/{{sound.sound_pk}}" class="title-text">
     <span id="title">{{sound.sound_name}}</span><br />
     <span id="beatmaker">{{sound.beatmaker_nickname}}</span>
@@ -31,7 +36,10 @@
 
 <div class="sound-subtitle"></div>
 <div class="soundBox"  *ngFor="let sound of soundData?.sound_list; let idx=index">
-  <img class="title-img" (click)="onClick_startMusic(idx)" [src]="sound.img_path" onerror="this.src='assets/placeholder.png'"/>
+  <div class="img-container">
+    <img class="title-play" (click)="onClick_startMusic(idx)" [src]="playImg" />
+    <img class="title-img" (click)="onClick_startMusic(idx)" [src]="sound.img_path" onerror="this.src='assets/placeholder.png'"/>
+  </div>
   <div routerLink="/sounddetail/{{sound.sound_pk}}" class="title-text">
     <span id="title">{{sound.sound_name}}</span><br/>
     <span id="beatmaker">{{sound.beatmaker_nickname}}</span>

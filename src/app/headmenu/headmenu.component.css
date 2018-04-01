@@ -7,12 +7,16 @@
 }
 
 #search-img{
+  box-sizing: border-box;
+  padding: 4px;
   display: inline-block;
   width: 25px;
   margin-right: 35px;
 }
 
 #menu-img{
+  box-sizing: border-box;
+  padding: 4px;
   display: inline-block;
   width: 34px;
 }
