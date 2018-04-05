@@ -25,6 +25,8 @@ export class SoundDetailComponent implements OnInit {
 
   sound_pk;
   _reloadData;
+  artworkPath:string;
+
   soundDetail: SoundDetail;
   genreTag: string = "";
   moodTag: string = "";
@@ -75,7 +77,13 @@ export class SoundDetailComponent implements OnInit {
       this.setMoodTag();
       this.setGenreTag();
       // console.log( this.soundDetail );
+      this.applyArtwork();
     });
+  }
+
+  applyArtwork(){
+    //아트워크 경로 설정
+    this.artworkPath = mGlobal.ArtworkPath + "/" + this.soundDetail.img_path;
   }
 
   //이미지를 터치하면 현재 비트를 재생

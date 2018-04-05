@@ -27,9 +27,9 @@ export class MainpageComponent implements OnInit {
   globalValue;
   btnClicked:boolean;
   soundCount;
+  artworkPath:string;
 
   playImg;
-
 
 
   constructor( private postTestService: PostTestService,
@@ -58,6 +58,7 @@ export class MainpageComponent implements OnInit {
     this.globalValue = mGlobal.ServerPath;
 
     this.playImg = "assets/circle-play.png";
+    this.artworkPath = mGlobal.ArtworkPath;
     this.soundCount=0;
     this.postSoundList();
   }
@@ -75,12 +76,30 @@ export class MainpageComponent implements OnInit {
     var postData = {user_pk:2};
     this.postTestService.postServer(path, postData).subscribe(data => {
       this.soundData = data;
+      this.applyArtworkPath();
       // console.log( this.soundData );
 
       this.soundCount = this.soundData.sound_list.length +
                         this.soundData.sound_recommend_list.length;
     });
   }
+
+  //이미지 경로를 완성시켜줌
+  applyArtworkPath(){
+
+    for(var i=0; i<this.soundData.sound_list.length; i++){
+      this.soundData.sound_list[i].img_path
+      = mGlobal.ArtworkPath + "/" + this.soundData.sound_list[i].img_path;
+    }
+
+    for(var i=0; i<this.soundData.sound_recommend_list.length; i++){
+      this.soundData.sound_recommend_list[i].img_path
+      = mGlobal.ArtworkPath + "/" + this.soundData.sound_recommend_list[i].img_path;
+    }
+  }
+
+
+
 
   //상단의 추천 5개음악 재생
   onClick_startRecommendMusic(soundIndex: number){
@@ -104,5 +123,10 @@ export class MainpageComponent implements OnInit {
     var soundPath = playSound.sound_path;
 
     this.messageService.sendMusicInfo(soundPk, soundName, beatmakerNickname, soundPath);
+  }
+
+  //미완성기능(좋아요)
+  onClick_incomplete(){
+    alert("준비중인 기능입니다");
   }
 }

@@ -19,7 +19,6 @@ export class MusicplayerComponent implements OnInit, OnDestroy {
 
   stateImgPath: string;
   playstate: boolean;
-
   showPlayer: boolean;
 
 

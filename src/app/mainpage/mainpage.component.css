@@ -78,7 +78,7 @@
   padding:13px;
   width:45px;
   height:45px;
-  opacity: 0.2;
+  opacity: 0.3;
 }
 
 
@@ -92,6 +92,7 @@
 }
 
 #title{
+  font-weight: 700;
   font-size: 15px;
 }
 

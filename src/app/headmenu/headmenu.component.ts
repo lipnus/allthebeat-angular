@@ -30,5 +30,9 @@ export class HeadmenuComponent implements OnInit, OnDestroy {
     this.subscription.unsubscribe();
   }
 
+  onclick_incomplete(){
+    alert("준비중인 기능입니다");
+  }
+
 
 }

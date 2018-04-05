@@ -12,6 +12,8 @@
 
 
 
+<img class="title-play" [src]="artworkPath"/>
+<span id="beatmaker">{{artworkPath}}</span>
 
 <div class="mainbody">
 <!-- <button id="testBtn" (click)="onClick_test()">음악테스트</button> -->
@@ -27,7 +29,7 @@
     <span id="beatmaker">{{sound.beatmaker_nickname}}</span>
   </div>
   <div class="middle">
-    <img class="heart-img" src="assets/heart_white.png" alt="image"/>
+    <img class="heart-img" src="assets/heart_white.png" alt="image" (click)="onClick_incomplete()"/>
   </div>
 </div>
 
@@ -45,7 +47,7 @@
     <span id="beatmaker">{{sound.beatmaker_nickname}}</span>
   </div>
   <div class="middle">
-    <img class="heart-img" src="assets/heart_white.png" alt="image"/>
+    <img class="heart-img" src="assets/heart_white.png" alt="image" (click)="onClick_incomplete()"/>
   </div>
 </div>
 
