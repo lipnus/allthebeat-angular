@@ -14,10 +14,10 @@
 }
 
 .top{
-  height: 30%;
+  height: 25%;
   background: #02101b;
-  padding: 15px;
   display: block;
+  text-align: center;
   /* border-bottom: 1px solid #606060; */
 }
 
@@ -40,6 +40,13 @@
   font-size: 14px;
   color: #909090;
   margin-bottom: 35px;
+}
+
+.logo-img{
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 40%;
 }
 
 
