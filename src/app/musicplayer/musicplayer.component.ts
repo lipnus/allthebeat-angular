@@ -21,22 +21,52 @@ export class MusicplayerComponent implements OnInit, OnDestroy {
   playstate: boolean;
   showPlayer: boolean;
 
+  test;
+
+  musicCurrentLocation:number; //현재재생위치
+  musicDuration:number; //음악의 전체 길이
+
 
   constructor(private messageService: MessageService,) {
 
     //음악 선택을 했을 때의 콜백
     this.subscription = this.messageService.getMusicInfo().subscribe(musicInfo => {
-      this.musicInfo = musicInfo;
 
+      this.musicInfo = musicInfo;
       this.startMusic();
       // console.log(this.musicInfo);
       });
   }
 
   ngOnInit() {
+
+    //음악관련 설정값 초기화
     this.audio = new Audio();
     this.playstate = false;
     this.showPlayer = false;
+
+    this.musicCurrentLocation=0;
+    this.musicDuration = 1;
+
+    //재생중일때
+    this.audio.addEventListener("timeupdate", (currentTime)=>{
+      // console.log("cur: " + this.audio.currentTime);
+      this.musicCurrentLocation = this.audio.currentTime;
+    });
+
+    //최대길이가 변경되었을때
+    this.audio.addEventListener("durationchange", (currentTime)=>{
+      console.log("Duration: " + this.audio.duration);
+      this.musicDuration = this.audio.duration;
+    });
+
+    //재생이 끝났을때
+    this.audio.addEventListener("ended", (currentTime)=>{
+      // console.log("Duration: " + this.audio.duration);
+      console.log("끝!");
+      this.stopMusic();
+    });
+
   }
 
   ngOnDestroy() {
@@ -48,6 +78,7 @@ export class MusicplayerComponent implements OnInit, OnDestroy {
     }
   }
 
+
   startMusic(){
     this.stateImgPath = "assets/pause.png";
     this.showPlayer = true;
@@ -58,20 +89,32 @@ export class MusicplayerComponent implements OnInit, OnDestroy {
     this.audio.play();
   }
 
+
   pauseMusic(){
     this.stateImgPath = "assets/play.png";
     this.playstate = false;
     this.audio.pause();
   }
 
+  resumeMusic(){
+    this.stateImgPath = "assets/pause.png";
+    this.playstate = true;
+    this.audio.play();
+  }
+
+  stopMusic(){
+    this.stateImgPath = "assets/play.png";
+    this.playstate = false;
+    this.audio.pause();
+    this.audio.currentTime = 0;
+  }
 
 
   onClick_state(){
     if(this.playstate){
       this.pauseMusic();
     }else{
-      this.startMusic();
+      this.resumeMusic();
     }
-
   }
 }

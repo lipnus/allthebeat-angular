@@ -34,6 +34,9 @@ export class SoundDetailComponent implements OnInit {
 
   playImg:string;
 
+  test;
+
+
 
   constructor( private postTestService: PostTestService,
     private http: HttpClient,
@@ -41,6 +44,7 @@ export class SoundDetailComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,){
 
+    //경로 뒤에 붙은 숫자 가져오기
     router.events.subscribe(e => {
       if (!this._reloadData) {
         this._reloadData = true;
@@ -50,6 +54,8 @@ export class SoundDetailComponent implements OnInit {
 
   ngOnInit() {
     this.playImg = "assets/circle-play.png";
+    this.artworkPath = "";
+
   }
 
   private ngDoCheck() {
@@ -72,10 +78,12 @@ export class SoundDetailComponent implements OnInit {
     var path = '/sound_detail';
     var postData = {user_pk:2, sound_pk: pk};
     this.postTestService.postServer(path, postData).subscribe(data => {
+
       this.soundDetail = data;
       this.setTypeTag();
       this.setMoodTag();
       this.setGenreTag();
+
       // console.log( this.soundDetail );
       this.applyArtwork();
     });

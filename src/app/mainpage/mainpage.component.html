@@ -4,10 +4,8 @@
   <img class="logo-img" src="assets/logo.png"/>
   <!-- <div id="white-short-line"></div> -->
   <!-- <div class="title">ALL THE BEAT</div> -->
+  <div class="undertitle"> {{soundCount}} Tracks </div>
 
-  <div class="undertitle">
-     {{soundCount}} Tracks
-  </div>
 </div>
 
 
@@ -15,8 +13,9 @@
 <!-- <img class="title-play" [src]="artworkPath"/>
 <span id="beatmaker">{{artworkPath}}</span> -->
 
-<div class="mainbody">
 <!-- <button id="testBtn" (click)="onClick_test()">음악테스트</button> -->
+
+<div class="mainbody">
 
 <div class="sound-subtitle"></div>
 <div class="soundBox"  *ngFor="let sound of soundData?.sound_recommend_list; let idx=index">

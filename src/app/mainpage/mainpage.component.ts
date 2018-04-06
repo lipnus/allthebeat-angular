@@ -76,13 +76,16 @@ export class MainpageComponent implements OnInit {
     var postData = {user_pk:2};
     this.postTestService.postServer(path, postData).subscribe(data => {
       this.soundData = data;
-      this.applyArtworkPath();
+      this.applyArtworkPath(); //이미지경로에 서버위치 붙여주기
+
       // console.log( this.soundData );
 
+      //전체 음원개수
       this.soundCount = this.soundData.sound_list.length +
                         this.soundData.sound_recommend_list.length;
     });
   }
+
 
   //이미지 경로를 완성시켜줌
   applyArtworkPath(){
@@ -96,14 +99,14 @@ export class MainpageComponent implements OnInit {
       this.soundData.sound_recommend_list[i].img_path
       = mGlobal.ArtworkPath + "/" + this.soundData.sound_recommend_list[i].img_path;
     }
+
   }
-
-
 
 
   //상단의 추천 5개음악 재생
   onClick_startRecommendMusic(soundIndex: number){
     // console.log("누른번호:" + soundIndex);
+
     var playSound = this.soundData.sound_recommend_list[soundIndex];
     var soundPk = playSound.sound_pk;
     var soundName = playSound.sound_name;
@@ -112,6 +115,7 @@ export class MainpageComponent implements OnInit {
 
     this.messageService.sendMusicInfo(soundPk, soundName, beatmakerNickname, soundPath);
   }
+
 
   //전체 음악 재생
   onClick_startMusic(soundIndex: number){
@@ -124,6 +128,7 @@ export class MainpageComponent implements OnInit {
 
     this.messageService.sendMusicInfo(soundPk, soundName, beatmakerNickname, soundPath);
   }
+
 
   //미완성기능(좋아요)
   onClick_incomplete(){
