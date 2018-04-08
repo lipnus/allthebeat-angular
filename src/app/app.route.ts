@@ -8,10 +8,10 @@ import { SoundDetailComponent } from './sound-detail/sound-detail.component';
 import { MusicplayerComponent } from './musicplayer/musicplayer.component';
 import { PurchaseComponent } from './purchase/purchase.component';
 
+import { LoginComponent } from './login/login.component';
+import { HomeComponent } from './home/home.component';
 
-// import { LoginComponent } from './login/login.component';
-import { SigninComponent } from './signin/signin.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
+import { AuthGuard } from './guard/index';
 
 
 
@@ -25,14 +25,11 @@ const routes: Routes = [
   { path: 'musicplayer', component: MusicplayerComponent },
   { path: 'purchase/:sound_pk', component: PurchaseComponent },
 
-  // { path: 'admin', component: LoginComponent },
-  { path: 'signin', component: SigninComponent },
-  { path: 'dashboard', component: DashboardComponent },
-
+  { path: 'login', component: LoginComponent },
+  { path: '', component: HomeComponent, canActivate: [AuthGuard] },
 
 
   { path: '**', redirectTo: ''}
-
 ];
 
 

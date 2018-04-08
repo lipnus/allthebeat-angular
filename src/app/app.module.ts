@@ -8,8 +8,6 @@ import { AppRoutingModule } from './app.route';
 // [Service]
 import { PostTestService } from './service/post-test.service';
 import { MessageService } from './service/message.service';
-import { AuthService } from './service/auth.service';
-import { UserService } from './service/user.service';
 
 
 // [Component]
@@ -20,13 +18,16 @@ import { MainpageComponent } from './mainpage/mainpage.component';
 import { SoundDetailComponent } from './sound-detail/sound-detail.component';
 import { MusicplayerComponent } from './musicplayer/musicplayer.component';
 import { PurchaseComponent } from './purchase/purchase.component';
-// import { LoginComponent } from './login/login.component';
-import { SigninComponent } from './signin/signin.component';
-import { DashboardComponent } from './dashboard/dashboard.component'
+import { HomeComponent } from './home/home.component';
+import { LoginComponent } from './login/login.component';
 
+// used to create fake backend
+import { fakeBackendProvider } from './helper/fake-backend';
+import { MockBackend, MockConnection } from '@angular/http/testing';
+import { BaseRequestOptions } from '@angular/http';
 
-
-
+import { AuthGuard } from './guard/index';
+import { AuthenticationService, UserService } from './service/index';
 
 @NgModule({
   declarations: [
@@ -37,9 +38,8 @@ import { DashboardComponent } from './dashboard/dashboard.component'
     SoundDetailComponent,
     MusicplayerComponent,
     PurchaseComponent,
-    // LoginComponent,
-    SigninComponent,
-    DashboardComponent
+    HomeComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -51,8 +51,14 @@ import { DashboardComponent } from './dashboard/dashboard.component'
   providers: [
     PostTestService,
     MessageService,
-    AuthService,
-    UserService,
+    AuthGuard,
+    AuthenticationService,
+    UserService,
+
+    // providers used to create fake backend
+    fakeBackendProvider,
+    MockBackend,
+    BaseRequestOptions
   ],
   bootstrap: [AppComponent]
 })

@@ -1,24 +1,25 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs/Observable';
+import { Http, Headers, RequestOptions, Response } from '@angular/http';
+import { Observable } from 'rxjs';
+import 'rxjs/add/operator/map'
 
-import { User } from '../model/user';
-import { AuthService } from './auth.service';
-
-import { environment } from '../../environments/environment';
+import { AuthenticationService } from '../service/index';
+import { User } from '../model/index';
 
 @Injectable()
 export class UserService {
-  // appUrl = environment.apiUrl;
-  appUrl = "appUrl";
+    constructor(
+        private http: Http,
+        private authenticationService: AuthenticationService) {
+    }
 
-  constructor(private http: HttpClient, private auth: AuthService) {}
+    getUsers(): Observable<User[]> {
+        // add authorization header with jwt token
+        let headers = new Headers({ 'Authorization': 'Bearer ' + this.authenticationService.token });
+        let options = new RequestOptions({ headers: headers });
 
-  getUsers(): Observable<User[]> {
-    const headers = new HttpHeaders()
-      .set('Authorization', this.auth.getToken());
-
-    return this.http.get<User[]>(`${this.appUrl}/users`, { headers })
-      .shareReplay();
-  }
+        // get users from api
+        return this.http.get('/api/users', options)
+            .map((response: Response) => response.json());
+    }
 }
