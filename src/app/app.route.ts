@@ -9,6 +9,11 @@ import { MusicplayerComponent } from './musicplayer/musicplayer.component';
 import { PurchaseComponent } from './purchase/purchase.component';
 
 
+// import { LoginComponent } from './login/login.component';
+import { SigninComponent } from './signin/signin.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+
+
 
 
 const routes: Routes = [
@@ -19,6 +24,13 @@ const routes: Routes = [
   { path: 'sounddetail', component: SoundDetailComponent },
   { path: 'musicplayer', component: MusicplayerComponent },
   { path: 'purchase/:sound_pk', component: PurchaseComponent },
+
+  // { path: 'admin', component: LoginComponent },
+  { path: 'signin', component: SigninComponent },
+  { path: 'dashboard', component: DashboardComponent },
+
+
+
   { path: '**', redirectTo: ''}
 
 ];

@@ -1,0 +1,6 @@
+<h3>LOGIN</h3> {{message}}
+    <p>
+      <input type="text" [(ngModel)]="userId" placeholder="사용자 아이디" *ngIf="!authService.isLogin">
+      <button (click)="login()"  *ngIf="!authService.isLogin">로그인</button>
+      <button (click)="logout()" *ngIf="authService.isLogin">로그아웃</button>
+    </p>`
