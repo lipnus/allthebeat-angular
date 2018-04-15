@@ -9,7 +9,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 
 //[model]
-import { User } from '../model/index';
+import { User } from '../model/user';
 
 @Injectable()
 export class AuthenticationService {

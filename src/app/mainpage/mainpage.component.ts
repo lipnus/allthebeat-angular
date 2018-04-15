@@ -73,12 +73,19 @@ export class MainpageComponent implements OnInit {
 
   postSoundList(){
     var path = '/sound_list';
-    var postData = {user_pk:2};
+    var token = 0;
+
+    //로그인상태이면 토큰을 보내고 아니면 0을 보냄
+    if (localStorage.getItem('auth')) {
+        var auth = JSON.parse(localStorage.getItem('auth'));
+        token = auth.token;
+    }
+
+    var postData = {token:token};
     this.postTestService.postServer(path, postData).subscribe(data => {
       this.soundData = data;
       this.applyArtworkPath(); //이미지경로에 서버위치 붙여주기
 
-      // console.log( this.soundData );
 
       //전체 음원개수
       this.soundCount = this.soundData.sound_list.length +
@@ -130,8 +137,58 @@ export class MainpageComponent implements OnInit {
   }
 
 
-  //미완성기능(좋아요)
-  onClick_incomplete(){
-    alert("준비중인 기능입니다");
+  //추천곡 좋아요
+  onClick_recommend_like(sound_pk, index){
+    if (localStorage.getItem('auth')) {
+          this.soundData.sound_recommend_list[index].like_my = 1;
+          this.postUserLike(sound_pk, +1);
+    }else{
+      this.router.navigate(['/login']);
+    }
+
+  }
+
+  //추천곡 좋아요 취소
+  onClick_recommend_dislike(sound_pk, index){
+    if (localStorage.getItem('auth')) {
+          this.soundData.sound_recommend_list[index].like_my = 0;
+          this.postUserLike(sound_pk, -1);
+    }else{
+      this.router.navigate(['/login']);
+    }
+  }
+
+  //좋아요
+  onClick_like(sound_pk, index){
+    if (localStorage.getItem('auth')) {
+          this.soundData.sound_list[index].like_my = 1;
+          this.postUserLike(sound_pk, 1);
+    }else{
+      this.router.navigate(['/login']);
+    }
+
+  }
+
+  //좋아요 취소
+  onClick_dislike(sound_pk, index){
+    if (localStorage.getItem('auth')) {
+          this.soundData.sound_list[index].like_my = 0;
+          this.postUserLike(sound_pk, -1);
+    }else{
+      this.router.navigate(['/login']);
+    }
+  }
+
+
+  //서버로 좋아요 값 전송
+  postUserLike(sound_pk, heart){
+    var path = '/user_like';
+    var auth = JSON.parse(localStorage.getItem('auth'));
+    var token = auth.token;
+
+    var postData = {token:token, sound_pk:sound_pk, heart:heart};
+    this.postTestService.postServer(path, postData).subscribe(data => {
+      console.log("like처리");
+    });
   }
 }

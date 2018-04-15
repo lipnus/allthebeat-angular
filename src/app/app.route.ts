@@ -8,8 +8,13 @@ import { SoundDetailComponent } from './sound-detail/sound-detail.component';
 import { MusicplayerComponent } from './musicplayer/musicplayer.component';
 import { PurchaseComponent } from './purchase/purchase.component';
 
+import { JoinComponent } from './join/join.component';
+
+
+import { NaverComponent } from './naver/naver.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
+
 
 import { AuthGuard } from './guard/index';
 
@@ -18,16 +23,24 @@ import { AuthGuard } from './guard/index';
 
 const routes: Routes = [
 
-  { path: '', component: MainpageComponent },
   { path: 'fuck', component: TestComponent },
+
+  { path: '', component: MainpageComponent },
+  { path: 'soundlist', component: MainpageComponent },
   { path: 'sounddetail/:sound_pk', component: SoundDetailComponent },
   { path: 'sounddetail', component: SoundDetailComponent },
   { path: 'musicplayer', component: MusicplayerComponent },
-  { path: 'purchase/:sound_pk', component: PurchaseComponent },
+  { path: 'purchase/:sound_pk', component: PurchaseComponent,canActivate: [AuthGuard] },
+
+  { path: 'naver/:state', component: NaverComponent },
+  { path: 'naver', component: NaverComponent },
+
+  { path: 'join', component: JoinComponent },
+  { path: 'join/:state', component: JoinComponent },
+
 
   { path: 'login', component: LoginComponent },
   { path: '', component: HomeComponent, canActivate: [AuthGuard] },
-
 
   { path: '**', redirectTo: ''}
 ];

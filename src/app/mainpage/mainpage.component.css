@@ -61,10 +61,10 @@
 }
 
 .soundBox{
-  background: #232323;
-  color: #ffffff;
+  background: #ffffff;
+  color: #3c3c3c;
   padding: 15px 12px 15px 10px;
-  border-bottom: 0.1px solid #606060;
+  border-bottom: 0.1px solid #ededed;
 }
 
 .img-container{
@@ -76,7 +76,7 @@
   display: inline-block;
   width: 45px;
   height: 45px;
-  box-shadow: 0px 0px 20px -5px rgba(0, 0, 0, 0.8);
+  box-shadow: 0px 0px 10px -5px rgba(0, 0, 0, 0.8);
 }
 
 .title-play{
@@ -85,7 +85,7 @@
   padding:13px;
   width:45px;
   height:45px;
-  opacity: 0.3;
+  opacity: 0.7;
 }
 
 
@@ -114,12 +114,6 @@
   text-align:right;
 }
 
-.sound-subtitle{
-  background: #404040;
-  font-size: 14px;
-  font-weight: 400;
-  padding: 0.5px 5px 0.5px 5px;
-}
 
 .soundBox > .middle > .heart-img{
   box-sizing: border-box;
@@ -128,10 +122,17 @@
   padding: 2px;
 }
 
+.soundBox > .middle > .heart-img-on{
+  box-sizing: border-box;
+  margin-right: 8px;
+  width: 34px;
+  padding: 2px;
+}
+
 
 .intervalBox{
-  /* background: #ffffff; */
-  background: #02101b;
-  height: 50px;
+  background: #f5f5f5;
+  /* background: #02101b; */
+  height: 70px;
   /* border-bottom: 1px solid #606060; */
 }

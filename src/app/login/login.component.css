@@ -1,0 +1,25 @@
+
+.login-container{
+  padding: 15px;
+}
+
+.naver{
+  width: 100%;
+  text-align: center;
+}
+
+.naver-img{
+  margin-top: 20px;
+  display: inline-block;
+  width: 70%;
+}
+
+.update-text{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  margin-bottom: 90px;
+  color: #909090;
+  text-align: center;
+  font-size: 12px;
+}

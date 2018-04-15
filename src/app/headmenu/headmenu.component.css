@@ -6,12 +6,22 @@
   text-align: right;
 }
 
+#home-img{
+  box-sizing: border-box;
+  padding: 4px;
+  display: inline-block;
+  width: 25px;
+  margin-right: 35px;
+  opacity: 0.8;
+}
+
 #search-img{
   box-sizing: border-box;
   padding: 4px;
   display: inline-block;
   width: 25px;
   margin-right: 35px;
+  opacity: 0.8;
 }
 
 #menu-img{
@@ -19,4 +29,5 @@
   padding: 4px;
   display: inline-block;
   width: 34px;
+  opacity: 0.8;
 }

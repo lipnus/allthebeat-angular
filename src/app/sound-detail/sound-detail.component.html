@@ -2,7 +2,7 @@
 <div class="titleBox">
   <img class="title-play" (click)="onClick_startMusic()" [src]="playImg" />
   <img class="title-img"  (click)="onClick_startMusic()" [src]="artworkPath"
-  onerror="this.src='https://creators-images.vice.com/content-images/contentimage/no-slug/32b467be1ad9b7c6db2671bc3ffd69ab.jpg'"/>
+  onerror="this.src='https://i1.sndcdn.com/artworks-000076074288-koi1iw-t500x500.jpg'"/>
 
 </div>
 
@@ -12,11 +12,11 @@
   <span id="sound-name" (click)="onClick_startMusic()">{{soundDetail?.sound_name}}</span>
 
   <div class="bpm-and-heart">
-    <img class="heart-img" src="assets/heart_white.png" alt="image"/>
+    <img class="heart-img" src="assets/heart_black.png" alt="image"/>
     <div class="mini-text">{{soundDetail?.like_count}}</div>
   </div>
 
-  <div id="bpm">{{soundDetail?.sound_bpm}}BPM</div>
+  <div id="bpm">{{soundDetail?.sound_bpm}} BPM</div>
 
   <div class="sub-title-box">
     <div class="sub-title">BEATMAKER</div>

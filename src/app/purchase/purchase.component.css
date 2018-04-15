@@ -1,6 +1,6 @@
 .wrapper{
-  background: #191919;
-  color: #ffffff;
+  background: #ffffff;
+  color: #000000;
   padding: 10px 15px 10px 15px;
   height: auto;
 }
@@ -10,11 +10,13 @@
   display: inline-block;
   font-size: 36px;
   font-weight: 500;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 .product{
   color: #00cecd;
+  font-weight: bold;
+  font-size: 20px;
   margin-bottom: 30px;
 }
 
@@ -23,11 +25,11 @@
 }
 
 .line {
-  background: #909090;
+  background: #000000;
   -webkit-box-shadow: none;
           box-shadow: none;
   border: none;
-  height: 0.5px;
+  height: 1px;
   width: 100%;
   margin: 30px auto 20px auto;
 }
@@ -156,7 +158,7 @@ input[type="password"] {
 }
 
 label {
-  color: #c6c6c6;
+  color: #2c2c2c;
   font-size: 16px;
   font-weight: normal;
   position: absolute;
@@ -234,7 +236,7 @@ label {
 
 /* When the checkbox is checked, add a blue background */
 .check-container input:checked ~ .checkmark {
-    background-color: #2196F3;
+    background-color: #3ed3b4;
 }
 
 /* Create the checkmark/indicator (hidden when not checked) */

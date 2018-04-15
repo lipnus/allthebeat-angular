@@ -1,7 +1,7 @@
-<div class="col-md-6 col-md-offset-3">
+<div class="login-container">
+    <h1>LOGIN</h1>
 
-    <h2>Login</h2>
-    <form name="form" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
+    <!-- <form name="form" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
         <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !username.valid }">
             <label for="username">Username</label>
             <input type="text" class="form-control" name="username" [(ngModel)]="model.username" #username="ngModel" required />
@@ -17,5 +17,70 @@
             <img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
         </div>
         <div *ngIf="error" class="alert alert-danger">{{error}}</div>
-    </form>
+    </form> -->
+
 </div>
+
+<div class="naver">
+  <img class="naver-img" (click)="onClick_naverLogin()" src="assets/ggg.png" />
+</div>
+
+<div *ngIf="isLogin==false" class="update-text">다른 방식의 로그인도 추후 지원할 예정입니다</div>
+<div *ngIf="isLogin==true" class="update-text" (click)="onClick_logout()">[로그아웃하기]</div>
+
+
+
+
+
+<!-- <br/><br/>
+
+<button (click)="onClick_naverLogin()">네이버 로그인 테스트</button>
+<button (click)="onClick_localCheck()">로컬저장소 값 체크</button>
+
+<div>
+	<button class="btn btn-lg btn-social btn-facebook" style="font-size: 1.5em;" (click)="onFacebookLoginClick()">
+	    <i class="fa fa-facebook fa-fw"></i>Sign in with Facebook
+	</button>
+</div> -->
+
+
+
+<!-- 전체 -->
+
+
+<!-- 네이버아이디로로그인 버튼 노출 영역 -->
+  <!-- <div id="naver_id_login">네이버버튼</div> -->
+<!-- //네이버아이디로로그인 버튼 노출 영역 -->
+<!--
+<script type="text/javascript">
+	var naver_id_login = new naver_id_login("0Pechfht9BVKa7WombfB", "http://localhost:9000/auth_naver");
+	var state = naver_id_login.getUniqState();
+	naver_id_login.setButton("white", 2,40);
+	naver_id_login.setDomain("http://localhost:4200");
+	naver_id_login.setState(state);
+	naver_id_login.setPopup();
+	naver_id_login.init_naver_id_login();
+</script> -->
+
+
+
+
+<!-- 네이버아이디로로그인 버튼 노출 영역 -->
+<!-- <div id="naverIdLogin">ss</div> -->
+<!-- //네이버아이디로로그인 버튼 노출 영역 -->
+
+<!-- 네이버아디디로로그인 초기화 Script -->
+<!-- <script type="text/javascript">
+	var naverLogin = new naver.LoginWithNaverId(
+		{
+			clientId: "0Pechfht9BVKa7WombfB",
+			callbackUrl: "http://localhost:9000/auth_naver",
+			isPopup: false, /* 팝업을 통한 연동처리 여부 */
+			loginButton: {color: "green", type: 3, height: 60} /* 로그인 버튼의 타입을 지정 */
+		}
+	); -->
+
+	<!-- /* 설정정보를 초기화하고 연동을 준비 */ -->
+	<!-- naverLogin.init(); -->
+
+<!-- </script> -->

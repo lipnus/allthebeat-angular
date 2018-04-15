@@ -11,12 +11,12 @@
   transform:translateX(-50%);
   display: inline-block;
   width: 140px;
-  opacity: 0.5;
+  opacity: 0.7;
 }
 
 .introduceBox{
-  color: #ffffff;
-  background: #232323;
+  color: #3c3c3c;
+  background: #ffffff;
   padding: 10px 12px 10px 12px;
 }
 
@@ -48,9 +48,9 @@
 
 .sub-title{
   display:inline-block;
-  color: #232323;
+  color: #ffffff;
   padding: 4px;
-  background: #ffffff;
+  background: #3c3c3c;
 }
 
 #bpm{

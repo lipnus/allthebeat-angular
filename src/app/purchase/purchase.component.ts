@@ -12,9 +12,9 @@ import { Router } from '@angular/router';
 import * as mGlobal from '../global-variables';  //전역변수
 
 //[model]
-import { Purchase } from '../model/purchase';
-import { SoundDetail } from '../model/sound-detail';
-
+import { Purchase } from '../model';
+import { SoundDetail } from '../model';
+import { UserData } from '../model';
 
 @Component({
   selector: 'app-purchase',
@@ -34,6 +34,7 @@ export class PurchaseComponent implements OnInit {
   //객체
   purchase: Purchase;
   soundDetail: SoundDetail;
+  userData: UserData;
 
   constructor( private postTestService: PostTestService,
     private http: HttpClient,
@@ -51,6 +52,10 @@ export class PurchaseComponent implements OnInit {
     //주소뒤에 붙은 숫자 가져오기
     this.sound_pk = this.route.snapshot.paramMap.get('sound_pk');
     this.postSoundDetail( this.sound_pk );
+
+    //개인정보 가져오기
+    var auth = JSON.parse(localStorage.getItem('auth'));
+    this.postUser(auth.token);
   }
 
   postSoundDetail(pk:number){
@@ -107,6 +112,21 @@ export class PurchaseComponent implements OnInit {
     this.postTestService.postServer(path, postData).subscribe(data => {
       alert("구매의뢰가 접수되었습니다.");
       this.router.navigate(['/sounddetail/'+this.sound_pk]);
+    });
+  }
+
+  postUser(token){
+
+    var path = '/user';
+    var postData = {token: token};
+    this.postTestService.postServer(path, postData).subscribe(data => {
+      this.userData = data;
+
+      this.purchase.name = this.userData.name;
+      this.purchase.contact = this.userData.mobile;
+      this.purchase.worklink = this.userData.sns;
+
+
     });
   }
 

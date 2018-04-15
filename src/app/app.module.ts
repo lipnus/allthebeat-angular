@@ -4,10 +4,13 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app.route';
+import { HttpModule } from '@angular/http';
 
 // [Service]
 import { PostTestService } from './service/post-test.service';
 import { MessageService } from './service/message.service';
+
+import { FacebookModule } from 'ngx-facebook';
 
 
 // [Component]
@@ -28,6 +31,8 @@ import { BaseRequestOptions } from '@angular/http';
 
 import { AuthGuard } from './guard/index';
 import { AuthenticationService, UserService } from './service/index';
+import { JoinComponent } from './join/join.component';
+import { NaverComponent } from './naver/naver.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +45,8 @@ import { AuthenticationService, UserService } from './service/index';
     PurchaseComponent,
     HomeComponent,
     LoginComponent,
+    JoinComponent,
+    NaverComponent,
   ],
   imports: [
     BrowserModule,
@@ -47,6 +54,8 @@ import { AuthenticationService, UserService } from './service/index';
     ReactiveFormsModule,
     HttpClientModule,
     AppRoutingModule,
+    FacebookModule.forRoot(),
+    HttpModule,
   ],
   providers: [
     PostTestService,
