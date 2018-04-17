@@ -55,7 +55,7 @@ export class PurchaseComponent implements OnInit {
 
     //개인정보 가져오기
     var auth = JSON.parse(localStorage.getItem('auth'));
-    this.postUser(auth.token);
+    // this.postUser(auth.token);
   }
 
   postSoundDetail(pk:number){

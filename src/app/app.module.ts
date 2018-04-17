@@ -5,6 +5,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app.route';
 import { HttpModule } from '@angular/http';
+import { Routes, RouterModule } from '@angular/router';
+
+import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 
 // [Service]
 import { PostTestService } from './service/post-test.service';
@@ -25,14 +28,15 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 
 // used to create fake backend
-import { fakeBackendProvider } from './helper/fake-backend';
-import { MockBackend, MockConnection } from '@angular/http/testing';
-import { BaseRequestOptions } from '@angular/http';
+// import { fakeBackendProvider } from './helper/fake-backend';
+// import { MockBackend, MockConnection } from '@angular/http/testing';
+// import { BaseRequestOptions } from '@angular/http';
 
 import { AuthGuard } from './guard/index';
 import { AuthenticationService, UserService } from './service/index';
 import { JoinComponent } from './join/join.component';
 import { NaverComponent } from './naver/naver.component';
+import { SearchComponent } from './search/search.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +51,7 @@ import { NaverComponent } from './naver/naver.component';
     LoginComponent,
     JoinComponent,
     NaverComponent,
+    SearchComponent,
   ],
   imports: [
     BrowserModule,
@@ -63,11 +68,12 @@ import { NaverComponent } from './naver/naver.component';
     AuthGuard,
     AuthenticationService,
     UserService,
+    {provide: LocationStrategy, useClass: HashLocationStrategy},
 
-    // providers used to create fake backend
-    fakeBackendProvider,
-    MockBackend,
-    BaseRequestOptions
+    // // providers used to create fake backend
+    // fakeBackendProvider,
+    // MockBackend,
+    // BaseRequestOptions
   ],
   bootstrap: [AppComponent]
 })

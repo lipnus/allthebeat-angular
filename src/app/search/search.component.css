@@ -1,18 +1,4 @@
 
-#test{
-  display: inline-block;
-  background: #909090;
-  width: 150px;
-  height: 30px;
-}
-
-#test2{
-  display: inline-block;
-  background: #ffcccc;
-  width: 150px;
-  height: 30px;
-}
-
 .top{
   height: 25%;
   background: #02101b;
@@ -21,39 +7,12 @@
   border-bottom: 1px solid #000000;
 }
 
-#white-short-line{
-  margin-top: 25px;
-  width: 35px;
-  height: 5px;
-  background: #ffffff;
-  margin-bottom: 10px;
-}
-
-.top .title {
-  font-weight:500;
-  font-size: 24px;
-  color: #ffffff;
-}
 
 .top .undertitle {
   margin-top: 5px;
   font-size: 14px;
   color: #909090;
   margin-bottom: 35px;
-}
-
-.logo-img{
-  display: inline-block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 40%;
-}
-
-
-.btnCheck{
-  background: #909090;
-  width: 100px;
-  height: 100px;
 }
 
 .mainbody{
@@ -143,4 +102,115 @@
   width: 100vw;
   border-bottom: 0.1px solid #ededed;
   /* border-bottom: 1px solid #606060; */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+*,
+:before,
+:after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+/* body {
+  background: #424242;
+} */
+
+form {
+  padding-top: 30px;
+  padding-bottom: 40px;
+  width: 100%;
+
+}
+
+form .emoji {
+  font-size: 1.2em;
+}
+
+.group {
+  position: relative;
+  display: inline-block;
+}
+
+textarea {
+  resize: none;
+}
+
+input,
+textarea {
+  background: none;
+  color: #c6c6c6;
+  font-size: 18px;
+  padding: 10px 10px 10px 5px;
+  display: block;
+  width: 320px;
+  border: none;
+  border-radius: 0;
+  border-bottom: 1px solid #c6c6c6;
+}
+input:focus,
+textarea:focus {
+  outline: none;
+}
+input:focus ~ label, input:valid ~ label,
+textarea:focus ~ label,
+textarea:valid ~ label {
+  top: -14px;
+  font-size: 12px;
+  color: #00cecd;
+}
+input:focus ~ .bar:before,
+textarea:focus ~ .bar:before {
+  width: 320px;
+}
+
+input[type="password"] {
+  letter-spacing: 0.3em;
+}
+
+label {
+  color: #ededed;
+  font-size: 16px;
+  font-weight: normal;
+  position: absolute;
+  pointer-events: none;
+  left: 5px;
+  top: 10px;
+  -webkit-transition: 300ms ease all;
+  transition: 300ms ease all;
+}
+
+.bar {
+  position: relative;
+  display: block;
+  width: 320px;
+}
+.bar:before {
+  content: '';
+  height: 2px;
+  width: 0;
+  bottom: 0px;
+  position: absolute;
+  background: #00cecd;
+  -webkit-transition: 300ms ease all;
+  transition: 300ms ease all;
+  left: 0%;
 }

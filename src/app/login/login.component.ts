@@ -4,13 +4,14 @@ import { Router } from '@angular/router';
 import { AuthenticationService } from '../service/index';
 import * as mGlobal from '../global-variables';  //전역변수
 
-declare const FB:any;
-declare var naver: any;
+// declare const FB:any;
+// declare var naver: any;
 
 @Component({
     moduleId: module.id,
     templateUrl: 'login.component.html',
-    styleUrls: ['./login.component.css']
+    styleUrls: ['./login.component.css'],
+
 })
 
 export class LoginComponent implements OnInit {
@@ -88,25 +89,16 @@ export class LoginComponent implements OnInit {
 
 
     onClick_naverLogin(){
-      console.log("네이버로그인");
-
-      var state = Math.floor(Math.random()*10000000);
-      location.replace("https://nid.naver.com/oauth2.0/authorize?client_id=0Pechfht9BVKa7WombfB&response_type=code&redirect_uri=" + mGlobal.ServerPath + "/auth_naver&state=" + state);
+      alert("[로그인] 기능입니다");
+      // var state = Math.floor(Math.random()*10000000);
+      // location.replace("https://nid.naver.com/oauth2.0/authorize?client_id=0Pechfht9BVKa7WombfB&response_type=code&redirect_uri=" + mGlobal.ServerPath + "/auth_naver&state=" + state);
     }
-
-
 
 
     onClick_logout(){
       localStorage.removeItem('auth');
       this.router.navigate(['/sound_list']);
     }
-
-
-
-
-
-
 
 
     // onClick_localCheck(){
@@ -116,22 +108,22 @@ export class LoginComponent implements OnInit {
 
     //==========================================================================================
     //==========================================================================================
-    //페이스북 로그인 버튼 클릭
-    onFacebookLoginClick() {
-        console.log("onFacebookLoginClick");
-        FB.login();
-    }
-
-    //로그인상태 콜백
-    statusChangeCallback(resp) {
-        if (resp.status === 'connected') {
-            // connect here with your server for facebook login by passing access token given by facebook
-        }else if (resp.status === 'not_authorized') {
-
-        }else {
-
-        }
-    }
+    // //페이스북 로그인 버튼 클릭
+    // onFacebookLoginClick() {
+    //     console.log("onFacebookLoginClick");
+    //     FB.login();
+    // }
+    //
+    // //로그인상태 콜백
+    // statusChangeCallback(resp) {
+    //     if (resp.status === 'connected') {
+    //         // connect here with your server for facebook login by passing access token given by facebook
+    //     }else if (resp.status === 'not_authorized') {
+    //
+    //     }else {
+    //
+    //     }
+    // }
     //==========================================================================================
     //==========================================================================================
 }

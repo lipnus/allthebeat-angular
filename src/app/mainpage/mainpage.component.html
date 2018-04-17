@@ -18,6 +18,8 @@
 <div class="mainbody">
 
 <div class="sound-subtitle"></div>
+
+<div class="intervalBox">랜덤추천비트</div>
 <div class="soundBox"  *ngFor="let sound of soundData?.sound_recommend_list; let idx=index">
   <div class="img-container">
     <img class="title-play" (click)="onClick_startRecommendMusic(idx)" [src]="playImg" />
@@ -34,10 +36,7 @@
 </div>
 
 
-<div class="intervalBox"></div>
-
-
-
+<div class="intervalBox">전체비트</div>
 <div class="soundBox"  *ngFor="let sound of soundData?.sound_list; let idx=index">
   <div class="img-container">
     <img class="title-play" (click)="onClick_startMusic(idx)" [src]="playImg" />
