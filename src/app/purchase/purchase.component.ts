@@ -115,6 +115,7 @@ export class PurchaseComponent implements OnInit {
     });
   }
 
+
   postUser(token){
 
     var path = '/user';
@@ -125,7 +126,6 @@ export class PurchaseComponent implements OnInit {
       this.purchase.name = this.userData.name;
       this.purchase.contact = this.userData.mobile;
       this.purchase.worklink = this.userData.sns;
-
 
     });
   }

@@ -61,8 +61,8 @@ export class SearchComponent implements OnInit {
   }
 
   onChange_search(){
-    console.log("변화");
-    if(String(this.searchText)length > 2){
+    console.log("input detect");
+    if(String(this.searchText)length > 1){
         this.postSearch(this.searchText);
     }
   }
