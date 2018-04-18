@@ -13,7 +13,6 @@ import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { PostTestService } from './service/post-test.service';
 import { MessageService } from './service/message.service';
 
-import { FacebookModule } from 'ngx-facebook';
 
 
 // [Component]
@@ -59,7 +58,7 @@ import { SearchComponent } from './search/search.component';
     ReactiveFormsModule,
     HttpClientModule,
     AppRoutingModule,
-    FacebookModule.forRoot(),
+    // FacebookModule.forRoot(),
     HttpModule,
   ],
   providers: [
