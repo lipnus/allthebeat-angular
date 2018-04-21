@@ -3,6 +3,9 @@ import { Subscription } from 'rxjs/Subscription';
 import { MessageService } from '../service/message.service';
 import { Router } from '@angular/router';
 
+import { PostTestService } from '../service/post-test.service';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+
 import * as mGlobal from '../global-variables';  //전역변수
 
 @Component({
@@ -21,22 +24,23 @@ export class MusicplayerComponent implements OnInit, OnDestroy {
   playstate: boolean;
   showPlayer: boolean;
 
-  test;
-
   musicCurrentLocation:number; //현재재생위치
   musicDuration:number; //음악의 전체 길이
 
+  rangeLocation:number;
 
-  constructor(private messageService: MessageService,) {
+  constructor(private postTestService: PostTestService,
+               private http: HttpClient,
+               private messageService: MessageService,) {
 
-    //음악 선택을 했을 때의 콜백
+    //중간부분에서 음악 재생을 눌렀을때 콜백
     this.subscription = this.messageService.getMusicInfo().subscribe(musicInfo => {
 
       this.musicInfo = musicInfo;
       this.startMusic();
-      // console.log(this.musicInfo);
       });
   }
+
 
   ngOnInit() {
 
@@ -45,19 +49,15 @@ export class MusicplayerComponent implements OnInit, OnDestroy {
     this.playstate = false;
     this.showPlayer = false;
 
-    this.musicCurrentLocation=0;
-    this.musicDuration = 1;
 
     //재생중일때
     this.audio.addEventListener("timeupdate", (currentTime)=>{
       // console.log("cur: " + this.audio.currentTime);
-      this.musicCurrentLocation = this.audio.currentTime;
     });
 
     //최대길이가 변경되었을때
     this.audio.addEventListener("durationchange", (currentTime)=>{
       console.log("Duration: " + this.audio.duration);
-      this.musicDuration = this.audio.duration;
     });
 
     //재생이 끝났을때
@@ -65,6 +65,7 @@ export class MusicplayerComponent implements OnInit, OnDestroy {
       // console.log("Duration: " + this.audio.duration);
       console.log("끝!");
       this.stopMusic();
+      this.postSoundNextPlay();
     });
 
   }
@@ -78,7 +79,6 @@ export class MusicplayerComponent implements OnInit, OnDestroy {
     }
   }
 
-
   startMusic(){
     this.stateImgPath = "assets/pause.png";
     this.showPlayer = true;
@@ -88,7 +88,6 @@ export class MusicplayerComponent implements OnInit, OnDestroy {
     this.audio.load();
     this.audio.play();
   }
-
 
   pauseMusic(){
     this.stateImgPath = "assets/play.png";
@@ -109,7 +108,6 @@ export class MusicplayerComponent implements OnInit, OnDestroy {
     this.audio.currentTime = 0;
   }
 
-
   onClick_state(){
     if(this.playstate){
       this.pauseMusic();
@@ -117,4 +115,21 @@ export class MusicplayerComponent implements OnInit, OnDestroy {
       this.resumeMusic();
     }
   }
+
+  //서버로 다음곡 정보 요청
+  postSoundNextPlay(){
+    var path = '/sound_nextplay';
+    var postData = {sound_pk:this.musicInfo.sound_pk};
+
+    this.postTestService.postServer(path, postData).subscribe(data => {
+      this.musicInfo = data;
+      this.startMusic();
+    });
+  }
+
+  //재생구간탐색
+  onChange_rangeSlider(){
+    this.audio.currentTime = this.rangeLocation;
+  }
+
 }

@@ -71,6 +71,7 @@ export class MainpageComponent implements OnInit {
   }
 
 
+  //서버로 음원리스트 요청
   postSoundList(){
     var path = '/sound_list';
     var token = 0;
