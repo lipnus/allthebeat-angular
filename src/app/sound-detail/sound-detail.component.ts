@@ -2,7 +2,7 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 
 import { Subscription } from 'rxjs/Subscription';
 
-import { PostTestService } from '../service/post-test.service';
+import { PostToServerService } from '../service/post-to-server.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { MessageService } from '../service/message.service';
 
@@ -38,7 +38,7 @@ export class SoundDetailComponent implements OnInit {
 
 
 
-  constructor( private postTestService: PostTestService,
+  constructor( private postTestService: PostToServerService,
     private http: HttpClient,
     private messageService: MessageService,
     private route: ActivatedRoute,
@@ -76,16 +76,35 @@ export class SoundDetailComponent implements OnInit {
 
   postSoundDetail(pk:number){
     var path = '/sound_detail';
-    var postData = {user_pk:2, sound_pk: pk};
+    var token = 0;
+
+    //로그인상태이면 토큰을 보내고 아니면 0을 보냄
+    if (localStorage.getItem('auth')) {
+        var auth = JSON.parse(localStorage.getItem('auth'));
+        token = auth.token;
+        console.log("저장된 토큰 :" + token);
+    }else{
+        console.log("저장된 토큰없음");
+    }
+
+
+    var postData = {token:token, sound_pk: pk};
     this.postTestService.postServer(path, postData).subscribe(data => {
 
       this.soundDetail = data;
       this.setTypeTag();
       this.setMoodTag();
       this.setGenreTag();
+      this.applyArtwork();
+
+      if(this.soundDetail.login == 0){
+        //무효한 토큰을 가진경우 지울 수 있도록 한다(없는경우도 여기걸림)
+        console.log("토큰이 없거나 무효, 삭제처리");
+        localStorage.removeItem('auth');
+      }
 
       // console.log( this.soundDetail );
-      this.applyArtwork();
+
     });
   }
 
@@ -106,13 +125,49 @@ export class SoundDetailComponent implements OnInit {
   }
 
 
+  //좋아요
+  onClick_like(sound_pk, index){
+    if (localStorage.getItem('auth')) {
+      this.soundDetail.like_my = 1;
+      this.soundDetail.like_count++;
+      this.postUserLike(this.soundDetail.sound_pk, 1);
+    }else{
+      this.router.navigate(['/login']);
+    }
+
+  }
+
+  //좋아요 취소
+  onClick_dislike(){
+    if (localStorage.getItem('auth')) {
+      this.soundDetail.like_my = 0;
+      this.soundDetail.like_count--;
+      this.postUserLike(this.soundDetail.sound_pk, -1);
+    }else{
+      this.router.navigate(['/login']);
+    }
+  }
+
+  //서버로 좋아요 값 전송
+  postUserLike(sound_pk, heart){
+    var path = '/user_like';
+    var auth = JSON.parse(localStorage.getItem('auth'));
+    var token = auth.token;
+
+    var postData = {token:token, sound_pk:sound_pk, heart:heart};
+    this.postTestService.postServer(path, postData).subscribe(data => {
+      console.log("like처리");
+    });
+  }
+
+
 
   setGenreTag(){
     if(this.soundDetail.genre1!=""){
-      this.genreTag += "#" + this.soundDetail.genre1 + " "
+      this.genreTag += "#" + this.soundDetail.genre1 + "  "
     }
     if(this.soundDetail.genre2!=""){
-      this.genreTag += "#" + this.soundDetail.genre2 + " "
+      this.genreTag += "#" + this.soundDetail.genre2 + "  "
     }
   }
 
@@ -121,22 +176,22 @@ export class SoundDetailComponent implements OnInit {
       this.moodTag += "#" + this.soundDetail.mood1 + " "
     }
     if(this.soundDetail.mood2!=""){
-      this.moodTag += "#" + this.soundDetail.mood2 + " "
+      this.moodTag += "#" + this.soundDetail.mood2 + "  "
     }
     if(this.soundDetail.mood3!=""){
-      this.moodTag += "#" + this.soundDetail.mood3 + " "
+      this.moodTag += "#" + this.soundDetail.mood3 + "  "
     }
   }
 
   setTypeTag(){
     if(this.soundDetail.type1!="" ){
-      this.typeTag += "#" + this.soundDetail.type1 + " "
+      this.typeTag += "#" + this.soundDetail.type1 + "  "
     }
     if(this.soundDetail.type2!=""){
-      this.typeTag += "#" + this.soundDetail.type2 + " "
+      this.typeTag += "#" + this.soundDetail.type2 + "  "
     }
     if(this.soundDetail.type3!=""){
-      this.typeTag += "#" + this.soundDetail.type3 + " "
+      this.typeTag += "#" + this.soundDetail.type3 + "  "
     }
   }
 

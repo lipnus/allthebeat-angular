@@ -3,7 +3,7 @@ import { Subscription } from 'rxjs/Subscription';
 import { MessageService } from '../service/message.service';
 import { Router } from '@angular/router';
 
-import { PostTestService } from '../service/post-test.service';
+import { PostToServerService } from '../service/post-to-server.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import * as mGlobal from '../global-variables';  //전역변수
@@ -29,7 +29,7 @@ export class MusicplayerComponent implements OnInit, OnDestroy {
 
   rangeLocation:number;
 
-  constructor(private postTestService: PostTestService,
+  constructor(private postTestService: PostToServerService,
                private http: HttpClient,
                private messageService: MessageService,) {
 

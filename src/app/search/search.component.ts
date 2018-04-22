@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { PostTestService } from '../service/post-test.service';
+import { PostToServerService } from '../service/post-to-server.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { MessageService } from '../service/message.service';
 
@@ -28,7 +28,7 @@ export class SearchComponent implements OnInit {
   playImg; //플레이버튼 경로
 
 
-  constructor( private postTestService: PostTestService,
+  constructor( private postTestService: PostToServerService,
                private http: HttpClient,
                private messageService: MessageService,
                private router: Router,){

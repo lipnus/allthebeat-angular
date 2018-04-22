@@ -10,7 +10,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 
 // [Service]
-import { PostTestService } from './service/post-test.service';
+import { PostToServerService } from './service/post-to-server.service';
 import { MessageService } from './service/message.service';
 
 
@@ -63,7 +63,7 @@ import { SearchComponent } from './search/search.component';
     HttpModule,
   ],
   providers: [
-    PostTestService,
+    PostToServerService,
     MessageService,
     AuthGuard,
     AuthenticationService,

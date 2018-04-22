@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { PostTestService } from '../service/post-test.service';
+import { PostToServerService } from '../service/post-to-server.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { MessageService } from '../service/message.service';
 
@@ -32,7 +32,7 @@ export class MainpageComponent implements OnInit {
   playImg;
 
 
-  constructor( private postTestService: PostTestService,
+  constructor( private postToServerService: PostToServerService,
                private http: HttpClient,
                private messageService: MessageService,
                private router: Router,){
@@ -80,12 +80,23 @@ export class MainpageComponent implements OnInit {
     if (localStorage.getItem('auth')) {
         var auth = JSON.parse(localStorage.getItem('auth'));
         token = auth.token;
+        console.log("저장된 토큰 :" + token);
+    }else{
+        console.log("저장된 토큰없음");
     }
 
     var postData = {token:token};
-    this.postTestService.postServer(path, postData).subscribe(data => {
+    this.postToServerService.postServer(path, postData).subscribe(data => {
       this.soundData = data;
       this.applyArtworkPath(); //이미지경로에 서버위치 붙여주기
+
+      if(this.soundData.login == 0){
+        //무효한 토큰을 가진경우 지울 수 있도록 한다(없는경우도 여기걸림)
+        console.log("토큰이 없거나 무효, 삭제처리");
+        localStorage.removeItem('auth');
+      }else{
+        console.log("정상로그인처리");
+      }
 
 
       //전체 음원개수
@@ -188,7 +199,7 @@ export class MainpageComponent implements OnInit {
     var token = auth.token;
 
     var postData = {token:token, sound_pk:sound_pk, heart:heart};
-    this.postTestService.postServer(path, postData).subscribe(data => {
+    this.postToServerService.postServer(path, postData).subscribe(data => {
       console.log("like처리");
     });
   }

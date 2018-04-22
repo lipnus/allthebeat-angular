@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { PostTestService } from '../service/post-test.service';
+import { PostToServerService } from '../service/post-to-server.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { TestPost } from '../model/test-post';
@@ -23,7 +23,7 @@ export class TestComponent implements OnInit {
   globalValue;
   btnClicked:boolean;
 
-  constructor( private postTestService: PostTestService,
+  constructor( private postTestService: PostToServerService,
                private http: HttpClient,){
   }
 

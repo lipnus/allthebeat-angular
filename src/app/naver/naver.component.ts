@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PostTestService } from '../service/post-test.service';
+import { PostToServerService } from '../service/post-to-server.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { ActivatedRoute } from '@angular/router';
@@ -16,7 +16,7 @@ import * as mGlobal from '../global-variables';  //전역변수
 export class NaverComponent implements OnInit {
 
 
-  constructor(private postTestService: PostTestService,
+  constructor(private postTestService: PostToServerService,
     private http: HttpClient,
     private route: ActivatedRoute,
     private router: Router,) { }

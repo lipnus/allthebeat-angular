@@ -89,9 +89,9 @@ export class LoginComponent implements OnInit {
 
 
     onClick_naverLogin(){
-      alert("[로그인] 기능입니다");
-      // var state = Math.floor(Math.random()*10000000);
-      // location.replace("https://nid.naver.com/oauth2.0/authorize?client_id=0Pechfht9BVKa7WombfB&response_type=code&redirect_uri=" + mGlobal.ServerPath + "/auth_naver&state=" + state);
+      // alert("[로그인] 기능입니다");
+      var state = Math.floor(Math.random()*10000000);
+      location.replace("https://nid.naver.com/oauth2.0/authorize?client_id=0Pechfht9BVKa7WombfB&response_type=code&redirect_uri=" + mGlobal.ServerPath + "/auth_naver&state=" + state);
     }
 
 

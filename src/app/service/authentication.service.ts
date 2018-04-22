@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import 'rxjs/add/operator/map'
 
 
-import { PostTestService } from '../service/post-test.service';
+import { PostToServerService } from './post-to-server.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 
@@ -18,7 +18,7 @@ export class AuthenticationService {
     user: User;
 
     constructor(private http: Http,
-                private postTestService: PostTestService,
+                private postTestService: PostToServerService,
                 private router: Router,) {
 
         // set token if saved in local storage

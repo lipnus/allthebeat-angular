@@ -1,7 +1,7 @@
 
 export class SoundDetail{
+  login:number;
   sound_pk: number;
-
   beatmaker_pk: string;
   beatmaker_nickname: string;
 

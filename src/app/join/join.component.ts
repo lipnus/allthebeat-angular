@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PostTestService } from '../service/post-test.service';
+import { PostToServerService } from '../service/post-to-server.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { ActivatedRoute } from '@angular/router';
@@ -17,7 +17,7 @@ export class JoinComponent implements OnInit {
 
   userData: UserData;
 
-  constructor(private postTestService: PostTestService,
+  constructor(private postTestService: PostToServerService,
     private http: HttpClient,
     private route: ActivatedRoute,
     private router: Router,) { }

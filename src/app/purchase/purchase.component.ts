@@ -2,7 +2,7 @@ import { Component, OnInit,ViewEncapsulation } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Subscription } from 'rxjs/Subscription';
 
-import { PostTestService } from '../service/post-test.service';
+import { PostToServerService } from '../service/post-to-server.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { MessageService } from '../service/message.service';
 
@@ -36,7 +36,7 @@ export class PurchaseComponent implements OnInit {
   soundDetail: SoundDetail;
   userData: UserData;
 
-  constructor( private postTestService: PostTestService,
+  constructor( private postTestService: PostToServerService,
     private http: HttpClient,
     private messageService: MessageService,
     private route: ActivatedRoute,

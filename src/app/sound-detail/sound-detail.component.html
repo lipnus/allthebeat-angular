@@ -12,7 +12,8 @@
   <span id="sound-name" (click)="onClick_startMusic()">{{soundDetail?.sound_name}}</span>
 
   <div class="bpm-and-heart">
-    <img class="heart-img" src="assets/heart_black.png" alt="image"/>
+    <img *ngIf="soundDetail?.like_my==0" class="heart-img" src="assets/heart_black.png" alt="image" (click)="onClick_like()"/>
+    <img *ngIf="soundDetail?.like_my==1" class="heart-img" src="assets/heart_mint.png" alt="image" (click)="onClick_dislike()"/>
     <div class="mini-text">{{soundDetail?.like_count}}</div>
   </div>
 
