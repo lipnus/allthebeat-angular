@@ -64,13 +64,6 @@ export class MainpageComponent implements OnInit {
   }
 
 
-  onClick_test(){
-    console.log("회색클릭");
-    // this.sendMessage();
-    this.sendMusicInfo();
-  }
-
-
   //서버로 음원리스트 요청
   postSoundList(){
     var path = '/sound_list';
@@ -80,7 +73,7 @@ export class MainpageComponent implements OnInit {
     if (localStorage.getItem('auth')) {
         var auth = JSON.parse(localStorage.getItem('auth'));
         token = auth.token;
-        console.log("저장된 토큰 :" + token);
+        // console.log("저장된 토큰 :" + token);
     }else{
         console.log("저장된 토큰없음");
     }

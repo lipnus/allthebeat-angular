@@ -132,15 +132,23 @@
 
 .intervalBox{
   display: table-cell;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 500;
-  padding-bottom: 6px;
+  padding-bottom: 7px;
   padding-left: 8px;
-  background: #f5f5f5;
+  background: #ffffff;
+  /* background: #f5f5f5; */
   /* text-align: center; */
   vertical-align:bottom;
-  height: 50px;
+  height: 25px;
   width: 100vw;
-  border-bottom: 0.1px solid #ededed;
+  border-bottom: 0.1px solid #dbd7d7;
   /* border-bottom: 1px solid #606060; */
+}
+
+#intervalBox_gray{
+  width: 100vw;
+  height: 60px;
+  background: #f5f5f5;
+  border-bottom: 0.1px solid #dbd7d7;
 }

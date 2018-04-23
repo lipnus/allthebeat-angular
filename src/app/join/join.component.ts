@@ -30,6 +30,7 @@ export class JoinComponent implements OnInit {
     this.postToken(state);
   }
 
+  //코드를 이용하여 토큰을 받아온다
   postToken(state){
     var path = '/auth_naver/token_please';
     var postData = {state: state};
@@ -76,14 +77,20 @@ export class JoinComponent implements OnInit {
   //유저의 정보를 갱신한다
   postUpdateUser(){
   var path = '/user/update';
-  var postData = this.userData;
+  var postData =
+  {
+    token: JSON.parse(localStorage.getItem('auth')).token,
+    nickname:this.userData.nickname,
+    mobile:this.userData.mobile,
+    sns:this.userData.sns,
+    introduce:this.userData.introduce
+  };
+
   this.postTestService.postServer(path, postData).subscribe(data => {
     this.userData = data;
 
-    // //닉네임이 없을 시 이름으로 대체
-    // if(this.userData.nickname == ""){
-    //   this.userData.nickname = this.userData.name;
-    // }
+    this.router.navigate(['/soundlist']);
+
   });
   }
 
