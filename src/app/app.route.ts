@@ -32,7 +32,7 @@ const routes: Routes = [
   { path: 'sounddetail/:sound_pk', component: SoundDetailComponent },
   { path: 'sounddetail', component: SoundDetailComponent },
   { path: 'musicplayer', component: MusicplayerComponent },
-  { path: 'purchase/:sound_pk', component: PurchaseComponent },
+  { path: 'purchase/:sound_pk', component: PurchaseComponent,canActivate: [AuthGuard] },
   { path: 'naver/:state', component: NaverComponent },
   { path: 'naver', component: NaverComponent },
   { path: 'join', component: JoinComponent },
