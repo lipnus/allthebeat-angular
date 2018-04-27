@@ -1,24 +1,17 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <!-- 최상단 타이틀 -->
 <div class="top">
-  <img class="logo-img" src="assets/logo_beta.png"/>
-  <!-- <div id="white-short-line"></div> -->
-  <!-- <div class="title">ALL THE BEAT</div> -->
-  <div class="undertitle"> {{soundCount}} Tracks </div>
+  <img class="logo-img" src="assets/logo.png"/>
+  <div class="beta-title">OPEN BETA</div>
+  <div class="number-title"> {{soundCount}} Tracks </div>
 
 </div>
 
 
 
-<!-- <img class="title-play" [src]="artworkPath"/>
-<span id="beatmaker">{{artworkPath}}</span> -->
-
-<!-- <button id="testBtn" (click)="onClick_test()">음악테스트</button> -->
-
 <div class="mainbody">
 
 <div class="sound-subtitle"></div>
-
 <div class="intervalBox">랜덤추천비트</div>
 <div class="soundBox"  *ngFor="let sound of soundData?.sound_recommend_list; let idx=index">
   <div class="img-container">
@@ -34,6 +27,7 @@
     <img *ngIf="sound.like_my==1" class="heart-img-on" src="assets/heart_mint.png" alt="image" (click)="onClick_recommend_dislike(sound.sound_pk, idx)"/>
   </div>
 </div>
+
 
 <div id="intervalBox_gray"></div>
 <div class="intervalBox">전체비트</div>

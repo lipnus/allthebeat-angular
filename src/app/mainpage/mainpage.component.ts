@@ -171,8 +171,8 @@ export class MainpageComponent implements OnInit {
     }else{
       this.router.navigate(['/login']);
     }
-
   }
+
 
   //좋아요 취소
   onClick_dislike(sound_pk, index){
