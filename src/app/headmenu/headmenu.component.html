@@ -2,7 +2,10 @@
   {{message?.text}}
   <!-- <a routerLink="/fuck">{{test}}</a> -->
   <!-- <img id="logo-img" src="assets/logo_black.png" routerLink="/soundlist" /> -->
+  <!-- <a id="question-a" href="https://m.facebook.com/messages/thread/1937020259950147/?entrypoint=web%3Atrigger%3Afb_page_cta_page_primary_button&__tn__=%2CJ" target="_blank">1:1 문의하기</a> -->
   <img id="home-img" src="assets/home_gray.png" routerLink="/soundlist" />
   <img id="search-img" src="assets/search_gray.png" routerLink="/search" />
-   <img id="menu-img" src="assets/menu_gray.png" routerLink="/login">
+   <img id="menu-img" src="assets/menu_gray.png" (click)="onClick_menu()">
 </div>
+
+<!-- *ngIf="!isMenuOpen"  -->

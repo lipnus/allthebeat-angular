@@ -75,7 +75,7 @@ export class MainpageComponent implements OnInit {
         token = auth.token;
         // console.log("저장된 토큰 :" + token);
     }else{
-        console.log("저장된 토큰없음");
+        // console.log("저장된 토큰없음");
     }
 
     var postData = {token:token};
@@ -85,12 +85,11 @@ export class MainpageComponent implements OnInit {
 
       if(this.soundData.login == 0){
         //무효한 토큰을 가진경우 지울 수 있도록 한다(없는경우도 여기걸림)
-        console.log("토큰이 없거나 무효, 삭제처리");
+        // console.log("토큰이 없거나 무효, 삭제처리");
         localStorage.removeItem('auth');
       }else{
-        console.log("정상로그인처리");
+        // console.log("정상로그인처리");
       }
-
 
       //전체 음원개수
       this.soundCount = this.soundData.sound_list.length +

@@ -9,11 +9,11 @@ import * as mGlobal from '../global-variables';  //전역변수
 import { UserData } from '../model';
 
 @Component({
-  selector: 'app-join',
-  templateUrl: './join.component.html',
-  styleUrls: ['./join.component.css']
+  selector: 'app-modify-info',
+  templateUrl: './modify-info.component.html',
+  styleUrls: ['./modify-info.component.css']
 })
-export class JoinComponent implements OnInit {
+export class ModifyInfoComponent implements OnInit {
 
   userData: UserData;
   type:string;//html에서  join인지 modify인지 알기 위해서
@@ -25,28 +25,12 @@ export class JoinComponent implements OnInit {
 
   ngOnInit() {
     this.userData = new UserData();
-    var state = this.route.snapshot.paramMap.get('state');
 
-    console.log(state);
-    this.postToken(state);
-    this.type="join";
-  }
+    if (localStorage.getItem('auth')) {
+      var auth = JSON.parse(localStorage.getItem('auth'));
+      this.postUser(auth.token);
+    }
 
-  //코드를 이용하여 토큰을 받아온다
-  postToken(state){
-    var path = '/auth_naver/token_please';
-    var postData = {state: state};
-    this.postTestService.postServer(path, postData).subscribe(data => {
-
-      localStorage.setItem('auth', JSON.stringify({ token: data.token }));
-      // console.log("받은토큰: "+ data.token);
-
-      var aaa = JSON.parse(localStorage.getItem('auth'));
-      // console.log("저장된토큰: " + aaa.token);
-
-      this.postUser(data.token);
-
-    });
   }
 
   //토큰을 이용하여 유저정보를 받아온다
@@ -55,11 +39,6 @@ export class JoinComponent implements OnInit {
     var postData = {token: token};
     this.postTestService.postServer(path, postData).subscribe(data => {
       this.userData = data;
-
-      // //닉네임이 없을 시 이름으로 대체
-      // if(this.userData.nickname == ""){
-      //   this.userData.nickname = this.userData.name;
-      // }
     });
   }
 
@@ -88,7 +67,9 @@ export class JoinComponent implements OnInit {
 
   this.postTestService.postServer(path, postData).subscribe(data => {
     this.userData = data;
+
     this.router.navigate(['/soundlist']);
+
   });
   }
 

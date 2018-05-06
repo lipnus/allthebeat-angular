@@ -26,6 +26,7 @@ import { PurchaseComponent } from './purchase/purchase.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 
+
 // used to create fake backend
 // import { fakeBackendProvider } from './helper/fake-backend';
 // import { MockBackend, MockConnection } from '@angular/http/testing';
@@ -37,6 +38,9 @@ import { AuthenticationService, UserService } from './service/index';
 import { JoinComponent } from './join/join.component';
 import { NaverComponent } from './naver/naver.component';
 import { SearchComponent } from './search/search.component';
+import { MenuComponent } from './menu/menu.component';
+import { ModifyInfoComponent } from './modify-info/modify-info.component';
+
 
 @NgModule({
   declarations: [
@@ -52,6 +56,8 @@ import { SearchComponent } from './search/search.component';
     JoinComponent,
     NaverComponent,
     SearchComponent,
+    MenuComponent,
+    ModifyInfoComponent,
   ],
   imports: [
     BrowserModule,

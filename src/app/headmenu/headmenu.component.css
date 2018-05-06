@@ -8,6 +8,15 @@
   /* border-bottom: 0.1px solid #ededed; */
 }
 
+#question-a{
+  font-size: 14px;
+  padding: 4px;
+  margin-left: 16px;
+  float: left;
+  color: #d5dae0;
+  text-decoration:none
+}
+
 #home-img{
   box-sizing: border-box;
   padding: 4px;

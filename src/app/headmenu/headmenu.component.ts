@@ -1,4 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Router } from '@angular/router';
+import {Location} from '@angular/common';
+
 import { Subscription } from "rxjs/Rx";
 import { MessageService } from '../service/message.service';
 import * as mGlobal from '../global-variables';  //전역변수
@@ -15,23 +18,36 @@ export class HeadmenuComponent implements OnInit, OnDestroy {
 
   message: any;
   subscription: Subscription;
+  isMenuOpen:boolean;
 
-  constructor(private messageService: MessageService) {
+  constructor(private messageService: MessageService,
+              private router: Router,
+              private location: Location) {
     this.subscription = this.messageService.getMessage().subscribe(message => {
       this.message = message;
     });
   }
 
   ngOnInit() {
-    this.test = mGlobal.test;
+    this.isMenuOpen = false;
   }
 
   ngOnDestroy() {
     this.subscription.unsubscribe();
   }
 
-  onclick_incomplete(){
-    alert("준비중인 기능입니다");
+  onClick_menu(){
+    console.log("메뉴");
+    if(this.isMenuOpen){
+      this.isMenuOpen=false;
+      this.location.back();
+    }else{
+      this.isMenuOpen=true;
+      this.router.navigate(['/menu']);
+    }
+  }
+
+
   }
 
 
