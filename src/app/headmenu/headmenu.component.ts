@@ -49,6 +49,3 @@ export class HeadmenuComponent implements OnInit, OnDestroy {
 
 
   }
-
-
-}
