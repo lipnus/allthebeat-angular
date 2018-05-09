@@ -9,4 +9,5 @@ export class SoundData{
     this.sound_recommend_list = [];
     this.sound_list = [];
   }
+  
 }

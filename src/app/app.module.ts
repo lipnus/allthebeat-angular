@@ -41,6 +41,7 @@ import { SearchComponent } from './search/search.component';
 import { MenuComponent } from './menu/menu.component';
 import { ModifyInfoComponent } from './modify-info/modify-info.component';
 import { RecommendComponent } from './recommend/recommend.component';
+// import { SafePipe } from './safe.pipe';
 
 
 @NgModule({
@@ -60,6 +61,7 @@ import { RecommendComponent } from './recommend/recommend.component';
     MenuComponent,
     ModifyInfoComponent,
     RecommendComponent,
+    // SafePipe,
   ],
   imports: [
     BrowserModule,
