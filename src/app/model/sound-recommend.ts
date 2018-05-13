@@ -10,6 +10,13 @@ export class SoundRecommend{
   mood2:string;
   mood3:string;
 
+  rec_count:number;
+  bpm_sum:number;
+  rank_genre1:string;
+  rank_genre2:string;
+  rank_mood1:string;
+  rank_mood2:string;
+
   constructor(){
     this.recommend_pk=0;
     this.bpm=0;
@@ -18,6 +25,13 @@ export class SoundRecommend{
     this.mood1="";
     this.mood2="";
     this.mood3="";
+
+    this.rec_count=0;
+    this.bpm=0;
+    this.rank_genre1="";
+    this.rank_genre2="";
+    this.rank_mood1="";
+    this.rank_mood2="";
   }
 
 }
