@@ -88,7 +88,7 @@ export class RecommendComponent implements OnInit {
     };
 
     this.postToServerService.postServer(path, postData).subscribe(data => {
-        this.soundRecommend.rec_count = "";
+        this.soundRecommend.rec_count = 0;
         this.soundRecommend.rank_genre1 = "0";
         this.soundRecommend.rank_genre2 = "0";
         this.soundRecommend.rank_mood1 = "0";

@@ -8,7 +8,6 @@ import { MessageService } from '../service/message.service';
 // [model]
 import { SoundData } from '../model/sound-list';
 import { SoundListDetail } from '../model/sound-list-detail';
-
 import * as mGlobal from '../global-variables';  //전역변수
 
 
