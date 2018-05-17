@@ -42,7 +42,7 @@ const routes: Routes = [
   { path: 'join', component: JoinComponent },
   { path: 'join/:state', component: JoinComponent },
   { path: 'modifyinfo', component: ModifyInfoComponent },
-  { path: 'recommend', component: RecommendComponent },
+  { path: 'recommend', component: RecommendComponent, canActivate: [AuthGuard] },
 
   { path: 'search', component: SearchComponent },
   { path: 'menu', component: MenuComponent },

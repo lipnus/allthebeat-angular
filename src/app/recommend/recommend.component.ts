@@ -5,9 +5,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 //[model]
 import { SoundRecommend } from '../model';
-
 import * as mGlobal from '../global-variables';  //전역변수
-
 import { DomSanitizer } from "@angular/platform-browser";
 
 @Component({
@@ -33,7 +31,12 @@ export class RecommendComponent implements OnInit {
   ngOnInit() {
     this.recCount=0;
     this.soundRecommend = new SoundRecommend();
-    this.postRecommend("request", 0);
+    // localStorage.setItem('auth', JSON.stringify({ token: "AAAAONniP+UVUFCIWloEWxN+P/ilyYwx9l1bUlYJ47+HAdZAfybrPJzvhbhwr5mX9CDhqogZ3Zk4EJa7dQsVxH39img=" }));
+
+    if (localStorage.getItem('auth')) {
+        let auth = JSON.parse(localStorage.getItem('auth'));
+        this.postRecommend("request", 0, auth.token);
+    }
   }
 
 
@@ -50,10 +53,10 @@ export class RecommendComponent implements OnInit {
     this.youtubePath = this.domSanitizer.bypassSecurityTrustResourceUrl('https://www.youtube.com/embed/' + pathArray[pathArray.length-1] + '?autoplay=1');
   }
 
-  postRecommend(type:string, score:number){
+  postRecommend(type:string, score:number, token:string){
     var path = "/recommend";
     var postData = {
-      token:0,
+      token:token,
       type:type,
       recommend_pk:this.soundRecommend.recommend_pk,
       bpm:this.soundRecommend.bpm,
@@ -65,36 +68,50 @@ export class RecommendComponent implements OnInit {
       score:score
     };
 
-
     this.postToServerService.postServer(path, postData).subscribe(data => {
       console.log(data);
-      this.soundRecommend = data;
-      this.setYoutubePath(data.youtube);
 
-      // this.avgBpm = data.bpm_sum / data.rec_count;
-      this.recCount++;
+      if(data.result=="ok"){
+        this.soundRecommend = data;
+        this.setYoutubePath(data.youtube);
+        this.recCount++;
+      }else if(data.result=="token_error"){
+        //유효하지 않은 토큰
+        localStorage.removeItem('auth');
+      }
+
     });
   }
 
   onClick_score(score:number){
-    this.postRecommend("answer", score);
+    // localStorage.setItem('auth', JSON.stringify({ token: "AAAAONniP+UVUFCIWloEWxN+P/ilyYwx9l1bUlYJ47+HAdZAfybrPJzvhbhwr5mX9CDhqogZ3Zk4EJa7dQsVxH39img=" }));
+
+    if (localStorage.getItem('auth')) {
+        let auth = JSON.parse(localStorage.getItem('auth'));
+        this.postRecommend("answer", score, auth.token);
+    }
+
+
   }
 
   onClick_reset(){
 
-    var path = "/recommend/reset";
-    var postData = {
-      token:0,
-    };
+    if (localStorage.getItem('auth')) {
+        var auth = JSON.parse(localStorage.getItem('auth'));
 
-    this.postToServerService.postServer(path, postData).subscribe(data => {
-        this.soundRecommend.rec_count = 0;
-        this.soundRecommend.rank_genre1 = "0";
-        this.soundRecommend.rank_genre2 = "0";
-        this.soundRecommend.rank_mood1 = "0";
-        this.soundRecommend.rank_mood2 = "0";
+        var path = "/recommend/reset";
+        var postData = {
+          token:auth.token,
+        };
 
-
-    });
+        this.postToServerService.postServer(path, postData).subscribe(data => {
+            this.soundRecommend.rec_count = 0;
+            this.soundRecommend.rank_genre1 = "0";
+            this.soundRecommend.rank_genre2 = "0";
+            this.soundRecommend.rank_mood1 = "0";
+            this.soundRecommend.rank_mood2 = "0";
+        });
+    }
   }
+
 }

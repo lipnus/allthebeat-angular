@@ -1,6 +1,7 @@
 
 export class SoundRecommend{
 
+  result:string;
   recommend_pk:number;
   youtube:string;
   bpm:number;
@@ -18,6 +19,7 @@ export class SoundRecommend{
   rank_mood2:string;
 
   constructor(){
+    this.result="";
     this.recommend_pk=0;
     this.bpm=0;
     this.genre1="";
