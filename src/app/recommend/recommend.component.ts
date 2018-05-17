@@ -75,6 +75,10 @@ export class RecommendComponent implements OnInit {
         this.soundRecommend = data;
         this.setYoutubePath(data.youtube);
         this.recCount++;
+
+        console.log("장르: " + this.soundRecommend.rank_genre1 + " , " + this.soundRecommend.rank_genre2);
+        console.log("무드: " + this.soundRecommend.rank_mood1 + " , " + this.soundRecommend.rank_mood2);
+
       }else if(data.result=="token_error"){
         //유효하지 않은 토큰
         localStorage.removeItem('auth');

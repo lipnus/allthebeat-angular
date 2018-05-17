@@ -60,13 +60,14 @@ export class MainpageComponent implements OnInit {
     this.artworkPath = mGlobal.ArtworkPath;
     this.soundCount=0;
     this.postSoundList();
+
   }
 
 
   //서버로 음원리스트 요청
   postSoundList(){
     var path = '/sound_list';
-    var token = 0;
+    var token = "AAAAONLyEv4hRS7eQUXg0W/D9GnEpP9HJ0gt70KiHkkMxLfGppSnjXgoRxe9wBwdCZf3U5NhXjo4Es4k5WX/9fNicy4=";
 
     //로그인상태이면 토큰을 보내고 아니면 0을 보냄
     if (localStorage.getItem('auth')) {
