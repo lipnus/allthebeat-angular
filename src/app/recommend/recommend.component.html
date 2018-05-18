@@ -1,20 +1,30 @@
+<div class="recommend-container" *ngIf="soundRecommend.rec_count<11 && isLoaded==true">
+
 <iframe width="100%" height="300px" [src]='this.youtubePath' frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-<!--
-<iframe width="420" height="345" src="http://www.youtube.com/embed/oHg5SJYRHA0?autoplay=1" frameborder="0" allowfullscreen></iframe> -->
 
-<p class="count-text">#{{soundRecommend.rec_count}}</p>
-<!-- <p>선호장르: {{soundRecommend.rank_genre1}} , {{soundRecommend.rank_genre2}}</p>
-
-<p>선호분위기: {{soundRecommend.rank_mood1}} , {{soundRecommend.rank_mood2}}</p> -->
+  <div class="count-text">#{{soundRecommend.rec_count}}</div>
+  <!-- <div class="analysis-container">
+    <div class="analysis-text">{{soundRecommend.rank_mood1}}, {{soundRecommend.rank_mood2}}한 분위기의 {{soundRecommend.rank_genre1}}, {{soundRecommend.rank_genre2}} 장르를 선호</div>
+  </div> -->
 
 
+  <div class="btn-container">
+    <div class="score-text">비트를 듣고 본인의 취향에 따라 점수를 매겨주세요.</div>
+    <button class="btn" (click)="onClick_score(-5)">1</button>
+    <button class="btn" (click)="onClick_score(-1)">2</button>
+    <button class="btn" (click)="onClick_score(1)">3</button>
+    <button class="btn" (click)="onClick_score(3)">4</button>
+    <button class="btn" (click)="onClick_score(5)">5</button>
+  </div>
 
-<div class="container">
-  <button class="btn" (click)="onClick_score(-5)">1</button>
-  <button class="btn" (click)="onClick_score(-1)">2</button>
-  <button class="btn" (click)="onClick_score(1)">3</button>
-  <button class="btn" (click)="onClick_score(3)">4</button>
-  <button class="btn" (click)="onClick_score(5)">5</button>
 </div>
+
+<div class="finish-container" *ngIf="soundRecommend.rec_count>10">
+  <p class="finish-p">분석이 완료되었습니다</p>
+  <div class="analysis-text">{{soundRecommend.rank_mood1}}, {{soundRecommend.rank_mood2}}한 분위기의 <br/> {{soundRecommend.rank_genre1}}, {{soundRecommend.rank_genre2}} 장르를 선호</div>
+
+  <button class="result-btn" routerLink="/mainpage">추천리스트 보러가기</button>
+<div>
+<!-- 검사완료 -->
 
 <!-- <button class="btn_reset" (click)="onClick_reset()">초기화</button> -->

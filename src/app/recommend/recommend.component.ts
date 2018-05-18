@@ -15,13 +15,14 @@ import { DomSanitizer } from "@angular/platform-browser";
 })
 
 
-export class RecommendComponent implements OnInit {
+export class RecommendComponent simplements OnInit {
 
   recCount:number;
   youtubePath;
   soundRecommend:SoundRecommend; //추천데이터 정보
   avgBpm:number; //평균bpm (서버에서 받은 전체 bpm을 횟수로 나눎)
   aaa;
+  isLoaded:boolean;
 
   constructor(private postToServerService: PostToServerService,
     private http: HttpClient,
@@ -29,6 +30,7 @@ export class RecommendComponent implements OnInit {
     private domSanitizer : DomSanitizer ) { }
 
   ngOnInit() {
+    this.isLoaded=false;
     this.recCount=0;
     this.soundRecommend = new SoundRecommend();
     // localStorage.setItem('auth', JSON.stringify({ token: "AAAAONniP+UVUFCIWloEWxN+P/ilyYwx9l1bUlYJ47+HAdZAfybrPJzvhbhwr5mX9CDhqogZ3Zk4EJa7dQsVxH39img=" }));
@@ -71,6 +73,8 @@ export class RecommendComponent implements OnInit {
     this.postToServerService.postServer(path, postData).subscribe(data => {
       console.log(data);
 
+      this.isLoaded=true;
+
       if(data.result=="ok"){
         this.soundRecommend = data;
         this.setYoutubePath(data.youtube);
@@ -78,6 +82,7 @@ export class RecommendComponent implements OnInit {
 
         console.log("장르: " + this.soundRecommend.rank_genre1 + " , " + this.soundRecommend.rank_genre2);
         console.log("무드: " + this.soundRecommend.rank_mood1 + " , " + this.soundRecommend.rank_mood2);
+
 
       }else if(data.result=="token_error"){
         //유효하지 않은 토큰

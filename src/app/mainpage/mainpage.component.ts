@@ -28,6 +28,8 @@ export class MainpageComponent implements OnInit {
   soundCount;
   artworkPath:string;
 
+  recommendTitle:string;
+
   playImg;
 
 
@@ -59,6 +61,10 @@ export class MainpageComponent implements OnInit {
     this.playImg = "assets/circle-play.png";
     this.artworkPath = mGlobal.ArtworkPath;
     this.soundCount=0;
+    this.recommendTitle = "랜덤추천비트";
+
+    // localStorage.setItem('auth', JSON.stringify({ token: "AAAAOIqLPQ5ykugczq+LaV9+dxsE3EaMdOHbMq/0brMfvRUyBeOU9ADKlyQmnF6w72OAmEMmxB1gedMZbtSP2ojehqQ=" }));
+
     this.postSoundList();
 
   }
@@ -67,15 +73,12 @@ export class MainpageComponent implements OnInit {
   //서버로 음원리스트 요청
   postSoundList(){
     var path = '/sound_list';
-    var token = "AAAAONLyEv4hRS7eQUXg0W/D9GnEpP9HJ0gt70KiHkkMxLfGppSnjXgoRxe9wBwdCZf3U5NhXjo4Es4k5WX/9fNicy4=";
+    var token = 0;
 
     //로그인상태이면 토큰을 보내고 아니면 0을 보냄
     if (localStorage.getItem('auth')) {
         var auth = JSON.parse(localStorage.getItem('auth'));
         token = auth.token;
-        // console.log("저장된 토큰 :" + token);
-    }else{
-        // console.log("저장된 토큰없음");
     }
 
     var postData = {token:token};
@@ -89,6 +92,16 @@ export class MainpageComponent implements OnInit {
         localStorage.removeItem('auth');
       }else{
         // console.log("정상로그인처리");
+      }
+
+      //로그인은 하였으나 추천을 완료하지 않음
+      if(this.soundData.login==1 && this.soundData.recommend==0){
+        this.router.navigate(['/recommend']);
+      }
+
+      //추천완료
+      if(this.soundData.recommend==1){
+        this.recommendTitle = "맞춤추천비트";
       }
 
       //전체 음원개수

@@ -10,5 +10,3 @@ export const ArtworkPath =
 "http://ec2-13-125-247-213.ap-northeast-2.compute.amazonaws.com/artwork"
 
 export var test="전역변수 테스트";
-
-export const textToken="AAAAONniP+UVUFCIWloEWxN+P/ilyYwx9l1bUlYJ47+HAdZAfybrPJzvhbhwr5mX9CDhqogZ3Zk4EJa7dQsVxH39img=";

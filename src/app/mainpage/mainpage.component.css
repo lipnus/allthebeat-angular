@@ -60,8 +60,8 @@
 .title-img{
   border-radius: 1px;
   display: inline-block;
-  width: 45px;
-  height: 45px;
+  width: 44px;
+  height: 44px;
   box-shadow: 0px 0px 10px -5px rgba(0, 0, 0, 0.8);
 }
 
@@ -105,14 +105,14 @@
   box-sizing: border-box;
   margin-right: 10px;
   width: 30px;
-  padding: 2px;
+  padding: 3px;
 }
 
 .soundBox > .middle > .heart-img-on{
   box-sizing: border-box;
   margin-right: 8px;
-  width: 34px;
-  padding: 2px;
+  width: 30px;
+  padding: 3px;
 }
 
 

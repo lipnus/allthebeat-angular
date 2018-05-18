@@ -1,10 +1,16 @@
+.recommend-container{
+width: 100%;
+height: 100%;
 
-.container{
-  margin-left: 10px;
-  margin-right: 10px;
+}
+.btn-container{
+  position: fixed;
+  bottom: 0;
   text-align: center;
   width: 100%;
-  margin-bottom: 20px;
+  left: 50%;
+  margin-left: -50%;
+  margin-bottom: 90px;
 }
 
 .btn{
@@ -12,16 +18,27 @@
   font-size: 25px;
   color: #ffffff;
   height: 50px;
-  background: #00cecd;
+  background: #02101b;
   border: none;
   outline: none;
   width: 50px;
-  margin-top: 30px;
 
 }
 
 .count-text{
-  font-size: 20px;
+  font-size: 25px;
+  margin-left: 12px;
+}
+
+.analysis-container{
+  width: 100%;
+}
+
+.analysis-text{
+  display: inline-block;
+  font-size: 14px;
+  padding: 10px;
+  width: 80%;
 }
 
 .btn_reset{
@@ -35,4 +52,33 @@
   width: 250px;
   margin-top: 30px;
   margin-bottom: 100px;
+}
+
+.finish-container{
+  width: 100%;
+  text-align: center;
+  padding-top: 50px;
+}
+
+.finish-p{
+  font-size: 23px;
+}
+
+.score-text{
+  font-size: 12px;
+  width: 100%;
+  color: #909090;
+  margin-bottom: 6px;
+  display: inline-block;
+}
+
+.result-btn{
+  display: inline-block;
+  color: #ffffff;
+  height: 50px;
+  background: #02101b;
+  margin-top: 50px;
+  border: none;
+  outline: none;
+  width: 250px;
 }
