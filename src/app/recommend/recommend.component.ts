@@ -80,8 +80,10 @@ export class RecommendComponent implements OnInit {
         this.setYoutubePath(data.youtube);
         this.recCount++;
 
-        console.log("장르: " + this.soundRecommend.rank_genre1 + " , " + this.soundRecommend.rank_genre2);
-        console.log("무드: " + this.soundRecommend.rank_mood1 + " , " + this.soundRecommend.rank_mood2);
+        console.log("카운트: " + data.rec_count);
+
+        // console.log("장르: " + this.soundRecommend.rank_genre1 + " , " + this.soundRecommend.rank_genre2);
+        // console.log("무드: " + this.soundRecommend.rank_mood1 + " , " + this.soundRecommend.rank_mood2);
 
 
       }else if(data.result=="token_error"){
