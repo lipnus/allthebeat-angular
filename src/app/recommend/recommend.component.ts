@@ -15,7 +15,7 @@ import { DomSanitizer } from "@angular/platform-browser";
 })
 
 
-export class RecommendComponent simplements OnInit {
+export class RecommendComponent implements OnInit {
 
   recCount:number;
   youtubePath;
