@@ -101,28 +101,31 @@ export class RecommendComponent implements OnInit {
         let auth = JSON.parse(localStorage.getItem('auth'));
         this.postRecommend("answer", score, auth.token);
     }
-
-
   }
 
   onClick_reset(){
 
     if (localStorage.getItem('auth')) {
         var auth = JSON.parse(localStorage.getItem('auth'));
-
         var path = "/recommend/reset";
         var postData = {
           token:auth.token,
         };
 
         this.postToServerService.postServer(path, postData).subscribe(data => {
-            this.soundRecommend.rec_count = 0;
-            this.soundRecommend.rank_genre1 = "0";
-            this.soundRecommend.rank_genre2 = "0";
-            this.soundRecommend.rank_mood1 = "0";
-            this.soundRecommend.rank_mood2 = "0";
+
+          //onInit과 동일한 과정
+          this.isLoaded=false;
+          this.recCount=0;
+          this.soundRecommend = new SoundRecommend();
+
+          if (localStorage.getItem('auth')) {
+              let auth = JSON.parse(localStorage.getItem('auth'));
+              this.postRecommend("request", 0, auth.token);
+          }
+
         });
-    }
+    }//if
   }
 
 }

@@ -9,9 +9,10 @@
 }
 
 #question-a{
-  font-size: 14px;
+  font-size: 10px;
   padding: 4px;
   margin-left: 16px;
+  padding-top: 8px;
   float: left;
   color: #d5dae0;
   text-decoration:none

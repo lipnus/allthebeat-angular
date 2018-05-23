@@ -26,8 +26,9 @@ height: 100%;
 }
 
 .count-text{
-  font-size: 25px;
-  margin-left: 12px;
+  margin-top: 14px;
+  font-size: 20px;
+  margin-left: 14px;
 }
 
 .analysis-container{
@@ -77,8 +78,16 @@ height: 100%;
   color: #ffffff;
   height: 50px;
   background: #02101b;
-  margin-top: 50px;
   border: none;
   outline: none;
-  width: 250px;
+  width: 280px;
+  margin-bottom: 15px;
+}
+
+.btn-container{
+  position: fixed;
+  width: 280px;
+  margin-bottom: 40px;
+  left:50%;
+  margin-left: -140px;
 }

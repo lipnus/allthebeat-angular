@@ -22,9 +22,12 @@
 <div class="finish-container" *ngIf="soundRecommend.rec_count>10">
   <p class="finish-p">분석이 완료되었습니다</p>
   <div class="analysis-text">{{soundRecommend.rank_mood1}}, {{soundRecommend.rank_mood2}}한 분위기의 <br/> {{soundRecommend.rank_genre1}}, {{soundRecommend.rank_genre2}} 장르를 선호</div>
-
-  <button class="result-btn" routerLink="/mainpage">추천리스트 보러가기</button>
 <div>
+
+<div class="btn-container">
+  <button class="result-btn" routerLink="/mainpage">추천리스트 보러가기</button>
+  <button class="result-btn" (click)="onClick_reset()">분석 다시하기</button>
+</div>
 <!-- 검사완료 -->
 
 <!-- <button class="btn_reset" (click)="onClick_reset()">초기화</button> -->
