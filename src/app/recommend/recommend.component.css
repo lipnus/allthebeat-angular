@@ -1,9 +1,9 @@
 .recommend-container{
 width: 100%;
-height: 100%;
+height: 100vh;
 
 }
-.btn-container{
+/* .btn-container{
   position: fixed;
   bottom: 0;
   text-align: center;
@@ -11,7 +11,7 @@ height: 100%;
   left: 50%;
   margin-left: -50%;
   margin-bottom: 90px;
-}
+} */
 
 .btn{
   display: inline-block;
@@ -86,8 +86,9 @@ height: 100%;
 
 .btn-container{
   position: fixed;
+  bottom: 0;
   width: 280px;
-  margin-bottom: 40px;
+  margin-bottom: 120px;
   left:50%;
   margin-left: -140px;
 }

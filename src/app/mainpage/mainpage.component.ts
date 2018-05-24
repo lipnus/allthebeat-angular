@@ -63,7 +63,7 @@ export class MainpageComponent implements OnInit {
     this.soundCount=0;
     this.recommendTitle = "랜덤추천비트";
 
-    // localStorage.setItem('auth', JSON.stringify({ token: "AAAAOKDKsvEKmItJQN84ZZBtd3uvqEMBBona6xL0/nMswh9WX2gfKkWWpZvaS2xdsMbii0b3t7nu2Hr9v/KNILsVDzs=" }));
+    // localStorage.setItem('auth', JSON.stringify({ token: "AAAAOE/kjVe9ZKX1f+/0CCZWSSY01vZcNTxr30PJRWHx501K/e293wVEMavcuwElUv+Ov7nlwE1D3y72937ZT4pGKEM=" }));
 
     this.postSoundList();
 
