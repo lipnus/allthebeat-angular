@@ -15,6 +15,8 @@ import { MenuComponent } from './menu/menu.component';
 import { JoinComponent } from './join/join.component';
 import { ModifyInfoComponent } from './modify-info/modify-info.component';
 import { RecommendComponent } from './recommend/recommend.component';
+import { UploadComponent } from './upload/upload.component';
+
 
 
 import { NaverComponent } from './naver/naver.component';
@@ -43,6 +45,8 @@ const routes: Routes = [
   { path: 'join/:state', component: JoinComponent },
   { path: 'modifyinfo', component: ModifyInfoComponent },
   { path: 'recommend', component: RecommendComponent, canActivate: [AuthGuard] },
+  { path: 'upload', component: UploadComponent,  },
+
 
   { path: 'search', component: SearchComponent },
   { path: 'menu', component: MenuComponent },
