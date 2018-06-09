@@ -9,4 +9,6 @@ export const SoundPath = "http://ec2-13-125-247-213.ap-northeast-2.compute.amazo
 export const ArtworkPath =
 "http://ec2-13-125-247-213.ap-northeast-2.compute.amazonaws.com/artwork"
 
+
+export const detailDomainPath = "http://allthebeat.com/#/sounddetail/"
 export var test="전역변수 테스트";

@@ -6,6 +6,8 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app.route';
 import { HttpModule } from '@angular/http';
 import { Routes, RouterModule } from '@angular/router';
+import { ClipboardModule } from 'ngx-clipboard';
+
 
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 
@@ -63,6 +65,7 @@ import { FooterComponent } from './component/footer/footer.component';
     ReactiveFormsModule,
     HttpClientModule,
     AppRoutingModule,
+    ClipboardModule,
     // FacebookModule.forRoot(),
     HttpModule,
   ],

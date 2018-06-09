@@ -19,8 +19,13 @@
   padding: 10px 12px 10px 12px;
 }
 
-.bpm-and-heart{
+.submenu-container{
   float: right;
+  text-align: center;
+}
+
+#sub2{
+  margin-right: 20px;
 }
 
 .mini-text{
@@ -30,14 +35,21 @@
 
 .heart-img{
   margin-top: 6px;
-  width: 40px;
+  width: 30px;
+  padding: 2px;
+}
+
+.share-img{
+  margin-top: 6px;
+  width: 30px;
+  padding: 2px;
 }
 
 #sound-name{
   display: inline-block;
   font-size: 36px;
   font-weight: 500;
-  max-width: 80%;
+  max-width: 50%;
 }
 
 .sub-title-box{
@@ -61,12 +73,19 @@
 
 .purchase-btn{
   margin-top: 60px;
-  font-size: 25px;
+  font-size: 22px;
   color: #ffffff;
   height: 60px;
-  background: #00cecd;
+  background: #02101b;
+  border-radius: 3px;
+  /* background: #00cecd; */
   border: none;
   outline: none;
   width: 100%;
+  margin-bottom: 40px;
+}
+
+#btn2{
+  margin-top: 20px;
   margin-bottom: 100px;
 }

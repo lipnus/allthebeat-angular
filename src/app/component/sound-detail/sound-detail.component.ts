@@ -15,6 +15,8 @@ import { Router } from '@angular/router';
 import * as mGlobal from '../../global-variables';  //전역변수
 
 
+import { ClipboardModule } from 'ngx-clipboard';
+
 
 @Component({
   selector: 'app-sound-detail',
@@ -36,6 +38,8 @@ export class SoundDetailComponent implements OnInit {
 
   test;
 
+  hereURL:string; //클립보드에 저장될 현재경로
+
 
 
   constructor( private postTestService: PostToServerService,
@@ -55,7 +59,6 @@ export class SoundDetailComponent implements OnInit {
   ngOnInit() {
     this.playImg = "assets/circle-play.png";
     this.artworkPath = "";
-
   }
 
   private ngDoCheck() {
@@ -72,6 +75,9 @@ export class SoundDetailComponent implements OnInit {
 
     console.log("NowPK: " + this.sound_pk);
     this.postSoundDetail( this.sound_pk );
+
+    //클립보드 경로 설정
+    this.hereURL = mGlobal.detailDomainPath + this.sound_pk;
   }
 
   postSoundDetail(pk:number){
@@ -147,6 +153,13 @@ export class SoundDetailComponent implements OnInit {
       this.router.navigate(['/login']);
     }
   }
+
+  //현재경로를 클립보드에 저장
+  onClick_copyurl(){
+    alert("클립보드에 복사되었습니다!");
+  }
+
+
 
   //서버로 좋아요 값 전송
   postUserLike(sound_pk, heart){

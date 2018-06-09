@@ -11,11 +11,18 @@
 <div class="introduceBox">
   <span id="sound-name" (click)="onClick_startMusic()">{{soundDetail?.sound_name}}</span>
 
-  <div class="bpm-and-heart">
-    <img *ngIf="soundDetail?.like_my==0" class="heart-img" src="assets/heart_black.png" alt="image" (click)="onClick_like()"/>
-    <img *ngIf="soundDetail?.like_my==1" class="heart-img" src="assets/heart_mint.png" alt="image" (click)="onClick_dislike()"/>
+  <div class="submenu-container">
+     <img class="share-img" src="assets/share.png" alt="image"ngxClipboard [cbContent]="hereURL" (cbOnSuccess)="onClick_copyurl()"/>
+    <div class="mini-text">URL복사</div>
+  </div>
+
+  <div class="submenu-container" id="sub2">
+    <img *ngIf="soundDetail?.like_my==0" class="heart-img" src="assets/heart_simple_black.png" alt="image" (click)="onClick_like()"/>
+    <img *ngIf="soundDetail?.like_my==1" class="heart-img" src="assets/heart_simple_red.png" alt="image" (click)="onClick_dislike()"/>
     <div class="mini-text">{{soundDetail?.like_count}}</div>
   </div>
+
+
 
   <div id="bpm">{{soundDetail?.sound_bpm}} BPM</div>
 
@@ -40,11 +47,8 @@
   <div class="sub-content">{{typeTag}}</div>
 
 
-
-
-
-
-
   <button class="purchase-btn" routerLink="/purchase/{{soundDetail?.sound_pk}}">구매의뢰</button>
 
-</div>
+  <!-- <button class="purchase-btn" id="btn2" routerLink="/purchase/{{soundDetail?.sound_pk}}">페이지경로 클립보드에 복사</button> -->
+
+<!-- <button class="btn btn-default" type="button" ngxClipboard [cbContent]="hereURL" (cbOnSuccess)="onClick_copyurl()">copy</button> -->
