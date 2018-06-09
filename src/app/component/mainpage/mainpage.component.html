@@ -24,7 +24,7 @@
   </div>
   <div class="middle">
     <img *ngIf="sound.like_my==0" class="heart-img" src="assets/heart_simple_black.png" alt="image" (click)="onClick_recommend_like(sound.sound_pk, idx)"/>
-    <img *ngIf="sound.like_my==1" class="heart-img-on" src="assets/heart_simple_black.png" alt="image" (click)="onClick_recommend_dislike(sound.sound_pk, idx)"/>
+    <img *ngIf="sound.like_my==1" class="heart-img-on" src="assets/heart_simple_red.png" alt="image" (click)="onClick_recommend_dislike(sound.sound_pk, idx)"/>
   </div>
 </div>
 
