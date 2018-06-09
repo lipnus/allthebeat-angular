@@ -13,35 +13,27 @@ import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { PostToServerService } from './service/post-to-server.service';
 import { MessageService } from './service/message.service';
 
-
-
 // [Component]
 import { AppComponent } from './app.component';
 import { TestComponent } from './test/test.component';
-import { HeadmenuComponent } from './headmenu/headmenu.component';
-import { MainpageComponent } from './mainpage/mainpage.component';
-import { SoundDetailComponent } from './sound-detail/sound-detail.component';
-import { MusicplayerComponent } from './musicplayer/musicplayer.component';
-import { PurchaseComponent } from './purchase/purchase.component';
-import { HomeComponent } from './home/home.component';
-import { LoginComponent } from './login/login.component';
-
-
-// used to create fake backend
-// import { fakeBackendProvider } from './helper/fake-backend';
-// import { MockBackend, MockConnection } from '@angular/http/testing';
-// import { BaseRequestOptions } from '@angular/http';
+import { HeadmenuComponent } from './component/headmenu/headmenu.component';
+import { MainpageComponent } from './component/mainpage/mainpage.component';
+import { SoundDetailComponent } from './component/sound-detail/sound-detail.component';
+import { MusicplayerComponent } from './component/musicplayer/musicplayer.component';
+import { PurchaseComponent } from './component/purchase/purchase.component';
+import { LoginComponent } from './component/login/login.component';
 
 
 import { AuthGuard } from './guard/index';
 import { AuthenticationService, UserService } from './service/index';
-import { JoinComponent } from './join/join.component';
-import { NaverComponent } from './naver/naver.component';
-import { SearchComponent } from './search/search.component';
-import { MenuComponent } from './menu/menu.component';
-import { ModifyInfoComponent } from './modify-info/modify-info.component';
-import { RecommendComponent } from './recommend/recommend.component';
-import { UploadComponent } from './upload/upload.component';
+import { JoinComponent } from './component/join/join.component';
+import { NaverComponent } from './component/naver/naver.component';
+import { SearchComponent } from './component/search/search.component';
+import { MenuComponent } from './component/menu/menu.component';
+import { ModifyInfoComponent } from './component/modify-info/modify-info.component';
+import { RecommendComponent } from './component/recommend/recommend.component';
+import { UploadComponent } from './component/upload/upload.component';
+import { FooterComponent } from './component/footer/footer.component';
 // import { SafePipe } from './safe.pipe';
 
 
@@ -54,7 +46,6 @@ import { UploadComponent } from './upload/upload.component';
     SoundDetailComponent,
     MusicplayerComponent,
     PurchaseComponent,
-    HomeComponent,
     LoginComponent,
     JoinComponent,
     NaverComponent,
@@ -63,6 +54,7 @@ import { UploadComponent } from './upload/upload.component';
     ModifyInfoComponent,
     RecommendComponent,
     UploadComponent,
+    FooterComponent,
     // SafePipe,
   ],
   imports: [
@@ -81,11 +73,6 @@ import { UploadComponent } from './upload/upload.component';
     AuthenticationService,
     UserService,
     {provide: LocationStrategy, useClass: HashLocationStrategy},
-
-    // // providers used to create fake backend
-    // fakeBackendProvider,
-    // MockBackend,
-    // BaseRequestOptions
   ],
   bootstrap: [AppComponent]
 })

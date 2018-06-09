@@ -3,25 +3,24 @@ import {NgModule} from "@angular/core";
 
 // [Component]
 import { TestComponent } from './test/test.component';
-import { MainpageComponent } from './mainpage/mainpage.component';
-import { SoundDetailComponent } from './sound-detail/sound-detail.component';
-import { MusicplayerComponent } from './musicplayer/musicplayer.component';
-import { PurchaseComponent } from './purchase/purchase.component';
-import { SearchComponent } from './search/search.component';
-import { MenuComponent } from './menu/menu.component';
+import { MainpageComponent } from './component/mainpage/mainpage.component';
+import { SoundDetailComponent } from './component/sound-detail/sound-detail.component';
+import { MusicplayerComponent } from './component/musicplayer/musicplayer.component';
+import { PurchaseComponent } from './component/purchase/purchase.component';
+import { SearchComponent } from './component/search/search.component';
+import { MenuComponent } from './component/menu/menu.component';
 
 
 
-import { JoinComponent } from './join/join.component';
-import { ModifyInfoComponent } from './modify-info/modify-info.component';
-import { RecommendComponent } from './recommend/recommend.component';
-import { UploadComponent } from './upload/upload.component';
+import { JoinComponent } from './component/join/join.component';
+import { ModifyInfoComponent } from './component/modify-info/modify-info.component';
+import { RecommendComponent } from './component/recommend/recommend.component';
+import { UploadComponent } from './component/upload/upload.component';
 
 
 
-import { NaverComponent } from './naver/naver.component';
-import { LoginComponent } from './login/login.component';
-import { HomeComponent } from './home/home.component';
+import { NaverComponent } from './component/naver/naver.component';
+import { LoginComponent } from './component/login/login.component';
 
 
 import { AuthGuard } from './guard/index';

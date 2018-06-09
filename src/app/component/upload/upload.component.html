@@ -1,0 +1,34 @@
+<h1>
+<!-- here we echo the title from the component -->
+  {{title}}
+</h1>
+
+<!-- File input for the file-upload plugin, with special ng2-file-upload directive called ng2FileSelect -->
+<!-- <input type="file" name="photo" ng2FileSelect [uploader]="uploader" /> -->
+<!-- button to trigger the file upload when submitted -->
+
+<div>
+  <p>아트워크</p>
+<input type="file" accept="image/png,image/jpg,image/jpeg" (change)="handleUploadFileChanged($event)">
+</div>
+<div *ngFor="let item of uploaderArtwork.queue">
+  <strong>{{ item?.file?.name }}</strong>
+</div>
+
+
+<div>
+  <p>음원</p>
+  <input type="file" accept="audio/mp3" (change)="handleUploadFileChanged($event)">
+</div>
+<div *ngFor="let item of uploaderBeat.queue">
+  <strong>{{ item?.file?.name }}</strong>
+</div>
+
+
+<br/><br/>
+<button (click)="clearQueue()">clearQueue</button>
+<button type="button" class="btn btn-success btn-s" (click)="upload()" >
+    Upload with ng-2 file uploader
+</button>
+
+<!-- [disabled]="!uploader.getNotUploadedItems().length" -->
