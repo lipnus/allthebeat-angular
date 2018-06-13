@@ -12,6 +12,9 @@ import { SoundDetail } from '../../model/sound-detail';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 
+//[modal]
+import { ModalService } from '../../service/index';
+
 import * as mGlobal from '../../global-variables';  //전역변수
 
 
@@ -39,14 +42,15 @@ export class SoundDetailComponent implements OnInit {
   test;
 
   hereURL:string; //클립보드에 저장될 현재경로
-
+  modalText:string;
 
 
   constructor( private postTestService: PostToServerService,
     private http: HttpClient,
     private messageService: MessageService,
     private route: ActivatedRoute,
-    private router: Router,){
+    private router: Router,
+    private modalService: ModalService,){
 
     //경로 뒤에 붙은 숫자 가져오기
     router.events.subscribe(e => {
@@ -154,11 +158,6 @@ export class SoundDetailComponent implements OnInit {
     }
   }
 
-  //현재경로를 클립보드에 저장
-  onClick_copyurl(){
-    alert("클립보드에 복사되었습니다!");
-  }
-
 
 
   //서버로 좋아요 값 전송
@@ -207,5 +206,14 @@ export class SoundDetailComponent implements OnInit {
       this.typeTag += "#" + this.soundDetail.type3 + "  "
     }
   }
+
+  openUrlModal(){
+    this.modalText="URL이 클립보드에 복사되었습니다."
+    this.modalService.open('url-modal');
+   }
+
+   closeModal(id: string){
+       this.modalService.close(id);
+   }
 
 }

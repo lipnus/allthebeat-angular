@@ -12,3 +12,78 @@ html, body {
   margin: 0%;
   font-family: 'Raleway';
 }
+
+
+
+/* MODAL STYLES
+-------------------------------*/
+modal {
+    /* modals are hidden by default */
+    display: none;
+
+    /* modal container fixed across whole screen */
+    background: #ffffff;
+    width: 280px;
+    height: 90px;
+
+    position: fixed;
+    top: 40vh;
+    right: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -140px;
+
+    /* z-index must be higher than .modal-background */
+    z-index: 1000;
+}
+
+modal .modal-title{
+ font-size: 14px;
+ font-weight: 500;
+ padding: 15px 15px 0px 15px;
+ background: #ffffff;
+}
+
+modal .modal-body{
+ font-size: 13px;
+ padding: 18px;
+ width: 100%;
+ height: 90px;
+ background: #ffffff;
+ box-sizing: border-box;
+}
+
+modal .modal-background{
+  position: fixed;
+  z-index: -1;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background: #000000;
+  opacity: 0.6;
+}
+
+modal .modal-icon{
+  width: 40px;
+}
+
+modal .modal-button{
+  border: none;
+  outline: none;
+  padding: 7px;
+  font-size: 15px;
+  margin-top: 15px;
+  box-sizing: border-box;
+  background: none;
+  color: #02101b;
+  display: inline-block;
+  float:right;
+}
+
+
+
+body.modal-open {
+    /* body overflow is hidden to hide main scrollbar when modal window is open */
+    overflow: hidden;
+}

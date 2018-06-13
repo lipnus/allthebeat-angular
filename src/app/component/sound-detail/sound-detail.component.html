@@ -12,7 +12,7 @@
   <span id="sound-name" (click)="onClick_startMusic()">{{soundDetail?.sound_name}}</span>
 
   <div class="submenu-container">
-     <img class="share-img" src="assets/share.png" alt="image"ngxClipboard [cbContent]="hereURL" (cbOnSuccess)="onClick_copyurl()"/>
+     <img class="share-img" src="assets/share.png" alt="image"ngxClipboard [cbContent]="hereURL" (cbOnSuccess)="openUrlModal()"/>
     <div class="mini-text">URL복사</div>
   </div>
 
@@ -52,3 +52,18 @@
   <!-- <button class="purchase-btn" id="btn2" routerLink="/purchase/{{soundDetail?.sound_pk}}">페이지경로 클립보드에 복사</button> -->
 
 <!-- <button class="btn btn-default" type="button" ngxClipboard [cbContent]="hereURL" (cbOnSuccess)="onClick_copyurl()">copy</button> -->
+
+<!-- <button (click)="openModal('url-modal', 'url이 클립보드에 복사되었습니다!')">모달테스트</button> -->
+
+<modal id="url-modal">
+    <div class="modal">
+        <div class="modal-title">
+          <img class="modal-icon" src="assets/icon_black.png"/>
+        </div>
+        <div class="modal-body">
+            <div>{{modalText}}</div>
+            <button class="modal-button" (click)="closeModal('url-modal');">확인</button>
+        </div>
+    </div>
+    <div class="modal-background"></div>
+</modal>

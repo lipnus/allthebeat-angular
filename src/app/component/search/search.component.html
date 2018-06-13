@@ -4,7 +4,7 @@
 
   <form>
     <div class="group">
-      <input type="text" name="search" [(ngModel)]="searchText" (keyup)="onChange_search()" required="required"/><span class="highlight"></span><span class="bar"></span>
+      <input type="text" name="search" [(ngModel)]="searchText" (keydown)="onChange_search()" required="required"/><span class="highlight"></span><span class="bar"></span>
       <label>Search</label>
     </div>
   </form>
@@ -16,19 +16,25 @@
 
 <div class="mainbody">
 
+<div class="search-info" *ngIf="soundCount ==0">
+  #제목 #장르 #분위기 #비트메이커로 검색 <br/>
+  ex) Trap, Chill, dark... <br/>
+  {{soundData?.sound_list.size}}
+</div>
+
 <!-- <div class="intervalBox">검색결과</div> -->
 <div class="soundBox"  *ngFor="let sound of soundData?.sound_list; let idx=index">
   <div class="img-container">
     <img class="title-play" (click)="onClick_startMusic(idx)" [src]="playImg" />
-    <img class="title-img" (click)="onClick_startMusic(idx)" [src]="sound.img_path" onerror="this.src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoay64LKl95CVGh-idAVk1Bx4UlAporvMIXA_KszjZ4IMjAoGqww'"/>
+    <img class="title-img" (click)="onClick_startMusic(idx)" [src]="sound.img_path" onerror="this.src='/assets/placeholder.png'"/>
   </div>
   <div routerLink="/sounddetail/{{sound.sound_pk}}" class="title-text">
     <span id="title">{{sound.sound_name}}</span><br/>
     <span id="beatmaker">{{sound.beatmaker_nickname}}</span>
   </div>
   <div class="middle">
-    <img *ngIf="sound.like_my==0" class="heart-img" src="assets/heart_black.png" alt="image" (click)="onClick_like(sound.sound_pk, idx)"/>
-    <img *ngIf="sound.like_my==1" class="heart-img-on" src="assets/heart_mint.png" alt="image" (click)="onClick_dislike(sound.sound_pk, idx)"/>
+    <img *ngIf="sound.like_my==0" class="heart-img" src="assets/heart_simple_black.png" alt="image" (click)="onClick_like(sound.sound_pk, idx)"/>
+    <img *ngIf="sound.like_my==1" class="heart-img-on" src="assets/heart_simple_red.png" alt="image" (click)="onClick_dislike(sound.sound_pk, idx)"/>
   </div>
 </div>
 

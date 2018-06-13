@@ -12,8 +12,10 @@ import { ClipboardModule } from 'ngx-clipboard';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 
 // [Service]
-import { PostToServerService } from './service/post-to-server.service';
-import { MessageService } from './service/message.service';
+import { PostToServerService } from './service/index';
+import { MessageService } from './service/index';
+import { ModalService } from './service/index';
+
 
 // [Component]
 import { AppComponent } from './app.component';
@@ -36,7 +38,9 @@ import { ModifyInfoComponent } from './component/modify-info/modify-info.compone
 import { RecommendComponent } from './component/recommend/recommend.component';
 import { UploadComponent } from './component/upload/upload.component';
 import { FooterComponent } from './component/footer/footer.component';
-// import { SafePipe } from './safe.pipe';
+
+//[directive]
+import { ModalComponent } from './directive/index';
 
 
 @NgModule({
@@ -57,7 +61,7 @@ import { FooterComponent } from './component/footer/footer.component';
     RecommendComponent,
     UploadComponent,
     FooterComponent,
-    // SafePipe,
+    ModalComponent,
   ],
   imports: [
     BrowserModule,
@@ -75,6 +79,7 @@ import { FooterComponent } from './component/footer/footer.component';
     AuthGuard,
     AuthenticationService,
     UserService,
+    ModalService,
     {provide: LocationStrategy, useClass: HashLocationStrategy},
   ],
   bootstrap: [AppComponent]

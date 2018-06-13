@@ -27,7 +27,6 @@ export class MainpageComponent implements OnInit {
   btnClicked:boolean;
   soundCount;
   artworkPath:string;
-
   recommendTitle:string;
 
   playImg;
@@ -63,7 +62,7 @@ export class MainpageComponent implements OnInit {
     this.soundCount=0;
     this.recommendTitle = "랜덤추천비트";
 
-    // localStorage.setItem('auth', JSON.stringify({ token: "AAAAOE/kjVe9ZKX1f+/0CCZWSSY01vZcNTxr30PJRWHx501K/e293wVEMavcuwElUv+Ov7nlwE1D3y72937ZT4pGKEM=" }));
+    // localStorage.setItem('auth', JSON.stringify({ token: "AAAAOA82a1kAhZfsUyeF+95vWfpAewVqkTCm3w8sMhShIWfMmqxVgUQ2tnHXqlGWfxwDKdar0yRZg9Q9ORYeXKsbX2c=" }));
 
     this.postSoundList();
 

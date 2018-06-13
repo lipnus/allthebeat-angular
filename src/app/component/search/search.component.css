@@ -19,6 +19,16 @@
   margin-bottom: 76px;
 }
 
+.search-info{
+  line-height: 1.5em;
+  text-align: center;
+  margin-top: 40%;
+  margin-bottom: 60%;
+  margin-left: 10%;
+  width: 80%;
+  font-size: 14px;
+}
+
 .soundBox{
   background: #ffffff;
   color: #3c3c3c;
@@ -78,14 +88,14 @@
   box-sizing: border-box;
   margin-right: 10px;
   width: 30px;
-  padding: 2px;
+  padding: 8px;
 }
 
 .soundBox > .middle > .heart-img-on{
   box-sizing: border-box;
-  margin-right: 8px;
-  width: 34px;
-  padding: 2px;
+  margin-right: 10px;
+  width: 30px;
+  padding: 8px;
 }
 
 
