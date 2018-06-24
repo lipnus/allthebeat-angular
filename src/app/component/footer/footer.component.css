@@ -9,7 +9,21 @@
   padding-top: 30px;
 }
 
-.facebooklogo{
-  display: inline-block;
-  width: 32px;
+.logo-container{
+  text-align: center;
 }
+
+.youtubelogo{
+  allign: center;
+  display: inline-block;
+  width: 25px;
+}
+
+.facebooklogo{
+  padding-bottom: 2px;
+  margin-left: 10px;
+  display: inline-block;
+  width: 30px;
+}
+
+

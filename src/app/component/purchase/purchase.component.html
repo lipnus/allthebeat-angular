@@ -8,46 +8,47 @@
   <div class="terms">본 비트는 원작자의 허가 없이 무단 다운로드 및 사용이 금지됩니다. 이를 유저가 어길 경우 발생되는 모든 책임은 유저 본인에게 귀속됩니다.</div>
   <div class="terms">아래 기재하는 개인정보는 '올더비트' 서비스 진행 및 기타 관련 이벤트에 활용됩니다.</div>
 
-  <!-- <hr class="line"/> -->
-
-  <div class="check-area" (click)="checkFunction()" >
-  <label class="check-container" >상기 절차 및 개인정보 제공에 대해 숙지하였으며 이에 동의합니다
-    <input type="checkbox" [checked]="termChecked">
+  <div class="check-area">
+  <label class="check-container">상기 절차 및 개인정보 제공에 대해 숙지하였으며 이에 동의합니다
+    <input type="checkbox" [checked]="termChecked" (click)="checkFunction()">
     <span class="checkmark"></span>
   </label>
   </div>
 
 
-  <form>
+  <div class="group">
+    <div class="input-title">이름</div>
+    <input class="simple-input" type="text" [(ngModel)]="purchase.name" required="required"/>
+  </div>
 
-    <!-- <hr class="sep"/> -->
+  <div class="group">
+    <div class="input-title">연락처</div>
+    <input class="simple-input" type="text" [(ngModel)]="purchase.contact" required="required"/>
+  </div>
 
-    <div class="group">
-      <input type="text" name="name" [(ngModel)]="purchase.name" required="required"/><span class="highlight"></span><span class="bar"></span>
-      <label>이름</label>
-    </div>
+  <div class="group">
+    <div class="input-title">작업물링크</div>
+    <input class="simple-input" type="text" [(ngModel)]="purchase.worklink" required="required"/>
+  </div>
 
-    <div class="group">
-      <input type="text" name="contact" [(ngModel)]="purchase.contact" required="required"/><span class="highlight"></span><span class="bar"></span>
-      <label>연락처</label>
-    </div>
+  <div class="group">
+    <div class="input-title">구매희망가</div>
+    <select class="simple-select" [(ngModel)]="purchase.price">
+              <option>LEASE ₩30,000</option>
+              <option>EXCLUSIVE ₩200,000</option>
+    </select>
+    <!-- <input class="simple-input" type="text" [(ngModel)]="purchase.price" required="required"/> -->
 
-    <div class="group">
-      <input type="text" name="worklink" [(ngModel)]="purchase.worklink" required="required"/><span class="highlight"></span><span class="bar"></span>
-      <label>작업물링크</label>
-    </div>
+  </div>
 
-    <div class="group">
-      <input type="text" name="price" [(ngModel)]="purchase.price" required="required"/><span class="highlight"></span><span class="bar"></span>
-      <label>구매희망가</label>
-    </div>
+  <!-- <button (click)="onClick_test()">테스트</button> -->
 
-    <div class="group">
-      <textarea type="textarea" name="add_info" [(ngModel)]="purchase.add_info" required="required"></textarea>
-      <span class="highlight"></span><span class="bar"></span>
-      <label>추가요청사항</label>
-    </div>
-  </form>
+  <div class="group">
+    <div class="input-title">추가요청사항</div>
+    <textarea class="simple-input" [(ngModel)]="purchase.add_info" required="required">
+    </textarea>
+  </div>
 
-  <button class="send-btn" (click)="sendOrder()">{{btn_str}}</button>
+
+  <button class="send-btn" (click)="sendOrder()">구매하기</button>
 </div>

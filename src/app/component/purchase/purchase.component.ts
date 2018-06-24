@@ -25,7 +25,7 @@ export class PurchaseComponent implements OnInit {
 
   textValue;
 
-  termChecked; //약관동의여부
+  termChecked:boolean; //약관동의여부
   res_name;
 
   sound_pk;
@@ -44,7 +44,7 @@ export class PurchaseComponent implements OnInit {
 
   ngOnInit() {
     this.termChecked = false;
-    this.btn_str = "SEND";
+    this.btn_str = "구매하기";
     this.purchase = new Purchase();
 
     window.scrollTo(0, 0); //끌올
@@ -72,6 +72,7 @@ export class PurchaseComponent implements OnInit {
   }
 
   checkFunction(){
+    console.log("tlqkf");
     if(this.termChecked){
       this.termChecked=false;
     }else{
@@ -133,6 +134,13 @@ export class PurchaseComponent implements OnInit {
       this.purchase.worklink = this.userData.sns;
 
     });
+  }
+
+  onClick_test(){
+    console.log("가격: " + this.purchase.price);
+    console.log("체크: " + this.termChecked);
+
+
   }
 
 }

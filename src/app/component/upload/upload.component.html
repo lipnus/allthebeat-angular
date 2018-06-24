@@ -1,34 +1,224 @@
-<h1>
-<!-- here we echo the title from the component -->
-  {{title}}
-</h1>
+<div class="wrapper">
 
-<!-- File input for the file-upload plugin, with special ng2-file-upload directive called ng2FileSelect -->
-<!-- <input type="file" name="photo" ng2FileSelect [uploader]="uploader" /> -->
-<!-- button to trigger the file upload when submitted -->
+  <span id="title-text">비트등록</span>
 
-<div>
-  <p>아트워크</p>
-<input type="file" accept="image/png,image/jpg,image/jpeg" (change)="handleUploadFileChanged($event)">
-</div>
-<div *ngFor="let item of uploaderArtwork.queue">
-  <strong>{{ item?.file?.name }}</strong>
-</div>
+  <form>
 
 
-<div>
-  <p>음원</p>
-  <input type="file" accept="audio/mp3" (change)="handleUploadFileChanged($event)">
+    <div class="group">
+      <div class="input-title">TITLE</div>
+      <input class="simple-input" type="text" [(ngModel)]="soundUpload.sound_name" name="title" required="required"/>
+    </div>
+
+
+    <div class="group">
+      <div class="input-title">ArtWork(앨범이미지)</div>
+      <input type="file" accept="image/png,image/jpg,image/jpeg" name="artwrok" (change)="handleUploadFileChanged($event)">
+    </div>
+    <div *ngFor="let item of uploaderArtwork.queue">
+      <strong>{{ item?.file?.name }}</strong>
+    </div>
+
+    <div class="sep"></div>
+
+    <div class="group">
+      <div class="input-title">LICENSE</div>
+      <select class="simple-select" [(ngModel)]="soundUpload.license" name="license" >
+        <option>lease(mp3)</option>
+        <option>lease(mp3+wav)</option>
+        <option>lease(mp3+wav) + exclusive(wav)</option>
+      </select>
+    </div>
+
+
+    <div class="file-container">
+      <div class="group">
+        <div class="input-title">mp3 음원</div>
+        <input type="file" accept="audio/mp3" name="mp3sound" (change)="handleUploadFileChanged($event)">
+      </div>
+
+      <div *ngIf="soundUpload.license == 'lease(mp3+wav)' ||
+            soundUpload.license == 'lease(mp3+wav) + exclusive(wav)'" class="group">
+        <div class="input-title">wav 음원</div>
+        <input type="file" accept="audio/wav" name="wavsound" (change)="handleUploadFileChanged($event)">
+      </div>
+
+      <div *ngIf="soundUpload.license == 'lease(mp3+wav) + exclusive(wav)'" class="group">
+        <div class="input-title">WAV TRACK(zip)</div>
+        <input type="file" accept="application/zip" name="tracksound" (change)="handleUploadFileChanged($event)">
+      </div>
+    </div>
+
+    <br/><br/>
+    <button (click)="clearQueue()">clearQueue</button>
+    <button type="button" class="btn btn-success btn-s" (click)="upload()" >
+      Upload with ng-2 file uploader
+    </button>
+
+    <div class="sep"></div>
+
+
+    <div class="group">
+      <div class="input-title">GENRE1</div>
+      <select class="simple-select" name="genre1" [(ngModel)]="soundUpload.genre1">
+        <option>Boombap</option>
+        <option>Cloud</option>
+        <option>Electronic</option>
+        <option>FUTURE_BASS</option>
+        <option>G_funk</option>
+        <option>HOUSE</option>
+        <option>Old_school</option>
+        <option>POP</option>
+        <option>RnB</option>
+        <option>Trap</option>
+        <option>Urban_Pop</option>
+        <option>Ratchet</option>
+        <option>WEST_COAST</option>
+      </select>
+    </div>
+
+    <div class="group">
+      <div class="input-title">GENRE2</div>
+      <select class="simple-select" name="genre2" [(ngModel)]="soundUpload.genre2">
+        <option>Boombap</option>
+        <option>Cloud</option>
+        <option>Electronic</option>
+        <option>FUTURE_BASS</option>
+        <option>G_funk</option>
+        <option>HOUSE</option>
+        <option>Old_school</option>
+        <option>POP</option>
+        <option>RnB</option>
+        <option>Trap</option>
+        <option>Urban_Pop</option>
+        <option>Ratchet</option>
+        <option>WEST_COAST</option>
+      </select>
+    </div>
+
+    <div class="group">
+      <div class="input-title">MOOD1</div>
+      <select class="simple-select" name="mood1" [(ngModel)]="soundUpload.mood1">
+        <option>bell</option>
+        <option>calm</option>
+        <option>club</option>
+        <option>dancehall</option>
+        <option>dark</option>
+        <option>dope</option>
+        <option>dreamy</option>
+        <option>emotional</option>
+        <option>ghetto</option>
+        <option>happy</option>
+        <option>hard</option>
+        <option>jazzy</option>
+        <option>lofi</option>
+        <option>mellow</option>
+        <option>positive</option>
+        <option>power</option>
+        <option>relaxed</option>
+        <option>smooth</option>
+        <option>summer</option>
+        <option>synth</option>
+        <option>trendy</option>
+        <option>twerk</option>
+        <option>wobble</option>
+        <option>nineties</option>
+      </select>
+    </div>
+
+    <div class="group">
+      <div class="input-title">MOOD2</div>
+      <select class="simple-select" name="mood2" [(ngModel)]="soundUpload.mood2">
+        <option>bell</option>
+        <option>calm</option>
+        <option>club</option>
+        <option>dancehall</option>
+        <option>dark</option>
+        <option>dope</option>
+        <option>dreamy</option>
+        <option>emotional</option>
+        <option>ghetto</option>
+        <option>happy</option>
+        <option>hard</option>
+        <option>jazzy</option>
+        <option>lofi</option>
+        <option>mellow</option>
+        <option>positive</option>
+        <option>power</option>
+        <option>relaxed</option>
+        <option>smooth</option>
+        <option>summer</option>
+        <option>synth</option>
+        <option>trendy</option>
+        <option>twerk</option>
+        <option>wobble</option>
+        <option>nineties</option>
+      </select>
+    </div>
+
+    <div class="group">
+      <div class="input-title">MOOD3</div>
+      <select class="simple-select" name="mood3" [(ngModel)]="soundUpload.mood3">
+        <option>bell</option>
+        <option>calm</option>
+        <option>club</option>
+        <option>dancehall</option>
+        <option>dark</option>
+        <option>dope</option>
+        <option>dreamy</option>
+        <option>emotional</option>
+        <option>ghetto</option>
+        <option>happy</option>
+        <option>hard</option>
+        <option>jazzy</option>
+        <option>lofi</option>
+        <option>mellow</option>
+        <option>positive</option>
+        <option>power</option>
+        <option>relaxed</option>
+        <option>smooth</option>
+        <option>summer</option>
+        <option>synth</option>
+        <option>trendy</option>
+        <option>twerk</option>
+        <option>wobble</option>
+        <option>nineties</option>
+      </select>
+    </div>
+
+
+    <!--<div class="group">-->
+      <!--<div class="input-title">SAMPLING</div>-->
+      <!--<select class="simple-select" [(ngModel)]="soundUpload.sampling">-->
+        <!--<option>Sampling 사용하지 않음</option>-->
+        <!--<option>Sampling 사용</option>-->
+      <!--</select>-->
+    <!--</div>-->
+
+    <!--<div class="group">-->
+      <!--<div class="input-title">CLEARING</div>-->
+      <!--<select class="simple-select" [(ngModel)]="soundUpload.clearing">-->
+        <!--<option>Clearing 사용하지 않음</option>-->
+        <!--<option>Clearing 사용</option>-->
+      <!--</select>-->
+    <!--</div>-->
+  </form>
+
+
+
+  <button class="send-btn" (click)="onClick_upload()">비트등록</button>
+
+
 </div>
-<div *ngFor="let item of uploaderBeat.queue">
-  <strong>{{ item?.file?.name }}</strong>
-</div>
+
+
+
+
+
+
 
 
 <br/><br/>
-<button (click)="clearQueue()">clearQueue</button>
-<button type="button" class="btn btn-success btn-s" (click)="upload()" >
-    Upload with ng-2 file uploader
-</button>
+
 
 <!-- [disabled]="!uploader.getNotUploadedItems().length" -->

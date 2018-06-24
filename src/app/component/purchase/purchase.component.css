@@ -1,14 +1,14 @@
 .wrapper{
   background: #ffffff;
   color: #000000;
-  padding: 10px 15px 10px 15px;
+  padding: 10px 6% 10px 6%;
   height: auto;
 }
 
 #title-text{
-  margin-top: 25px;
+  margin-top: 36px;
   display: inline-block;
-  font-size: 36px;
+  font-size: 30px;
   font-weight: 500;
   margin-bottom: 20px;
 }
@@ -21,6 +21,7 @@
 }
 
 .terms{
+  word-break:break-all;
   font-size: 14px;
   margin-bottom: 15px;
 }
@@ -38,162 +39,40 @@
 .term-container{
 }
 
-
-.inputBox{
-  margin-top: 20px;
-  padding-left: 5px;
-  padding-right: 5px;
+.input-title{
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 7px;
+  margin-top: 30px;
 }
 
-.input-sub-title{
-  display: inline-block;
-  font-size: 11px;
-  margin-bottom: 5px;
+.simple-input{
+  padding: 5px 5px;
+  width: 95%;
+  height: 23px;
 }
 
-.beat-input{
-  box-sizing: border-box;
-  padding:6px;
-  border-radius: 2px;
-  background: #3a3f4b;
-  color: #717884;
-  font-size: 18px;
-  height: 40px;
+.simple-select{
   width: 100%;
-  border: 0px;
+  padding: 5px 5px;
+  height: 37px;
 }
 
-#input-textarea{
-  height: 80px;
+.send-btn{
+  margin-top: 40px;
+  font-size: 22px;
+  color: #ffffff;
+  height: 60px;
+  background: #02101b;
+  border-radius: 3px;
+  border: none;
+  outline: none;
+  width: 100%;
+  margin-bottom: 40px;
 }
 
 .check-area{
   margin-top: 30px;
-}
-
-.send-btn{
-  /* margin-top: 100px; */
-  font-size: 25px;
-  color: #ffffff;
-  height: 60px;
-  background: #00cecd;
-  border: none;
-  outline: none;
-  width: 100%;
-  margin-bottom: 80px;
-}
-
-
-
-
-
-
-*,
-:before,
-:after {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-}
-
-/* body {
-  background: #424242;
-} */
-
-form {
-  width: 320px;
-  margin: 115px auto;
-}
-
-form hr.sep {
-  background: #00cecd;
-  -webkit-box-shadow: none;
-          box-shadow: none;
-  border: none;
-  height: 2px;
-  width: 25%;
-  margin: 0px auto 45px auto;
-}
-form .emoji {
-  font-size: 1.2em;
-}
-
-.group {
-  position: relative;
-  margin: 45px 0;
-}
-
-textarea {
-  resize: none;
-}
-
-input,
-textarea {
-  background: none;
-  color: #c6c6c6;
-  font-size: 18px;
-  padding: 10px 10px 10px 5px;
-  display: block;
-  width: 320px;
-  border: none;
-  border-radius: 0;
-  border-bottom: 1px solid #c6c6c6;
-}
-input:focus,
-textarea:focus {
-  outline: none;
-}
-input:focus ~ label, input:valid ~ label,
-textarea:focus ~ label,
-textarea:valid ~ label {
-  top: -14px;
-  font-size: 12px;
-  color: #00cecd;
-}
-input:focus ~ .bar:before,
-textarea:focus ~ .bar:before {
-  width: 320px;
-}
-
-input[type="password"] {
-  letter-spacing: 0.3em;
-}
-
-label {
-  color: #2c2c2c;
-  font-size: 16px;
-  font-weight: normal;
-  position: absolute;
-  pointer-events: none;
-  left: 5px;
-  top: 10px;
-  -webkit-transition: 300ms ease all;
-  transition: 300ms ease all;
-}
-
-.bar {
-  position: relative;
-  display: block;
-  width: 320px;
-}
-.bar:before {
-  content: '';
-  height: 2px;
-  width: 0;
-  bottom: 0px;
-  position: absolute;
-  background: #00cecd;
-  -webkit-transition: 300ms ease all;
-  transition: 300ms ease all;
-  left: 0%;
-}
-
-
-
-
-
-
-
-.check-area{
   display: inline-block;
 }
 
@@ -206,7 +85,7 @@ label {
     padding-right: 10px;
     margin-bottom: 12px;
     cursor: pointer;
-    font-size: 15px;
+    font-size: 12px;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;

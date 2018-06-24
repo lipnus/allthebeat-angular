@@ -1,19 +1,22 @@
-//import component, ElementRef, input and the oninit method from angular core
 import { Component, OnInit, ElementRef, Input } from '@angular/core';
-//import the file-upload plugin
 import { FileSelectDirective, FileDropDirective, FileUploader } from 'ng2-file-upload/ng2-file-upload';
-//import the native angular http and respone libraries
 import { Http, Response } from '@angular/http';
-//import the do function to be used with the http library.
 import "rxjs/add/operator/do";
-//import the map function to be used with the http library
 import "rxjs/add/operator/map";
 
 // const URL = '/api/';
 // const URL = 'https://evening-anchorage-3159.herokuapp.com/api/';
 
-const URL = 'http://localhost:9000/upload';
+// const URL = 'http://localhost:9000/upload';
+const URL = 'http://localhost:9000/upload/fuck';
 // const URL = 'http://allthebeat.com:9000/upload';
+
+//[Service]
+import { PostToServerService } from '../../service/post-to-server.service';
+
+//[model]
+import {GenreList, MoodList, SoundUpload} from "../../model/index";
+
 
 
 @Component({
@@ -23,18 +26,38 @@ const URL = 'http://localhost:9000/upload';
 })
 export class UploadComponent implements OnInit {
 
-  //declare a property called fileuploader and assign it to an instance of a new fileUploader.
-  //pass in the Url to be uploaded to, and pass the itemAlais, which would be the name of the
-  //file input when sending the post request.
-  public uploaderArtwork:FileUploader = new FileUploader({url: URL, itemAlias: 'artwork'});
 
+  public uploaderArtwork:FileUploader = new FileUploader({url: URL, itemAlias: 'artwork'});
   public uploaderBeat:FileUploader = new FileUploader({url: URL, itemAlias: 'beat'});
 
+  genreList:GenreList;
+  moodList:MoodList;
+  soundUpload:SoundUpload;
 
-
-  title = '업로드';
+  test:string = 'ttt';
 
   ngOnInit() {
+    this.genreList = new GenreList();
+    this.moodList = new MoodList();
+    this.soundUpload = new SoundUpload();
+
+    console.log("들어가있나: " + this.genreList.genre[0] + " / " + this.moodList.mood[5]);
+
+
+    //파일 큐에 올린 후 콜백
+    this.addFile();
+
+    //업로드 후의 콜백
+    this.uploadCallback();
+  }
+
+
+  constructor(private http: Http,
+              private postToServerService:PostToServerService, ) {}
+
+
+  //파일 큐에 올린 후 콜백
+  addFile(){
     //override the onAfterAddingfile property of the uploader so it doesn't authenticate with credentials.
     this.uploaderArtwork.onAfterAddingFile = (file)=> {
       console.log("onAfterAddingFile");
@@ -45,30 +68,26 @@ export class UploadComponent implements OnInit {
       console.log("onAfterAddingFile");
       file.withCredentials = false;
     };
+  }
 
+  //업로드가 완료된 후의 콜백
+  uploadCallback(){
 
     //아트워크 업로드 완료 콜백
     this.uploaderArtwork.onCompleteItem = (item:any, response:any, status:any, headers:any) => {
-        // console.log("ImageUpload:uploaded:", item, status, response);
-        // console.log("item: :", item);
-        // console.log("status: :", status);
-        console.log("[artwork]response: ", response);
-        // console.log("headers ", headers);
+      // console.log("ImageUpload:uploaded:", item, status, response);
+      // console.log("item: :", item);
+      // console.log("status: :", status);
+      console.log("[artwork]response: ", response);
+      this.clearQueue();
+      // console.log("headers ", headers);
     };
 
     //비트 업로드 완료 콜백
     this.uploaderBeat.onCompleteItem = (item:any, response:any, status:any, headers:any) => {
-        // console.log("ImageUpload:uploaded:", item, status, response);
-        // console.log("item: :", item);
-        // console.log("status: :", status);
-        console.log("[beat]response: ", response);
-        // console.log("headers ", headers);
+      console.log("[beat]response: ", response);
+      this.clearQueue();
     };
-  }
-
-  //declare a constroctur, so we can pass in some properties to the class, which can be accessed using the this variable
-  constructor(private http: Http) {
-
   }
 
   clearQueue(){
@@ -77,12 +96,26 @@ export class UploadComponent implements OnInit {
 
   }
 
+  //업로드실시
   upload(){
     this.uploaderArtwork.uploadAll();
     this.uploaderBeat.uploadAll();
-
     // this.clearQueue();
   }
+
+
+  //서버로 음원정보 전송
+  postSoundUpload(){
+
+    var path = '/sound_list';
+
+    let postData = this.soundUpload;
+    this.postToServerService.postServer(path, postData).subscribe(data => {
+      //post콜백
+    });
+
+  }
+
 
   handleUploadFileChanged(event) {
 
@@ -92,7 +125,6 @@ export class UploadComponent implements OnInit {
        for (var f of files) {
            if (f.name.endsWith(".jpg") || f.name.endsWith(".png") || f.name.endsWith(".jpeg") || f.name.endsWith(".mp3")) {
                filteredFiles.push(f);
-
                console.log("PUSH");
            }
        }
@@ -109,8 +141,30 @@ export class UploadComponent implements OnInit {
            }else if(f.name.endsWith(".mp3")){
              this.uploaderBeat.addToQueue(filteredFiles, options, filters);
            }
-
        }
    }
 
+   //업로드버튼 클릭
+  public onClick_upload():void{
+
+
+    if(this.soundUpload.sound_name == undefined){
+      alert("title을 입력해주세요");
+    }else if(this.soundUpload.license == undefined){
+      alert("license를 입력해주세요");
+    }else if(this.soundUpload.genre1 == undefined){
+      alert("genre1을 입력해주세요");
+    }else if(this.soundUpload.genre2 == undefined){
+      alert("genre2을 입력해주세요");
+    }else if(this.soundUpload.mood1 == undefined){
+      alert("mood1을 입력해주세요");
+    }else if(this.soundUpload.mood2 == undefined){
+      alert("mood2을 입력해주세요");
+    }else if(this.soundUpload.mood3 == undefined){
+      alert("mood3을 입력해주세요");
+    }
+
+
+
+  }
 }
