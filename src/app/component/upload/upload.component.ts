@@ -3,19 +3,20 @@ import { FileSelectDirective, FileDropDirective, FileUploader } from 'ng2-file-u
 import { Http, Response } from '@angular/http';
 import "rxjs/add/operator/do";
 import "rxjs/add/operator/map";
+import { Router } from '@angular/router';
 
-// const URL = '/api/';
-// const URL = 'https://evening-anchorage-3159.herokuapp.com/api/';
 
 // const URL = 'http://localhost:9000/upload';
-const URL = 'http://localhost:9000/upload';
 // const URL = 'http://allthebeat.com:9000/upload';
+// const URL = mGlobal.ServerPath + '/upload';
 
 //[Service]
 import { PostToServerService } from '../../service/post-to-server.service';
 
 //[model]
 import {GenreList, MoodList, SoundUpload} from "../../model/index";
+
+import * as mGlobal from '../../global-variables';  //전역변수
 
 
 
@@ -26,11 +27,19 @@ import {GenreList, MoodList, SoundUpload} from "../../model/index";
 })
 export class UploadComponent implements OnInit {
 
+
   //파일업로드에 필요한 것
-  public uploaderArtwork:FileUploader = new FileUploader({url: URL +'/artwork', itemAlias: 'artwork'});
-  public uploaderMp3:FileUploader = new FileUploader({url: URL+'/mp3', itemAlias: 'beat-mp3'});
-  public uploaderWav:FileUploader = new FileUploader({url: URL+'/wav', itemAlias: 'beat-wav'});
-  public uploaderTrack:FileUploader = new FileUploader({url: URL+'/track', itemAlias: 'beat-track'});
+  public uploaderArtwork:FileUploader =
+  new FileUploader({url: mGlobal.ServerPath +'/upload/artwork', itemAlias: 'artwork'});
+
+  public uploaderMp3:FileUploader =
+  new FileUploader({url: mGlobal.ServerPath+'/upload/mp3', itemAlias: 'beat-mp3'});
+
+  public uploaderWav:FileUploader =
+  new FileUploader({url: mGlobal.ServerPath+'/upload/wav', itemAlias: 'beat-wav'});
+
+  public uploaderTrack:FileUploader =
+  new FileUploader({url: mGlobal.ServerPath+'/upload/track', itemAlias: 'beat-track'});
 
   licenseOption:string;
   soundUpload:SoundUpload;
@@ -56,7 +65,8 @@ export class UploadComponent implements OnInit {
 
 
   constructor(private http: Http,
-              private postToServerService:PostToServerService, ) {}
+              private postToServerService:PostToServerService,
+              private router: Router,) {}
 
 
   //파일 큐에 올린 후 콜백
@@ -166,6 +176,9 @@ export class UploadComponent implements OnInit {
 
       //post콜백
       console.log("서버로부터 받은값: " , data);
+
+      alert("업로드 완료!");
+      this.router.navigate(['/mainpage']);
     });
 
 
