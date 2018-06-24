@@ -7,7 +7,12 @@
 
     <div class="group">
       <div class="input-title">TITLE</div>
-      <input class="simple-input" type="text" [(ngModel)]="soundUpload.sound_name" name="title" required="required"/>
+      <input class="simple-input" type="text" [(ngModel)]="soundUpload.sound_name" name="title" autocomplete=off required="required"/>
+    </div>
+
+    <div class="group">
+      <div class="input-title">BPM</div>
+      <input class="simple-input" type="number" min="0" max="999" (keyup)="bpmCheck()" [(ngModel)]="soundUpload.bpm" name="bpm" required="required"/>
     </div>
 
 
@@ -15,35 +20,35 @@
       <div class="input-title">ArtWork(앨범이미지)</div>
       <input type="file" accept="image/png,image/jpg,image/jpeg" name="artwrok" (change)="handleUploadFileChanged($event)">
     </div>
-    <div *ngFor="let item of uploaderArtwork.queue">
-      <strong>{{ item?.file?.name }}</strong>
-    </div>
+    <!--<div *ngFor="let item of uploaderArtwork.queue">-->
+      <!--<strong>{{ item?.file?.name }}</strong>-->
+    <!--</div>-->
 
     <div class="sep"></div>
 
     <div class="group">
       <div class="input-title">LICENSE</div>
-      <select class="simple-select" [(ngModel)]="soundUpload.license" name="license" >
+      <select class="simple-select" [(ngModel)]="licenseOption" (change)="onChange_license()" name="license" >
         <option>lease(mp3)</option>
         <option>lease(mp3+wav)</option>
-        <option>lease(mp3+wav) + exclusive(wav)</option>
+        <option>lease(mp3+wav) + exclusive(wav track)</option>
       </select>
     </div>
 
 
-    <div class="file-container">
+    <div *ngIf="soundUpload.license != undefined" class="file-container">
       <div class="group">
         <div class="input-title">mp3 음원</div>
         <input type="file" accept="audio/mp3" name="mp3sound" (change)="handleUploadFileChanged($event)">
+
       </div>
 
-      <div *ngIf="soundUpload.license == 'lease(mp3+wav)' ||
-            soundUpload.license == 'lease(mp3+wav) + exclusive(wav)'" class="group">
+      <div *ngIf="soundUpload.license > 0" class="group">
         <div class="input-title">wav 음원</div>
         <input type="file" accept="audio/wav" name="wavsound" (change)="handleUploadFileChanged($event)">
       </div>
 
-      <div *ngIf="soundUpload.license == 'lease(mp3+wav) + exclusive(wav)'" class="group">
+      <div *ngIf="soundUpload.license > 1" class="group">
         <div class="input-title">WAV TRACK(zip)</div>
         <input type="file" accept="application/zip" name="tracksound" (change)="handleUploadFileChanged($event)">
       </div>
