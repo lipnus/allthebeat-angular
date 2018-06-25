@@ -142,7 +142,8 @@ export class SoundDetailComponent implements OnInit {
       this.soundDetail.like_count++;
       this.postUserLike(this.soundDetail.sound_pk, 1);
     }else{
-      this.router.navigate(['/login']);
+      alert("로그인이 필요합니다");
+      // this.router.navigate(['/login']);
     }
 
   }
@@ -154,7 +155,8 @@ export class SoundDetailComponent implements OnInit {
       this.soundDetail.like_count--;
       this.postUserLike(this.soundDetail.sound_pk, -1);
     }else{
-      this.router.navigate(['/login']);
+      alert("로그인이 필요합니다");
+      // this.router.navigate(['/login']);
     }
   }
 

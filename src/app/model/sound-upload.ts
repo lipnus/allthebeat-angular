@@ -1,8 +1,6 @@
 
 export class SoundUpload{
 
-  user_pk: number;
-
 	sound_name: string;
 	bpm: number;
 

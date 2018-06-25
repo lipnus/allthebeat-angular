@@ -168,10 +168,13 @@ export class UploadComponent implements OnInit {
   //서버로 음원정보 전송
   postSoundUpload(){
 
-    this.soundUpload.user_pk = 67;
-
     let path = '/upload/dbdata';
-    let postData = {data: this.soundUpload};
+
+    //토큰 가져오기
+    let auth = JSON.parse(localStorage.getItem('auth'));
+    let token = auth.token;
+
+    let postData = {token: token, data:this.soundUpload};
     this.postToServerService.postServer(path, postData).subscribe(data => {
 
       //post콜백

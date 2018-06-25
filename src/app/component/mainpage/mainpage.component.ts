@@ -160,7 +160,8 @@ export class MainpageComponent implements OnInit {
           this.soundData.sound_recommend_list[index].like_my = 1;
           this.postUserLike(sound_pk, +1);
     }else{
-      this.router.navigate(['/login']);
+      alert("로그인이 필요합니다");
+      // this.router.navigate(['/login']);
     }
 
   }
@@ -171,7 +172,8 @@ export class MainpageComponent implements OnInit {
           this.soundData.sound_recommend_list[index].like_my = 0;
           this.postUserLike(sound_pk, -1);
     }else{
-      this.router.navigate(['/login']);
+      alert("로그인이 필요합니다");
+      // this.router.navigate(['/login']);
     }
   }
 
@@ -181,7 +183,8 @@ export class MainpageComponent implements OnInit {
           this.soundData.sound_list[index].like_my = 1;
           this.postUserLike(sound_pk, 1);
     }else{
-      this.router.navigate(['/login']);
+      alert("로그인이 필요합니다");
+      // this.router.navigate(['/login']);
     }
   }
 
@@ -192,7 +195,8 @@ export class MainpageComponent implements OnInit {
           this.soundData.sound_list[index].like_my = 0;
           this.postUserLike(sound_pk, -1);
     }else{
-      this.router.navigate(['/login']);
+      alert("로그인이 필요합니다");
+      // this.router.navigate(['/login']);
     }
   }
 

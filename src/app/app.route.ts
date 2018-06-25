@@ -44,7 +44,7 @@ const routes: Routes = [
   { path: 'join/:state', component: JoinComponent },
   { path: 'modifyinfo', component: ModifyInfoComponent },
   { path: 'recommend', component: RecommendComponent, canActivate: [AuthGuard] },
-  { path: 'upload', component: UploadComponent,  },
+  { path: 'upload', component: UploadComponent, canActivate: [AuthGuard] },
 
 
   { path: 'search', component: SearchComponent },
