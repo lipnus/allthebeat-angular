@@ -61,7 +61,7 @@ export class SoundDetailComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.playImg = "assets/circle-play.png";
+    this.playImg = "assets/play-button.png";
     this.artworkPath = "";
   }
 

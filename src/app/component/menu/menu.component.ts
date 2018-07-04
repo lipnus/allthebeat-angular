@@ -1,27 +1,36 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import { Router } from '@angular/router';
+import { MessageService } from '../../service/message.service';
 
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.css']
 })
-export class MenuComponent implements OnInit {
+export class MenuComponent implements OnInit, OnDestroy {
 
   isLogin:boolean;
 
-  constructor(private router: Router,) { }
+  constructor(
+    private router: Router,
+    private messageService: MessageService,) { }
 
   ngOnInit() {
 
-    // //임시로그인
-    // localStorage.setItem('auth', JSON.stringify({ token: "AAAAOJz0gx1aGEIVt9DURi2/izpu7JZaNr8qTbtHSPoPHJos5GLdEcobR0Hkcv1Foquf6fweEvBfyHvsLiG+IdvtlZY=" }));
+    this.messageService.sendMenuState(false);
 
     if (localStorage.getItem('auth')){
       this.isLogin=true;
     }else{
       this.isLogin=false;
     }
+  }
+
+  ngOnDestroy(){
+
+    //이 화면에서 벗어나면 메뉴들을 다시 살려낸다.
+    this.messageService.sendMenuState(true);
+
   }
 
   onClick_menu(num){

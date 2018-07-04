@@ -96,6 +96,7 @@ export class LoginComponent implements OnInit {
         //받은 토큰을 클라이언트에 저장
         localStorage.setItem('auth', JSON.stringify({ token: data.token }));
         this.router.navigate(['/soundlist']);
+        alert("환영합니다");
 
       } else {
         alert("아이디나 비밀번호가 올바르지 얺습니다");

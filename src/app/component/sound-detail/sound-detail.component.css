@@ -60,31 +60,28 @@
 
 .sub-title{
   display:inline-block;
-  color: #ffffff;
-  padding: 4px;
-  background: #3c3c3c;
+  color: #000000;
+  padding: 2px;
+  font-size: 24px;
+  font-weight: 700;
+  /*background: #3c3c3c;*/
+}
+
+.sub-content{
+  margin-left: 6px;
+  font-size: 16px;
 }
 
 #bpm{
   margin-top: 4px;
-  color: #00cecd;
+  color: #ffffff;
+  background: #3c3c3c;
   font-weight: 600;
   margin-bottom: 50px;
+  width:70px;
+  text-align: center;
 }
 
-.purchase-btn{
-  margin-top: 60px;
-  font-size: 22px;
-  color: #ffffff;
-  height: 60px;
-  background: #02101b;
-  border-radius: 3px;
-  /* background: #00cecd; */
-  border: none;
-  outline: none;
-  width: 100%;
-  margin-bottom: 40px;
-}
 
 #btn2{
   margin-top: 20px;

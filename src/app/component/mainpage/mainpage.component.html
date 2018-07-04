@@ -1,9 +1,10 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <!-- 최상단 타이틀 -->
 <div class="top">
-  <img class="logo-img" src="assets/logo.png"/>
-  <div class="beta-title">OPEN BETA</div>
+  <!--<img class="logo-img" src="assets/logo.png"/>-->
+  <!--<div class="beta-title">OPEN BETA</div>-->
   <div class="number-title"> {{soundCount}} Tracks </div>
+
 
 </div>
 
@@ -11,23 +12,45 @@
 
 <div class="mainbody">
 
-<div class="sound-subtitle"></div>
-<div class="intervalBox">{{recommendTitle}}</div>
-<div class="soundBox"  *ngFor="let sound of soundData?.sound_recommend_list; let idx=index">
-  <div class="img-container">
-    <img class="title-play" (click)="onClick_startRecommendMusic(idx)" [src]="playImg" />
-    <img class="title-img" (click)="onClick_startRecommendMusic(idx)" [src]="sound.img_path" onerror="this.src='/assets/placeholder.png'"/>
-  </div>
-  <div routerLink="/sounddetail/{{sound.sound_pk}}" class="title-text">
-    <span id="title">{{sound.sound_name}}</span><br />
-    <span id="beatmaker">{{sound.beatmaker_nickname}}</span>
-  </div>
-  <div class="middle">
-    <img *ngIf="sound.like_my==0" class="heart-img" src="assets/heart_simple_black.png" alt="image" (click)="onClick_recommend_like(sound.sound_pk, idx)"/>
-    <img *ngIf="sound.like_my==1" class="heart-img-on" src="assets/heart_simple_red.png" alt="image" (click)="onClick_recommend_dislike(sound.sound_pk, idx)"/>
-  </div>
-</div>
+  <div class="rec-main-title">{{recommendTitle}}</div>
 
+
+  <!--추천비트목록-->
+  <div class="recommend-container">
+    <div class="rec-soundBox"  *ngFor="let sound of soundData?.sound_recommend_list; let idx=index">
+
+      <img class="rec-title-img" (click)="onClick_startRecommendMusic(idx)" [src]="sound.img_path" onerror="this.src='/assets/placeholder.png'" (click)="onClick_startRecommendMusic(idx)"/>
+      <div class="rec-title">{{sound.sound_name}}</div>
+      <div class="rec-nickname">{{sound.beatmaker_nickname}}</div>
+    </div>
+
+    <button class="rec-btn">맞춤비트 추천받기</button>
+  </div>
+
+
+
+
+
+
+
+
+
+<!--<div class="sound-subtitle"></div>-->
+<!--<div class="intervalBox">{{recommendTitle}}</div>-->
+<!--<div class="soundBox"  *ngFor="let sound of soundData?.sound_recommend_list; let idx=index">-->
+  <!--<div class="img-container">-->
+    <!--<img class="title-play" (click)="onClick_startRecommendMusic(idx)" [src]="playImg" />-->
+    <!--<img class="title-img" (click)="onClick_startRecommendMusic(idx)" [src]="sound.img_path" onerror="this.src='/assets/placeholder.png'"/>-->
+  <!--</div>-->
+  <!--<div routerLink="/sounddetail/{{sound.sound_pk}}" class="title-text">-->
+    <!--<span id="title">{{sound.sound_name}}</span><br />-->
+    <!--<span id="beatmaker">{{sound.beatmaker_nickname}}</span>-->
+  <!--</div>-->
+  <!--<div class="middle">-->
+    <!--<img *ngIf="sound.like_my==0" class="heart-img" src="assets/heart_simple_black.png" alt="image" (click)="onClick_recommend_like(sound.sound_pk, idx)"/>-->
+    <!--<img *ngIf="sound.like_my==1" class="heart-img-on" src="assets/heart_simple_red.png" alt="image" (click)="onClick_recommend_dislike(sound.sound_pk, idx)"/>-->
+  <!--</div>-->
+<!--</div>-->
 
 <div id="intervalBox_gray"></div>
 <div class="intervalBox">전체비트</div>

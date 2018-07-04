@@ -2,9 +2,11 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import {Location} from '@angular/common';
 
+
 import { Subscription } from "rxjs/Rx";
 import { MessageService } from '../../service/message.service';
-import * as mGlobal from '../../global-variables';  //전역변수
+import * as mGlobal from '../../global-variables';
+import {b} from '@angular/core/src/render3';  //전역변수
 
 
 @Component({
@@ -20,9 +22,13 @@ export class HeadmenuComponent implements OnInit, OnDestroy {
   subscription: Subscription;
   isMenuOpen:boolean;
 
+  menuVisible:boolean = true;
+
   constructor(private messageService: MessageService,
               private router: Router,
               private location: Location) {
+
+    //message 테스트
     this.subscription = this.messageService.getMessage().subscribe(message => {
       this.message = message;
     });
@@ -30,6 +36,11 @@ export class HeadmenuComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.isMenuOpen = false;
+
+    //상단메뉴가 보일지를 결정
+    this.subscription = this.messageService.getMenuState().subscribe(data => {
+      this.menuVisible = data.visible;
+    });
   }
 
   ngOnDestroy() {
@@ -46,6 +57,8 @@ export class HeadmenuComponent implements OnInit, OnDestroy {
       this.router.navigate(['/menu']);
     }
   }
+
+
 
 
   }

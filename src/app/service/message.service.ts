@@ -6,6 +6,7 @@ import { Subject } from 'rxjs/Subject';
 export class MessageService {
     private subject = new Subject<any>();
     private musicInfo = new Subject<any>();
+    private menuState = new Subject<any>();
 
     sendMessage(message: string) {
         this.subject.next({ text: message });
@@ -30,5 +31,13 @@ export class MessageService {
 
     getMusicInfo(): Observable<any> {
         return this.musicInfo.asObservable();
+    }
+
+    sendMenuState(visible:boolean){
+      this.menuState.next( {visible:visible});
+    }
+
+    getMenuState(): Observable<any>{
+      return this.menuState.asObservable();
     }
 }

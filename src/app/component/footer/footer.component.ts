@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Subscription } from "rxjs/Rx";
+import { MessageService } from '../../service/message.service';
+
+
 
 @Component({
   selector: 'app-footer',
@@ -7,9 +11,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FooterComponent implements OnInit {
 
-  constructor() { }
+  subscription: Subscription;
+  menuVisible:boolean = true;
+
+
+  constructor(
+    private messageService: MessageService,) {
+
+  }
 
   ngOnInit() {
+    //상단메뉴가 보일지를 결정
+    this.subscription = this.messageService.getMenuState().subscribe(data => {
+      this.menuVisible = data.visible;
+    });
   }
 
 }
