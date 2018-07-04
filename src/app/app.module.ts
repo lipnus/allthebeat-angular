@@ -41,6 +41,7 @@ import { FooterComponent } from './component/footer/footer.component';
 
 //[directive]
 import { ModalComponent } from './directive/index';
+import { JoinSelfComponent } from './component/join-self/join-self.component';
 
 
 @NgModule({
@@ -62,6 +63,7 @@ import { ModalComponent } from './directive/index';
     UploadComponent,
     FooterComponent,
     ModalComponent,
+    JoinSelfComponent,
   ],
   imports: [
     BrowserModule,

@@ -76,20 +76,21 @@ export class JoinComponent implements OnInit {
 
   //유저의 정보를 갱신한다
   postUpdateUser(){
-  var path = '/user_update';
-  var postData =
-  {
-    token: JSON.parse(localStorage.getItem('auth')).token,
-    nickname:this.userData.nickname,
-    mobile:this.userData.mobile,
-    sns:this.userData.sns,
-    introduce:this.userData.introduce
-  };
+    var path = '/user_update';
+    var postData =
+    {
+      token: JSON.parse(localStorage.getItem('auth')).token,
+      nickname:this.userData.nickname,
+      mobile:this.userData.mobile,
+      sns:this.userData.sns,
+      introduce:this.userData.introduce
+    };
 
-  this.postTestService.postServer(path, postData).subscribe(data => {
-    this.userData = data;
-    this.router.navigate(['/soundlist']);
-  });
+    this.postTestService.postServer(path, postData).subscribe(data => {
+      this.userData = data;
+      this.router.navigate(['/soundlist']);
+      alert("회원가입이 완료되었습니다");
+    });
   }
 
 }

@@ -6,6 +6,7 @@ import { PostToServerService } from '../../service/post-to-server.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { MessageService } from '../../service/message.service';
 
+import { ModalService } from '../../service/index';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 
@@ -31,6 +32,8 @@ export class PurchaseComponent implements OnInit {
   sound_pk;
   btn_str;
 
+  modalText:string;
+
   //객체
   purchase: Purchase;
   soundDetail: SoundDetail;
@@ -40,7 +43,8 @@ export class PurchaseComponent implements OnInit {
     private http: HttpClient,
     private messageService: MessageService,
     private route: ActivatedRoute,
-    private router: Router,) { }
+    private router: Router,
+    private modalService: ModalService,) { }
 
   ngOnInit() {
     this.termChecked = false;
@@ -85,7 +89,6 @@ export class PurchaseComponent implements OnInit {
     console.log("sendOrder:"+ this.purchase.name);
 
     if(this.btn_str=="LOADING..."){
-      console.log("기둘려주시오");
     }
     else if(this.termChecked==false){
       alert("절차에 동의하셔야 구매의뢰가 가능합니다");
@@ -96,13 +99,16 @@ export class PurchaseComponent implements OnInit {
     }else if(this.purchase.price==""){
       alert("구매희망가를 입력해주세요");
     }else{
-      this.btn_str = "LOADING...";
-      this.postPurchase();
+      this.openPurchaseModal();
     }
   }
 
 
   postPurchase(){
+
+    this.closeModal('purchase-modal');
+    this.btn_str = "LOADING...";
+
     var path = '/purchase';
     var postData =
     {
@@ -116,7 +122,7 @@ export class PurchaseComponent implements OnInit {
       beat_maker: this.soundDetail.beatmaker_nickname };
 
     this.postTestService.postServer(path, postData).subscribe(data => {
-      alert("구매의뢰가 접수되었습니다.");
+      alert("의뢰가 완료되었습니다. 검토 후 연락드리겠습니다.");
       this.router.navigate(['/sounddetail/'+this.sound_pk]);
     });
   }
@@ -139,8 +145,17 @@ export class PurchaseComponent implements OnInit {
   onClick_test(){
     console.log("가격: " + this.purchase.price);
     console.log("체크: " + this.termChecked);
+  }
+
+  openPurchaseModal(){
+    console.log("모달");
+    this.modalText="구매의뢰를 하시겠습니까?";
+    this.modalService.open('purchase-modal');
+  }
 
 
+  closeModal(id: string){
+    this.modalService.close(id);
   }
 
 }

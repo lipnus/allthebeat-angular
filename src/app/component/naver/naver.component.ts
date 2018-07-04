@@ -24,7 +24,7 @@ export class NaverComponent implements OnInit {
   ngOnInit() {
 
     var state = this.route.snapshot.paramMap.get('state');
-    console.log(state);
+    // console.log(state);
     this.postToken(state);
   }
 
@@ -35,12 +35,12 @@ export class NaverComponent implements OnInit {
     this.postTestService.postServer(path, postData).subscribe(data => {
 
 
-      console.log("받은토큰: "+ data.token);
+      // console.log("받은토큰: "+ data.token);
       localStorage.setItem('auth', JSON.stringify({ token: data.token }));
 
 
       var aaa = JSON.parse(localStorage.getItem('auth'));
-      console.log("저장된토큰: " + aaa.token);
+      // console.log("저장된토큰: " + aaa.token);
 
       this.router.navigate(['/soundlist']);
     });

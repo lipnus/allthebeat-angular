@@ -1,0 +1,27 @@
+<div class="join-container">
+
+  <span id="title-text">회원가입</span>
+
+  <!--<form>-->
+    <div class="group">
+      <div class="input-title">이메일</div>
+      <input class="simple-input" type="text" [(ngModel)]="email" required="required" (keyup)="emailCheck()"/>
+    </div>
+    <div class="notice-container">{{noticeStr1}}</div>
+
+    <div class="group">
+      <div class="input-title">비밀번호</div>
+      <input class="simple-input" type="password" [(ngModel)]="password" required="required" (keyup)="passCheck()"/>
+    </div>
+
+    <div class="group">
+      <div class="input-title">비밀번호확인</div>
+      <input class="simple-input" type="password" [(ngModel)]="passwordConfirm" required="required" (keyup)="passCheck()"/>
+    </div>
+
+    <div class="notice-container">{{noticeStr2}}</div>
+  <!--</form>-->
+
+
+  <button class="global-btn" (click)="onClick_join()">가입하기</button>
+</div><!-- join-container -->

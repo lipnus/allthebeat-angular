@@ -132,7 +132,7 @@ export class UploadComponent implements OnInit {
       console.log(this.soundUpload.sound_path2);
 
       if(this.soundUpload.license > 1){
-        this.uploaderWav.uploadAll();
+        this.uploaderTrack.uploadAll();
       }else if(this.soundUpload.license == 1){
         this.postSoundUpload(); //db입력
       }
@@ -187,8 +187,6 @@ export class UploadComponent implements OnInit {
 
 
   }
-
-
 
   handleUploadFileChanged(event) {
 
@@ -269,8 +267,6 @@ export class UploadComponent implements OnInit {
     }
   }
 
-
-
   //bpm숫자 범위체크
   bpmCheck(){
     if(this.soundUpload.bpm < 0){
@@ -292,5 +288,4 @@ export class UploadComponent implements OnInit {
       this.soundUpload.license=2;
     }
   }
-
 }

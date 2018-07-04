@@ -1,34 +1,34 @@
 <div class="join-container">
 
   <span id="title-text">추가정보입력</span>
-  <p id="welcome">{{userData.name}}님 환영합니다!</p>
-
+  <!--<p id="welcome">{{userData.name}}님 환영합니다!</p>-->
 
   <form>
     <!-- <hr class="sep"/> -->
 
     <div class="group">
-      <input type="text" name="name" [(ngModel)]="userData.nickname" required="required"/><span class="highlight"></span><span class="bar"></span>
-      <label>닉네임</label>
+      <div class="input-title">닉네임</div>
+      <input class="simple-input" name="nickname" type="text" [(ngModel)]="userData.nickname" required="required"/>
     </div>
 
     <div class="group">
-      <input type="text" name="contact" [(ngModel)]="userData.mobile" required="required"/><span class="highlight"></span><span class="bar"></span>
-      <label>연락처</label>
+      <div class="input-title">연락처</div>
+      <input class="simple-input" name="mobile" type="text" [(ngModel)]="userData.mobile" required="required"/>
     </div>
 
     <div class="group">
-      <input type="text" name="worklink" [(ngModel)]="userData.sns" required="required"/><span class="highlight"></span><span class="bar"></span>
-      <label>작업물링크(싸클, 유튜브 등)</label>
+      <div class="input-title">작업물링크(SoundCloud, YouTube...)</div>
+      <input class="simple-input" name="sns" type="text" [(ngModel)]="userData.sns" required="required"/>
     </div>
 
     <div class="group">
-      <textarea type="textarea" name="add_info" [(ngModel)]="userData.introduce" required="required"></textarea>
-      <span class="highlight"></span><span class="bar"></span>
-      <label>본인소개</label>
+      <div class="input-title">본인소개</div>
+      <textarea class="simple-input" name="add_info" type="textarea" [(ngModel)]="userData.introduce" required="required" id="introduce">
+    </textarea>
     </div>
+
   </form>
 
 
-<button class="send-btn" (click)="sendUserInfo()">작성완료</button>
+<button class="global-btn" (click)="sendUserInfo()">작성완료</button>
 </div><!-- join-container -->

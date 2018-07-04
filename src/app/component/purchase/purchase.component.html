@@ -36,7 +36,7 @@
     <select class="simple-select" [(ngModel)]="purchase.price">
               <option>LEASE(mp3) ₩30,000</option>
               <option>LEASE(wav) ₩60,000</option>
-              <option>EXCLUSIVE ₩200,000</option>
+              <option>EXCLUSIVE(wav track) ₩200,000</option>
     </select>
     <!-- <input class="simple-input" type="text" [(ngModel)]="purchase.price" required="required"/> -->
 
@@ -51,5 +51,22 @@
   </div>
 
 
-  <button class="send-btn" (click)="sendOrder()">구매하기</button>
+  <button class="send-btn" (click)="sendOrder()">{{btn_str}}</button>
 </div>
+
+
+
+<modal id="purchase-modal">
+  <div class="modal">
+    <div class="modal-title">
+      <img class="modal-icon" src="assets/icon_black.png"/>
+    </div>
+    <div class="modal-body">
+      <div>{{modalText}}</div>
+      <button class="modal-button" (click)="postPurchase()">예</button>
+      <button class="modal-button" (click)="closeModal('purchase-modal');">아니오</button>
+    </div>
+  </div>
+  <div class="modal-background"></div>
+</modal>
+
