@@ -1,9 +1,8 @@
 .headbox{
-  /*background: #02101b;*/
   position: fixed;
   width: 100%;
   box-sizing: border-box;
-  background: #fbfbfb;
+  background: #ffffff;
   height: 50px;
   padding: 8px 15px 0 15px;
   text-align: center;
@@ -26,11 +25,10 @@
   text-decoration:none
 }
 
-
 #search-img{
   float:left;
   box-sizing: border-box;
-  padding: 4px;
+  padding: 7px;
   display: inline-block;
   width: 32px;
 }
@@ -44,11 +42,10 @@
 #menu-img{
   float:right;
   box-sizing: border-box;
-  padding: 4px;
+  padding: 7px;
   display: inline-block;
   width: 34px;
 }
-
 
 .headbox-padding{
   height: 50px;

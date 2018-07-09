@@ -1,11 +1,18 @@
-
-.top{
-  height: 25%;
-  display: block;
-  text-align: center;
-  /*background: #ebebeb;*/
-  border-bottom: 1px solid #ebebeb;
+.wrapper{
+  background: #ffffff;
+  color: #000000;
+  padding: 10px 6% 10px 6%;
+  height: auto;
 }
+
+#title-text{
+  margin-top: 36px;
+  display: inline-block;
+  font-size: 30px;
+  font-weight: 500;
+  margin-bottom: 60px;
+}
+
 
 
 .top .undertitle {
@@ -31,8 +38,8 @@
 .soundBox{
   background: #ffffff;
   color: #3c3c3c;
-  padding: 15px 12px 15px 10px;
-  border-bottom: 0.1px solid #ededed;
+  padding: 10px 12px 10px 10px;
+  border-top: 0.1px solid #ededed;
 }
 
 .img-container{
@@ -56,24 +63,21 @@
   opacity: 0.7;
 }
 
-
-
 .soundBox > .title-text{
   width: 70%;
   text-align: left;
   display: inline-block;
-  vertical-align: super;
+  vertical-align:top;
   margin-left: 10px;
+  padding-top: 16px;
 }
 
 #title{
+  display: inline-block;
   font-weight: 700;
-  font-size: 15px;
+  font-size: 18px;
 }
 
-#beatmaker{
-  font-size: 12px;
-}
 
 .middle{
   margin-top: 12px;
@@ -83,35 +87,7 @@
 }
 
 
-.soundBox > .middle > .heart-img{
-  box-sizing: border-box;
-  margin-right: 10px;
-  width: 30px;
-  padding: 8px;
-}
 
-.soundBox > .middle > .heart-img-on{
-  box-sizing: border-box;
-  margin-right: 10px;
-  width: 30px;
-  padding: 8px;
-}
-
-
-.intervalBox{
-  display: table-cell;
-  font-size: 16px;
-  font-weight: 500;
-  padding-bottom: 6px;
-  padding-left: 8px;
-  background: #f5f5f5;
-  /* text-align: center; */
-  vertical-align:bottom;
-  height: 50px;
-  width: 100vw;
-  border-bottom: 0.1px solid #ededed;
-  /* border-bottom: 1px solid #606060; */
-}
 
 
 

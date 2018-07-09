@@ -16,6 +16,8 @@ import { PostToServerService } from './service/index';
 import { MessageService } from './service/index';
 import { ModalService } from './service/index';
 
+//[directive]
+import { ModalComponent } from './directive/index';
 
 // [Component]
 import { AppComponent } from './app.component';
@@ -38,10 +40,8 @@ import { ModifyInfoComponent } from './component/modify-info/modify-info.compone
 import { RecommendComponent } from './component/recommend/recommend.component';
 import { UploadComponent } from './component/upload/upload.component';
 import { FooterComponent } from './component/footer/footer.component';
-
-//[directive]
-import { ModalComponent } from './directive/index';
 import { JoinSelfComponent } from './component/join-self/join-self.component';
+import { MybeatComponent } from './component/mybeat/mybeat.component';
 
 
 @NgModule({
@@ -64,6 +64,7 @@ import { JoinSelfComponent } from './component/join-self/join-self.component';
     FooterComponent,
     ModalComponent,
     JoinSelfComponent,
+    MybeatComponent,
   ],
   imports: [
     BrowserModule,

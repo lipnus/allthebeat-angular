@@ -1,0 +1,21 @@
+<div class="wrapper">
+  <span id="title-text">비트관리</span>
+</div>
+
+<div class="mainbody">
+
+  <div *ngIf="soundCount==-1" class="number-title"> Loading... </div>
+  <div *ngIf="soundCount!=-1" class="number-title"> {{soundCount}}개의 비트 </div>
+
+  <div class="soundBox"  *ngFor="let sound of soundData?.sound_list; let idx=index">
+    <div class="img-container">
+      <img class="title-img" [src]="sound.img_path" onerror="this.src='/assets/placeholder.png'"/>
+    </div>
+    <div routerLink="/sounddetail/{{sound.sound_pk}}" class="title-text">
+      <div id="title">{{sound.sound_name}}</div>
+    </div>
+    <div class="middle">
+    </div>
+  </div>
+
+</div>

@@ -10,6 +10,7 @@
   <div class="menu-box" *ngIf="isLogin" routerLink="/modifyinfo">개인정보수정</div>
   <div class="menu-box" routerLink="/recommend">맞춤비트추천</div>
   <div class="menu-box" routerLink="/upload">비트업로드</div>
+  <div class="menu-box" routerLink="/mybeat">비트관리</div>
   <div class="menu-box" *ngIf="!isLogin" routerLink="/login">로그인 / 회원가입</div>
 
   <div class="menu-box" *ngIf="isLogin" (click)="onClick_logout()">로그아웃</div>

@@ -15,6 +15,7 @@ import { JoinSelfComponent } from './component/join-self/join-self.component';
 import { ModifyInfoComponent } from './component/modify-info/modify-info.component';
 import { RecommendComponent } from './component/recommend/recommend.component';
 import { UploadComponent } from './component/upload/upload.component';
+import { MybeatComponent } from './component/mybeat/mybeat.component';
 
 
 
@@ -43,6 +44,7 @@ const routes: Routes = [
   { path: 'modifyinfo', component: ModifyInfoComponent },
   { path: 'recommend', component: RecommendComponent, canActivate: [AuthGuard] },
   { path: 'upload', component: UploadComponent, canActivate: [AuthGuard] },
+  { path: 'mybeat', component: MybeatComponent, canActivate: [AuthGuard] },
 
   { path: 'search', component: SearchComponent },
   { path: 'menu', component: MenuComponent },
