@@ -36,6 +36,22 @@
   color: #ffffff;
 }
 
+.info{
+  /*position:absolute;*/
+  margin-top: 14px;
+  font-size: 8px;
+  float:right;
+  margin-right: 12px;
+  color:#909090;
+}
+
+.close-img{
+  width: 25px;
+  box-sizing: border-box;
+  padding: 5px;
+  opacity: 0.5;
+}
+
 #beatmaker-text{
   font-size: 10px;
   color: #ffffff;

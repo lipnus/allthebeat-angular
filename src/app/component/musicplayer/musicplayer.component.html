@@ -1,13 +1,16 @@
 
 <div class="playerBox" *ngIf="showPlayer">
 
+  <div class="info" (click)="onClick_player_close()"><img class="close-img" src="assets/cross-white.png"/></div>
+
 <div class="content">
     <input type="range" min="0" [max]="audio.duration" [value]="audio.currentTime" class="range blue" (input)="onChange_rangeSlider()" [(ngModel)]="rangeLocation"/>
 </div>
 
-  <!-- <progress id="seek-bar" [value]="musicCurrentLocation" [max]="musicDuration"></progress> -->
+
   <img class="state-img" (click)="onClick_state()" [src]="stateImgPath">
   <div class="textBox" routerLink="/sounddetail/{{musicInfo.sound_pk}}">
+
 
     <div class="slidecontainer"></div>
 

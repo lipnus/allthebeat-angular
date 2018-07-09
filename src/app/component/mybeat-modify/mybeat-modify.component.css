@@ -158,10 +158,18 @@
 
 
 
-
-
-
+.send-btn{
+  margin-top: 40px;
+  font-size: 22px;
+  color: #ffffff;
+  height: 60px;
+  background: #b60000;
+  border-radius: 3px;
+  border: none;
+  outline: none;
+  width: 100%;
+}
 
 #modify-btn{
-  margin-top: 5px;
+  margin-top: 0px;
 }

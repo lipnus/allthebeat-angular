@@ -132,4 +132,9 @@ export class MusicplayerComponent implements OnInit, OnDestroy {
     this.audio.currentTime = this.rangeLocation;
   }
 
+  onClick_player_close(){
+    this.showPlayer = false;
+    this.stopMusic();
+  }
+
 }

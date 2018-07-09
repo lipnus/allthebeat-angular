@@ -3,7 +3,7 @@ import { FileSelectDirective, FileDropDirective, FileUploader } from 'ng2-file-u
 import { Http, Response } from '@angular/http';
 import "rxjs/add/operator/do";
 import "rxjs/add/operator/map";
-import { Router } from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 
 
 // const URL = 'http://localhost:9000/upload';
@@ -29,7 +29,7 @@ import {SoundDetail} from "../../model/sound-detail";  //전역변수
 })
 export class MybeatModifyComponent implements OnInit {
 
-  soundUpload: SoundUpload;
+  // soundUpload: SoundUpload;
   soundData: SoundData;
 
   soundDetail: SoundDetail;
@@ -38,14 +38,11 @@ export class MybeatModifyComponent implements OnInit {
 
   constructor(private http: Http,
               private postToServerService:PostToServerService,
+              private route: ActivatedRoute,
               private router: Router,) {
 
     //경로 뒤에 붙은 숫자 가져오기
-    router.events.subscribe(e => {
-      if (!this.sound_pk) {
-        this.sound_pk = true;
-      }
-    });
+    this.sound_pk = route.snapshot.paramMap.get('sound_pk');
   }
 
 
@@ -70,96 +67,73 @@ export class MybeatModifyComponent implements OnInit {
     this.postToServerService.postServer(path, postData).subscribe(data => {
 
       this.soundDetail = data;
+      console.log("받은값:", data);
 
     });
   }
 
 
-  postMybeat(token:string){
-    let path = '/mybeat';
-    token = "AAAAPC53o48Fw5B52qH69TSU+eYpioskuPIeF05bvJH53EVRA+BEqwTL2cXsOG2s+/N13+zMWB4n3kJjHV5mC3iJ2Qw=";
-    let postData = {token:token};
+  postMybeatDelete(sound_pk:number){
+    let path = '/mybeat/delete';
+    let postData = {sound_pk:sound_pk};
 
     this.postToServerService.postServer(path, postData).subscribe(data => {
-      this.soundData = data;
-      this.applyArtworkPath(); //이미지경로에 서버위치 붙여주기
-
-      //전체 음원개수
-      this.soundCount = this.soundData.sound_list.length;
+      alert("삭제가 완료되었습니다");
+      this.router.navigate(['./mybeat']);
     });
   }
 
-  //이미지 경로를 완성시켜줌
-  applyArtworkPath(){
+  postMybeatModify(sound_pk:number){
+    let path = '/mybeat/delete';
+    let postData = {sound_pk:sound_pk, };
 
-    for(var i=0; i<this.soundData.sound_list.length; i++){
-      this.soundData.sound_list[i].img_path
-        = mGlobal.ArtworkPath + "/" + this.soundData.sound_list[i].img_path;
-    }
-  }
-
-
-
-  //서버로 음원정보 전송
-  postSoundUpload(){
-
-    let path = '/upload/dbdata';
-
-    //토큰 가져오기
-    let auth = JSON.parse(localStorage.getItem('auth'));
-    let token = auth.token;
-
-    let postData = {token: token, data:this.soundUpload};
     this.postToServerService.postServer(path, postData).subscribe(data => {
-
-      //post콜백
-      console.log("서버로부터 받은값: " , data);
-
-      alert("업로드 완료!");
-      this.router.navigate(['/mainpage']);
+      alert("삭제가 완료되었습니다");
+      this.router.navigate(['./mybeat']);
     });
-
   }
+
+
+
 
    //업로드버튼 클릭
   public onClick_upload():void{
 
-    // this.postSoundUpload();
-
-    if(this.soundUpload.sound_name == undefined){
+    if(this.soundDetail.sound_name == undefined){
       alert("title을 입력해주세요");
-    }else if(this.soundUpload.bpm == undefined){
+    }else if(this.soundDetail.sound_bpm == undefined){
       alert("bpm을 입력해주세요")
-    }else if(this.soundUpload.license == undefined){
-      alert("license를 입력해주세요");
-    }else if(this.soundUpload.genre1 == undefined){
+    }else if(this.soundDetail.genre1 == undefined){
       alert("genre1을 입력해주세요");
-    }else if(this.soundUpload.genre2 == undefined){
+    }else if(this.soundDetail.genre2 == undefined){
       alert("genre2을 입력해주세요");
-    }else if(this.soundUpload.mood1 == undefined){
+    }else if(this.soundDetail.mood1 == undefined){
       alert("mood1을 입력해주세요");
-    }else if(this.soundUpload.mood2 == undefined){
+    }else if(this.soundDetail.mood2 == undefined){
       alert("mood2을 입력해주세요");
-    }else if(this.soundUpload.mood3 == undefined){
+    }else if(this.soundDetail.mood3 == undefined){
       alert("mood3을 입력해주세요");
     }
-
     else{
-
+      alert("수정이 완료되었습니다");
     }
   }
 
   //bpm숫자 범위체크
   bpmCheck(){
-    if(this.soundUpload.bpm < 0){
-      this.soundUpload.bpm = 0;
-    }else if(this.soundUpload.bpm>999){
-      this.soundUpload.bpm = 10;
+    if(this.soundDetail.sound_bpm < 0){
+      this.soundDetail.sound_bpm = 0;
+    }else if(this.soundDetail.sound_bpm>999){
+      this.soundDetail.sound_bpm = 10;
     }
   }
 
   public onClick_delete(){
-
+    var result = confirm("정말로 삭제하시겠습니까?");
+    if(result){
+      this.postMybeatDelete(this.sound_pk);
+    }else{
+    }
   }
 
 
