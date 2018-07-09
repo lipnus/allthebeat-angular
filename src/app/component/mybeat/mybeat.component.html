@@ -12,7 +12,7 @@
     <div class="img-container">
       <img routerLink="/sounddetail/{{sound.sound_pk}}" class="title-img" [src]="sound.img_path" onerror="this.src='/assets/placeholder.png'"/>
     </div>
-    <div class="title-text">
+    <div class="title-text" routerLink="/mybeat-modify/{{sound.sound_pk}}">
       <div id="title">{{sound.sound_name}}</div>
     </div>
     <div class="middle">

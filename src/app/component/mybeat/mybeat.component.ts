@@ -22,17 +22,16 @@ export class MybeatComponent implements OnInit {
                private http: HttpClient,
                private messageService: MessageService,
                private router: Router,){
-
   }
 
   ngOnInit() {
     let auth = JSON.parse(localStorage.getItem('auth'));
     let token = auth.token;
     this.soundCount=-1;
-    this.postSearch(token);
+    this.postMybeat(token);
   }
 
-  postSearch(token:string){
+  postMybeat(token:string){
     let path = '/mybeat';
     token = "AAAAPC53o48Fw5B52qH69TSU+eYpioskuPIeF05bvJH53EVRA+BEqwTL2cXsOG2s+/N13+zMWB4n3kJjHV5mC3iJ2Qw=";
     let postData = {token:token};

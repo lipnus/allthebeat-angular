@@ -1,0 +1,172 @@
+<div class="wrapper">
+
+  <span id="title-text">비트정보수정</span>
+
+  <form>
+
+
+    <div class="group">
+      <div class="input-title">Title</div>
+      <input class="simple-input" type="text" [(ngModel)]="soundDetail.sound_name" name="title" autocomplete=off required="required"/>
+    </div>
+
+    <div class="group">
+      <div class="input-title">BPM</div>
+      <input class="simple-input" type="number" min="0" max="999" (keyup)="bpmCheck()" [(ngModel)]="soundDetail.sound_bpm" name="bpm" required="required"/>
+    </div>
+
+
+    <div class="sep"></div>
+
+
+    <div class="group">
+      <div class="input-title">Genre1</div>
+      <select class="simple-select" name="genre1" [(ngModel)]="soundDetail.genre1">
+        <option>Boombap</option>
+        <option>Cloud</option>
+        <option>Electronic</option>
+        <option>FUTURE_BASS</option>
+        <option>G_funk</option>
+        <option>HOUSE</option>
+        <option>Old_school</option>
+        <option>POP</option>
+        <option>RnB</option>
+        <option>Trap</option>
+        <option>Urban_Pop</option>
+        <option>Ratchet</option>
+        <option>WEST_COAST</option>
+      </select>
+    </div>
+
+    <div class="group">
+      <div class="input-title">Genre2</div>
+      <select class="simple-select" name="genre2" [(ngModel)]="soundDetail.genre2">
+        <option>Boombap</option>
+        <option>Cloud</option>
+        <option>Electronic</option>
+        <option>FUTURE_BASS</option>
+        <option>G_funk</option>
+        <option>HOUSE</option>
+        <option>Old_school</option>
+        <option>POP</option>
+        <option>RnB</option>
+        <option>Trap</option>
+        <option>Urban_Pop</option>
+        <option>Ratchet</option>
+        <option>WEST_COAST</option>
+      </select>
+    </div>
+
+    <div class="group">
+      <div class="input-title">Mood1</div>
+      <select class="simple-select" name="mood1" [(ngModel)]="soundDetail.mood1">
+        <option>bell</option>
+        <option>calm</option>
+        <option>club</option>
+        <option>dancehall</option>
+        <option>dark</option>
+        <option>dope</option>
+        <option>dreamy</option>
+        <option>emotional</option>
+        <option>ghetto</option>
+        <option>happy</option>
+        <option>hard</option>
+        <option>jazzy</option>
+        <option>lofi</option>
+        <option>mellow</option>
+        <option>positive</option>
+        <option>power</option>
+        <option>relaxed</option>
+        <option>smooth</option>
+        <option>summer</option>
+        <option>synth</option>
+        <option>trendy</option>
+        <option>twerk</option>
+        <option>wobble</option>
+        <option>nineties</option>
+      </select>
+    </div>
+
+    <div class="group">
+      <div class="input-title">Mood2</div>
+      <select class="simple-select" name="mood2" [(ngModel)]="soundDetail.mood2">
+        <option>bell</option>
+        <option>calm</option>
+        <option>club</option>
+        <option>dancehall</option>
+        <option>dark</option>
+        <option>dope</option>
+        <option>dreamy</option>
+        <option>emotional</option>
+        <option>ghetto</option>
+        <option>happy</option>
+        <option>hard</option>
+        <option>jazzy</option>
+        <option>lofi</option>
+        <option>mellow</option>
+        <option>positive</option>
+        <option>power</option>
+        <option>relaxed</option>
+        <option>smooth</option>
+        <option>summer</option>
+        <option>synth</option>
+        <option>trendy</option>
+        <option>twerk</option>
+        <option>wobble</option>
+        <option>nineties</option>
+      </select>
+    </div>
+
+    <div class="group">
+      <div class="input-title">Mood3</div>
+      <select class="simple-select" name="mood3" [(ngModel)]="soundDetail.mood3">
+        <option>bell</option>
+        <option>calm</option>
+        <option>club</option>
+        <option>dancehall</option>
+        <option>dark</option>
+        <option>dope</option>
+        <option>dreamy</option>
+        <option>emotional</option>
+        <option>ghetto</option>
+        <option>happy</option>
+        <option>hard</option>
+        <option>jazzy</option>
+        <option>lofi</option>
+        <option>mellow</option>
+        <option>positive</option>
+        <option>power</option>
+        <option>relaxed</option>
+        <option>smooth</option>
+        <option>summer</option>
+        <option>synth</option>
+        <option>trendy</option>
+        <option>twerk</option>
+        <option>wobble</option>
+        <option>nineties</option>
+      </select>
+    </div>
+
+
+  </form>
+
+
+  <button class="global-btn" (click)="onClick_delete()">삭제하기</button>
+
+  <button id="modify-btn" class="global-btn" (click)="onClick_upload()">정보수정</button>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+<br/><br/>
+
+
+<!-- [disabled]="!uploader.getNotUploadedItems().length" -->

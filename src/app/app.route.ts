@@ -16,6 +16,7 @@ import { ModifyInfoComponent } from './component/modify-info/modify-info.compone
 import { RecommendComponent } from './component/recommend/recommend.component';
 import { UploadComponent } from './component/upload/upload.component';
 import { MybeatComponent } from './component/mybeat/mybeat.component';
+import { MybeatModifyComponent } from './component/mybeat-modify/mybeat-modify.component';
 
 
 
@@ -45,6 +46,7 @@ const routes: Routes = [
   { path: 'recommend', component: RecommendComponent, canActivate: [AuthGuard] },
   { path: 'upload', component: UploadComponent, canActivate: [AuthGuard] },
   { path: 'mybeat', component: MybeatComponent, canActivate: [AuthGuard] },
+  { path: 'mybeat-modify/:sound_pk', component: MybeatModifyComponent, canActivate: [AuthGuard] },
 
   { path: 'search', component: SearchComponent },
   { path: 'menu', component: MenuComponent },

@@ -42,6 +42,7 @@ import { UploadComponent } from './component/upload/upload.component';
 import { FooterComponent } from './component/footer/footer.component';
 import { JoinSelfComponent } from './component/join-self/join-self.component';
 import { MybeatComponent } from './component/mybeat/mybeat.component';
+import { MybeatModifyComponent } from './component/mybeat-modify/mybeat-modify.component';
 
 
 @NgModule({
@@ -65,6 +66,7 @@ import { MybeatComponent } from './component/mybeat/mybeat.component';
     ModalComponent,
     JoinSelfComponent,
     MybeatComponent,
+    MybeatModifyComponent,
   ],
   imports: [
     BrowserModule,

@@ -13,6 +13,10 @@
   .headbox{
     position:relative;
   }
+
+  .headbox-padding{
+    display: none;
+  }
 }
 
 #question-a{
