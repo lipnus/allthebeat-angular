@@ -84,11 +84,12 @@ export class MybeatModifyComponent implements OnInit {
   }
 
   postMybeatModify(sound_pk:number){
-    let path = '/mybeat/delete';
-    let postData = {sound_pk:sound_pk, };
+    let path = '/mybeat/modify';
+    let postData = {sound_pk:sound_pk, sound_detail:this.soundDetail};
 
     this.postToServerService.postServer(path, postData).subscribe(data => {
-      alert("삭제가 완료되었습니다");
+      alert("수정이 완료되었습니다");
+      console.log("받은값: ", data);
       this.router.navigate(['./mybeat']);
     });
   }
@@ -115,7 +116,7 @@ export class MybeatModifyComponent implements OnInit {
       alert("mood3을 입력해주세요");
     }
     else{
-      alert("수정이 완료되었습니다");
+      this.postMybeatModify(this.sound_pk);
     }
   }
 
