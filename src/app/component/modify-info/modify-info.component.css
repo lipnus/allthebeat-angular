@@ -1,130 +1,58 @@
+
 .join-container{
-  padding: 15px;
+  padding: 20px;
+  height: 100vh;
+  background: #ffffff;
 }
+
 
 #title-text{
-  margin-top: 29px;
+  margin-top: 40px;
   display: inline-block;
-  font-size: 36px;
+  font-size: 33px;
   font-weight: 500;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
 }
 
-#welcome{
+.or-container{
+  width: 100%;
+  text-align: center;
   font-size: 12px;
   color: #909090;
+  margin-bottom: 20px;
 }
 
-*,
-:before,
-:after {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+.update-text{
+  box-sizing: border-box;
+  padding: 10px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  margin-bottom: 30px;
+  color: #909090;
+  text-align: center;
+  font-size: 15px;
 }
 
-/* body {
-  background: #424242;
-} */
-
-form {
-  width: 320px;
-  margin: 115px auto;
+.input-title{
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 7px;
+  margin-top: 30px;
 }
 
-form hr.sep {
-  background: #00cecd;
-  -webkit-box-shadow: none;
-          box-shadow: none;
-  border: none;
-  height: 2px;
-  width: 25%;
-  margin: 0px auto 45px auto;
-}
-form .emoji {
-  font-size: 1.2em;
+.simple-input{
+  padding: 5px 5px;
+  width: 95%;
+  height: 23px;
 }
 
-.group {
-  position: relative;
-  margin: 45px 0;
-}
-
-textarea {
-  resize: none;
-}
-
-input,
-textarea {
-  background: none;
-  color: #000000;
-  font-size: 18px;
-  padding: 10px 10px 10px 5px;
-  display: block;
-  width: 320px;
-  border: none;
-  border-radius: 0;
-  border-bottom: 1px solid #c6c6c6;
-}
-input:focus,
-textarea:focus {
-  outline: none;
-}
-input:focus ~ label, input:valid ~ label,
-textarea:focus ~ label,
-textarea:valid ~ label {
-  top: -14px;
+.notice-container{
+  margin-top: 5px;
   font-size: 12px;
-  color: #00cecd;
-}
-input:focus ~ .bar:before,
-textarea:focus ~ .bar:before {
-  width: 320px;
+  color: red;
 }
 
-input[type="password"] {
-  letter-spacing: 0.3em;
-}
-
-label {
-  color: #2c2c2c;
-  font-size: 16px;
-  font-weight: normal;
-  position: absolute;
-  pointer-events: none;
-  left: 5px;
-  top: 10px;
-  -webkit-transition: 300ms ease all;
-  transition: 300ms ease all;
-}
-
-.bar {
-  position: relative;
-  display: block;
-  width: 320px;
-}
-.bar:before {
-  content: '';
-  height: 2px;
-  width: 0;
-  bottom: 0px;
-  position: absolute;
-  background: #00cecd;
-  -webkit-transition: 300ms ease all;
-  transition: 300ms ease all;
-  left: 0%;
-}
-
-
-
-
-.send-btn{
-  /* margin-top: 100px; */
-  font-size: 25px;
-  color: #ffffff;
-  height: 60px;
-  background: #00cecd;
-  border: none;
-  outline: none;
-  width: 100%;
-  margin-bottom: 80px;
+#introduce{
+  height: 300px;
 }

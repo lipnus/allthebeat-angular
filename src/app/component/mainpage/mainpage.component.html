@@ -24,7 +24,7 @@
       <div class="rec-nickname" routerLink="/sounddetail/{{sound.sound_pk}}">{{sound.beatmaker_nickname}}</div>
     </div>
 
-    <button class="rec-btn">맞춤비트 추천받기</button>
+    <button (click)="onClick_recommend()" class="rec-btn">맞춤비트 추천받기</button>
   </div>
 
 

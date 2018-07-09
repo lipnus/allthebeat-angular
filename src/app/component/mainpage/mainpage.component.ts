@@ -188,7 +188,6 @@ export class MainpageComponent implements OnInit {
     }
   }
 
-
   //좋아요 취소
   onClick_dislike(sound_pk, index){
     if (localStorage.getItem('auth')) {
@@ -200,7 +199,6 @@ export class MainpageComponent implements OnInit {
     }
   }
 
-
   //서버로 좋아요 값 전송
   postUserLike(sound_pk, heart){
     var path = '/user_like';
@@ -211,5 +209,9 @@ export class MainpageComponent implements OnInit {
     this.postToServerService.postServer(path, postData).subscribe(data => {
       console.log("like처리");
     });
+  }
+
+  onClick_recommend(){
+    this.router.navigate(['/recommend']);
   }
 }

@@ -5,15 +5,20 @@
   height: auto;
 }
 
+.number-title {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #909090;
+  margin-bottom: 60px;
+}
+
 #title-text{
   margin-top: 36px;
   display: inline-block;
   font-size: 30px;
   font-weight: 500;
-  margin-bottom: 60px;
+
 }
-
-
 
 .top .undertitle {
   font-size: 14px;
@@ -77,7 +82,6 @@
   font-weight: 700;
   font-size: 18px;
 }
-
 
 .middle{
   margin-top: 12px;

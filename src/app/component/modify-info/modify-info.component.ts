@@ -68,6 +68,7 @@ export class ModifyInfoComponent implements OnInit {
   this.postTestService.postServer(path, postData).subscribe(data => {
     this.userData = data;
 
+    alert("성공적으로 수정되었습니다");
     this.router.navigate(['/soundlist']);
 
   });
