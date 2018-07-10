@@ -5,7 +5,7 @@
   <form>
     <div class="group">
       <input type="text" name="search" [(ngModel)]="searchText" (keydown)="onChange_search()" required="required"/><span class="highlight"></span><span class="bar"></span>
-      <label>Search</label>
+      <label>검색어를 입력하세요</label>
     </div>
   </form>
 
@@ -19,7 +19,6 @@
 <div class="search-info" *ngIf="soundCount ==0">
   #제목 #장르 #분위기 #비트메이커로 검색 <br/>
   ex) Trap, Chill, dark... <br/>
-  {{soundData?.sound_list.size}}
 </div>
 
 <!-- <div class="intervalBox">검색결과</div> -->

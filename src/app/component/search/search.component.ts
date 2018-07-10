@@ -118,7 +118,8 @@ export class SearchComponent implements OnInit {
           this.soundData.sound_list[index].like_my = 1;
           this.postUserLike(sound_pk, 1);
     }else{
-      this.router.navigate(['/login']);
+      alert("로그인이 필요합니다");
+      // this.router.navigate(['/login']);
     }
 
   }
@@ -142,7 +143,6 @@ export class SearchComponent implements OnInit {
 
     var postData = {token:token, sound_pk:sound_pk, heart:heart};
     this.postTestService.postServer(path, postData).subscribe(data => {
-      console.log("like처리");
     });
   }
 }

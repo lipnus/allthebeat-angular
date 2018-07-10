@@ -40,7 +40,7 @@
 #logo-img{
   margin-top: 11px;
   display:inline-block;
-  width:120px;
+  width:100px;
 }
 
 #menu-img{
@@ -49,6 +49,13 @@
   padding: 7px;
   display: inline-block;
   width: 34px;
+}
+
+.shadow{
+  width: 100%;
+  opacity: 0.8;
+  position:fixed;
+  margin-top: 50px;
 }
 
 .headbox-padding{

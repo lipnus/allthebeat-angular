@@ -3,6 +3,7 @@
   height: 25%;
   display: block;
   text-align: center;
+  margin-top: 10px;
   /*background: #ebebeb;*/
   border-bottom: 1px solid #ebebeb;
 }
@@ -166,7 +167,7 @@ textarea {
 input,
 textarea {
   background: none;
-  color: #909090;
+  color: #000000;
   font-size: 18px;
   padding: 10px 10px 10px 5px;
   display: block;
@@ -192,7 +193,7 @@ textarea:focus ~ .bar:before {
 }
 
 label {
-  color: #909090;
+  color: #5c5c5c;
   font-size: 16px;
   font-weight: normal;
   position: absolute;

@@ -1,12 +1,12 @@
 <div *ngIf="menuVisible" class="headbox">
-  {{message?.text}}
 
   <div class="bottom-line"></div>
 
-  <img id="logo-img" src="assets/logo_text_black.png" routerLink="/soundlist"/>
+  <img id="logo-img" src="assets/logo_uni.png" routerLink="/soundlist"/>
   <img id="search-img" src="assets/n_search.png" routerLink="/search"/>
   <img id="menu-img" src="assets/n_menu.png" (click)="onClick_menu()"/>
-
 </div>
+<img *ngIf="menuVisible" class="shadow" src="assets/shadow.png"/>
+
 
 <div *ngIf="menuVisible" class="headbox-padding"></div>
