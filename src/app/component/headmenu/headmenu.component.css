@@ -9,15 +9,6 @@
   border-bottom: 1px solid #ebebeb;
 }
 
-@media ( min-width: 768px ) {
-  .headbox{
-    position:relative;
-  }
-
-  .headbox-padding{
-    display: none;
-  }
-}
 
 #question-a{
   font-size: 13px;
@@ -65,3 +56,20 @@
 
 
 
+@media ( min-width: 768px ) {
+  .headbox{
+    position:relative;
+  }
+
+  .headbox-padding{
+    display: none;
+  }
+
+  .shadow{
+    padding-top: 0px;
+    margin-top: 0px;
+    display: inline-block;
+    position:relative;
+    opacity: 0.8;
+  }
+}
